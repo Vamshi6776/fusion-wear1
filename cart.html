@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart Page</title>
+    <title>Order Summary</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color:white;
+            background-color: #f0f2f5;
             color: #333;
         }
 
@@ -30,17 +30,17 @@
             padding-bottom: 10px;
         }
 
-        #cart-items {
+        .order-summary {
             margin-bottom: 20px;
         }
 
-        #cart-items ul {
+        .order-summary ul {
             list-style-type: none;
             padding: 0;
             margin: 0;
         }
 
-        #cart-items li {
+        .order-summary li {
             padding: 15px;
             border-bottom: 1px solid #e1e1e1;
             display: flex;
@@ -49,28 +49,11 @@
             font-size: 16px;
         }
 
-        #cart-items li:last-child {
+        .order-summary li:last-child {
             border-bottom: none;
         }
 
-        .remove-btn {
-            color: #d9534f;
-            cursor: pointer;
-            font-weight: bold;
-            text-decoration: none;
-            padding: 6px 12px;
-            border: 1px solid #d9534f;
-            border-radius: 5px;
-            background-color: #ffffff;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .remove-btn:hover {
-            background-color: #d9534f;
-            color: #ffffff;
-        }
-
-        a {
+        .back-btn {
             display: inline-block;
             margin-top: 20px;
             padding: 12px 20px;
@@ -83,143 +66,37 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
-        a:hover {
+        .back-btn:hover {
             background-color: #007bff;
             color: #ffffff;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-            box-sizing: border-box;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            height: 120px;
-        }
-
-        .submit-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 20px;
-            font-size: 16px;
-            color: #ffffff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .submit-btn:hover {
-            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Your Cart</h1>
-        <form id="cart-form">
-            <div id="cart-items" aria-live="polite"></div>
-            <div class="form-group">
-                <label for="customer-name">Name</label>
-                <input type="text" id="customer-name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="customer-number">Phone Number</label>
-                <input type="text" id="customer-number" name="number" required pattern="[0-9]{10}" title="Enter a valid 10-digit phone number">
-            </div>
-            <div class="form-group">
-                <label for="customer-email">Email</label>
-                <input type="email" id="customer-email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="customer-address">Address</label>
-                <textarea id="customer-address" name="address" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Submit Order</button>
-        </form>
-        <a href="index.html">Back to Shopping</a>
+        <h1>Order Summary</h1>
+        <div id="order-summary" class="order-summary"></div>
+        <a href="index.html" class="back-btn">Back to Shopping</a>
     </div>
 
     <script>
-        const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzPq_7R3RSppz1R04-m7sEFKPLr2DUuTWw7N6TfOrEan-YLH7_9kBCx8bXcJ8TXFO9anw/exec'; // Replace with your Google Apps Script web app URL
+        function loadOrderSummary() {
+            // Retrieve the order data from localStorage
+            const orderData = JSON.parse(localStorage.getItem('orderData')) || [];
+            const orderSummaryDiv = document.getElementById('order-summary');
 
-        function loadCart() {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            let cartItemsDiv = document.getElementById('cart-items');
-            if (cart.length === 0) {
-                cartItemsDiv.innerHTML = '<p>Your cart is empty.</p>';
+            if (orderData.length === 0) {
+                orderSummaryDiv.innerHTML = '<p>No items to display.</p>';
             } else {
-                cartItemsDiv.innerHTML = '<ul>' + cart.map((item, index) => `
+                orderSummaryDiv.innerHTML = '<ul>' + orderData.map(item => `
                     <li>
-                        ${item.name || 'Unnamed Item'} - ₹${item.price || '0.00'} <a class="remove-btn" aria-label="Remove ${item.name || 'item'}" onclick="removeItem(${index})">Remove</a>
+                        ${item.name || 'Unnamed Item'} - ₹${item.price || '0.00'}
                     </li>
                 `).join('') + '</ul>';
             }
         }
 
-        function removeItem(index) {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart.splice(index, 1); // Remove the item at the specified index
-            localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
-            loadCart(); // Reload the cart to reflect the changes
-        }
-
-        document.getElementById('cart-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
-            
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            let formData = new FormData(this);
-            let data = {};
-            formData.forEach((value, key) => {
-                data[key] = value;
-            });
-            
-            // Add cart data to form data
-            data.cart = cart;
-
-            // Send data to Google Sheets
-            fetch(SHEET_URL, {
-                method: 'POST',
-                contentType: 'application/json',
-                body: JSON.stringify(data)
-            })
-            .then(response => response.text())
-            .then(result => {
-                console.log('Success:', result);
-                alert('Order submitted successfully!');
-                // Save the cart items to localStorage
-                localStorage.setItem('orderData', JSON.stringify(cart));
-                // Clear the cart and redirect to the order summary page
-                localStorage.removeItem('cart');
-                document.getElementById('cart-form').reset();
-                window.location.href = 'order-summary.html';
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('There was an error submitting your order.');
-            });
-        });
-
-        window.onload = loadCart;
+        window.onload = loadOrderSummary;
     </script>
 </body>
 </html>
