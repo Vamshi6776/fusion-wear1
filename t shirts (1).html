@@ -1,6 +1,311 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fusion wear black clover</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="IMG-20240813-WA0015.jpg" href=" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style-prefix.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBOq9EBZSMBuSRgrhfEiJJcdbQwgcxRiPQ",
+      authDomain: "fusion-wear-b7cdc.firebaseapp.com",
+      projectId: "fusion-wear-b7cdc",
+      storageBucket: "fusion-wear-b7cdc.appspot.com",
+      messagingSenderId: "156239565655",
+      appId: "1:156239565655:web:a7b97d349ec6503ad2a412",
+      measurementId: "G-RBR3YVCCXR"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+
+
+  <div class="overlay" data-overlay></div>
+
+  <!--
+    - MODAL
+  -->
+
+  <div class="modal" data-modal>
+
+    <div class="modal-close-overlay" data-modal-overlay></div>
+
+    <div class="modal-content">
+
+      <button class="modal-close-btn" data-modal-close>
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+
+      <div class="newsletter-img">
+        <img src="./assets/images/newsletter.png" alt="subscribe newsletter" width="400" height="400">
+      </div>
+
+      <div class="newsletter">
+
+        <form action="#">
+
+          <div class="newsletter-header">
+
+            <h3 class="newsletter-title">Subscribe Newsletter.</h3>
+
+            <p class="newsletter-desc">
+              Subscribe the <b>Anon</b> to get latest products and discount update.
+            </p>
+
+          </div>
+
+          <input type="email" name="email" class="email-field" placeholder="Email Address" required>
+
+          <button type="submit" class="btn-newsletter">Subscribe</button>
+
+        </form>
+
+      </div> 
+    </div>
+    </div>
+  
+
+  <div class="notification-toast" data-toast>
+
+    <button class="toast-close-btn" data-toast-close>
+      <ion-icon name="close-outline"></ion-icon>
+    </button>
+
+    <div class="toast-banner">
+      <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS7L8ZF85c3GjH4BbxzG-iIiiofJ33hhFaSyizyzRF2DBq5-qmd5B1bQCtX2t5Sh41HCO-bVKlFwM8sfGZb5sv4OuJJQqm0f9DU4OvTTZ4&usqp=CAE" alt="ani image" width="80" height="70">
+    </div>
+
+    <div class="toast-detail">
+
+      <p class="toast-message">
+        HOT Offers
+      </p>
+
+      <p class="toast-title">
+        buy 3 Wanted Poster Printed T-shirts get 1 free
+      </p>
+
+      <p class="toast-meta">
+        <time datetime="PT2M">2 Minutes</time> ago
+      </p> 
+
+    </div> 
+
+  </div>
+
+    <div class="mobile-bottom-navigation">
+
+      <button class="action-btn" data-mobile-menu-open-btn>
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
+
+      <a href="cart.html"><button class="action-btn">
+        <ion-icon name="bag-handle-outline"></ion-icon>
+        <span class="count" id="cart-count">0</span>
+      </button></a>
+
+      <button class="action-btn">
+        <ion-icon name="home-outline"></ion-icon>
+      </button>
+
+      <button class="action-btn">
+        <ion-icon name="heart-outline"></ion-icon>
+
+        <span class="count">0</span>
+      </button>
+
+      <a href="C:\Users\vamsh\Downloads\fwnewwork\fusion-wear1-master\assets\catagoley.html"><button class="action-btn" data-mobile-menu-open-btn>
+        <ion-icon name="grid-outline"></ion-icon>
+      </button></a>
+
+    </div>
+
+    <nav class="mobile-navigation-menu  has-scrollbar" data-mobile-menu>
+
+      <div class="menu-top">
+        <h2 class="menu-title">Menu</h2>
+
+        <button class="menu-close-btn" data-mobile-menu-close-btn>
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+      </div>
+
+      <ul class="mobile-menu-category-list">
+
+        <li class="menu-category">
+          <a href="#" class="menu-title">Home</a>
+        </li>
+
+        <li class="menu-category">
+
+          <button class="accordion-menu" data-accordion-btn>
+            <p class="menu-title">Men's</p>
+
+            <div>
+              <ion-icon name="add-outline" class="add-icon"></ion-icon>
+              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+            </div>
+          </button>
+
+          <ul class="submenu-category-list" data-accordion>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">Hoddies</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="t shirts (1).html" class="submenu-title">T-shirts</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">customise</a>
+            </li>
+          </ul>
+
+        </li>
+
+        <li class="menu-category">
+
+          <button class="accordion-menu" data-accordion-btn>
+            <p class="menu-title">Women's</p>
+
+            <div>
+              <ion-icon name="add-outline" class="add-icon"></ion-icon>
+              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+            </div>
+          </button>
+
+          <ul class="submenu-category-list" data-accordion>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">Hoddies</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="t shirts (1).html" class="submenu-title">T-shirt</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">customise</a>
+            </li>
+          </ul>
+
+        </li>
+
+        <li class="menu-category">
+
+          <button class="accordion-menu" data-accordion-btn>
+            <p class="menu-title">Mugs</p>
+
+            <div>
+              <ion-icon name="add-outline" class="add-icon"></ion-icon>
+              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+            </div>
+          </button>
+
+          <ul class="submenu-category-list" data-accordion>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">printed-mugs</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">customise</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="menu-category">
+
+          <button class="accordion-menu" data-accordion-btn>
+            <p class="menu-title">Skins</p>
+
+            <div>
+              <ion-icon name="add-outline" class="add-icon"></ion-icon>
+              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+            </div>
+          </button>
+
+          <ul class="submenu-category-list" data-accordion>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">laptop skins</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">mouse skins</a>
+            </li>
+          </ul>
+        </li>
+        <li class="menu-category">
+          <a href="#" class="menu-title">Hot Offers</a>
+        </li>
+
+      </ul>
+
+      <div class="menu-bottom">
+
+        <ul class="menu-category-list">
+          <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+          <div class="elfsight-app-c8ee0bbd-3062-4bfe-b218-61d9ca8ad719" data-elfsight-app-lazy></div>
+                  <div class="header-alert-news">          
+        </ul>
+
+      </div>
+
+    </nav>
+
+  </header>
+
+
+
+
+
+  <!--
+    - MAIN
+  -->
+
+  <main>
+              </div>
+
+            </div>
+
+          </div>
+         
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,7 +364,7 @@
     </style>
 </head>
 <body>
-    <h1 align="center"><b>T-shirts</b></h1>
+    <img src="https://yourdesignhere.ink/wp-content/uploads/2022/02/gc-designs-logo-2-bw.png" width="400">
     <div class="w3-content w3-section" style="max-width:200px">
         <img class="mySlides" src="anime/t shirts/Men_s_T-shirt_-_Green___XL-removebg-preview.png" style="width:100%" height="300px">
         <img class="mySlides" src="anime/t shirts/100__Cotton_Funny_Game_Print_round_Neck_Loose_Short_Sleeve_T-Shirts_-_Black___S-removebg-preview.png" style="width:100%" height="300px">
@@ -84,196 +389,133 @@
         setTimeout(carousel, 2000); // Change image every 2 seconds
       }
       </script>
-      
-      
-    <div class="product">
-        <img src="anime/t shirts/funny game tshirt.jpeg" width="200px" height="200">
-        <h1>Funny game print</h1>
+  
+   <div class="product">
+        <img src="tm31.jpeg" width="200px" height="200">
+        <h1>Panda Riding A Bicycle Shirt - Screen Printed Shirt, Unisex Shirt, Panda Lovers, Bike Shirt - Dark Cycle Clothing</h1>
         <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'funny game print', price:349})">Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Panda Riding A Bicycle Shirt - Screen Printed Shirt, Unisex Shirt, Panda Lovers, Bike Shirt - Dark Cycle Clothing', price:349})">Add to Cart</button>
     </div>
-    <div class="product">
-        <img src="anime/t shirts/Bold and Stylish_ Men's Slogan Printed Short Sleeve T-Shirt - Dark Grey _ M.jpeg" width="200px" height="200">
-        <h1>blod and style mens T-shirt</h1>
+  <div class="product">
+        <img src="tm32.jpeg" width="200px" height="200">
+        <h1>Ryomen Sukuna JJK-inspired T-shirt</h1>
         <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'blod and style mens T-shirt', price:349})">Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Ryomen Sukuna JJK-inspired T-shirt', price:349})">Add to Cart</button>
     </div>
-    <div class="product">
-        <img src="anime/t shirts/Camiseta Masculina De Com Estampa De Borboleta E Caveira.jpeg" width="200px" height="200">
-        <h1>Love skull</h1>
+  <div class="product">
+        <img src="tm33.jpeg" width="200px" height="200">
+        <h1>Men's Casual Short Sleeve T-Shirt Featuring Printed Character, Drop Shoulder Design</h1>
         <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'love skull', price:349})">Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Mens Casual Short Sleeve T-Shirt Featuring Printed Character, Drop Shoulder Design', price:349})">Add to Cart</button>
     </div>
-    <div class="product">
-        <img src="anime/t shirts/Cartoon Astronaut Print 100% Cotton Casual Short Sleeve T-Shirts - Khaki _ S.jpeg" width="200px" height="200">
-        <h1>Cartoon Astronaut Print</h1>
+  <div class="product">
+        <img src="tm34.jpeg" width="200px" height="200">
+        <h1>Skull Weight Plate Muscle Tank Top, Sleeveless Workout Shirt, Lifting Shirt, Gym Shirt - MED _ Heather Grey</h1>
         <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Cartoon Astronaut Print', price:349})">Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Skull Weight Plate Muscle Tank Top, Sleeveless Workout Shirt, Lifting Shirt, Gym Shirt - MED _ Heather Grey', price:349})">Add to Cart</button>
     </div>
-    <div class="product">
-        <img src="anime/t shirts/Christmas Mens Design Elk Print Curved Hem Short Sleeve T-Shirts - Black _ S.jpeg" width="200px" height="200">
-        <h1>Christmas Mens Design</h1>
+  <div class="product">
+        <img src="tm35.jpeg" width="200px" height="200">
+        <h1>Homens Algodão Letra Japonesa & Impressão Ondulada Camiseta</h1>
         <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Christmas Mens Design', price:349})">Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Homens Algodão Letra Japonesa & Impressão Ondulada Camiseta', price:349})">Add to Cart</button>
     </div>
-    <div class="product">
-        <img src="anime/t shirts/Cute Cartoon Astronaut Print Short Sleeve 100_Cotton Breathable T-Shirts - Black _ M.jpeg" width="200px" height="200">
-        <h1>Cute Cartoon Astronaut Print</h1>
+  <div class="product">
+        <img src="tm36.jpeg" width="200px" height="200">
+        <h1>Oversized Space Back Print T-shirt _ boohooMAN USA</h1>
         <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Cute Cartoon Astronaut Print', price:349})">Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Oversized Space Back Print T-shirt _ boohooMAN USA', price:349})">Add to Cart</button>
     </div>
-    <div class="product">
-        <img src="anime/t shirts/Fashion Cartoon Cat Mask Printing Short Sleeve O-Neck T-Shirts - Khaki _ M.jpeg" width="200px" height="200">
-        <h1>Fashion Cartoon Cat Mask Printing</h1>
+  <div class="product">
+        <img src="tm37.jpeg" width="200px" height="200">
+        <h1>Inspired by Spirited Away T-shirt Anime 100% Polyester Anime Harajuku Graphic Street Style T-shirt For Men's _ Women's _ Couple's</h1>
         <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Fashion Cartoon Cat Mask Printing', price:349})">Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Inspired by Spirited Away T-shirt Anime 100% Polyester Anime Harajuku Graphic Street Style T-shirt For Mens _ Womens _ Couples', price:349})">Add to Cart</button>
     </div>
-    <div class="product">
-        <img src="anime/t shirts/Men Japanese Letter And Grapes Print Tee.jpeg" width="200px" height="200">
-        <h1>Men Japanese Letter And Grapes Prin</h1>
+  <div class="product">
+        <img src="tm38.jpeg" width="200px" height="200">
+        <h1>Mens Teddy Bear Shirt T-shirt Top Short Sleeve Crew Neck Ts04</h1>
         <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Men Japanese Letter And Grapes Prin', price:349})">Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Mens Teddy Bear Shirt T-shirt Top Short Sleeve Crew Neck Ts04', price:349})">Add to Cart</button>
     </div>
-    <div class="product">
-        <img src="anime/t shirts/Men Letter & Building Print Tee.jpeg" width="200px" height="200">
-        <h1>Men Letter & Building Print</h1>
+  <div class="product">
+        <img src="tm39.jpeg" width="200px" height="200">
+        <h1>Scenic forest T-Shirt ZNF08</h1>
         <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Men Letter & Building Print', price:349})">Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Scenic forest T-Shirt ZNF08', price:349})">Add to Cart</button>
     </div>
-    <div class="product">
-        <img src="anime/t shirts/Men T-Shirts Fit Crew Neck Short Sleeve Graphic Tee Figures Funny Casual Summer Polyester.jpeg" width="200px" height="200">
-        <h1>Men T-Shirts Fit Crew</h1>
+  <div class="product">
+        <img src="tm40.jpeg" width="200px" height="200">
+        <h1>Anime embroidery 🧵 _ Demon Slayer</h1>
         <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Men T-Shirts Fit Crew', price:349})">Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Anime embroidery 🧵 _ Demon Slayer', price:349})">Add to Cart</button>
     </div>
-    <div class="product">
-        <img src="anime/t shirts/Men Women Cotton Fashion Carton Pattern Crew Neck Short Sleeve Casual TShirts - White _ XL.jpeg" width="200px" height="200">
-        <h1>Carton Pattern Crew</h1>
+  <div class="product">
+        <img src="tm41.jpeg" width="200px" height="200">
+        <h1>Marvel Studios Avengers Logo Shirt</h1>
         <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Carton Pattern Crew', price:349})">Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Marvel Studios Avengers Logo Shirt', price:349})">Add to Cart</button>
     </div>
-    <div class="product">
-        <img src="anime/t shirts/Mens 100% Cotton Cartoon Mushroom Print Short Sleeve T-Shirts - Khaki _ L.jpeg" width="200px" height="200">
-        <h1>Cartoon Mushroom Print</h1>
+  <div class="product">
+        <img src="tm42.jpeg" width="200px" height="200">
+        <h1>Let Go Oversized Acid Wash T-Shirt</h1>
         <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Cartoon Mushroom Print', price:349})">Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Let Go Oversized Acid Wash T-Shirt', price:349})">Add to Cart</button>
     </div>
-    <div class="product">
-        <img src="anime/t shirts/Mens 100% Cotton Funny Astronaut Print Short Sleeve Casual T-Shirts - Black _ XL.jpeg" width="200px" height="200">
-        <h1>Funny Astronaut Print</h1>
+  <div class="product">
+        <img src="tm43.jpeg" width="200px" height="200">
+        <h1>Inspired by Totoro Cosplay Cosplay Costume T-shirt Polyester _ Cotton Blend Print Harajuku Graphic Kawaii T-shirt For Men's _ Women's _ Anime _ Cartoon</h1>
         <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Funny Astronaut Print', price:349})">Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Inspired by Totoro Cosplay Cosplay Costume T-shirt Polyester _ Cotton Blend Print Harajuku Graphic Kawaii T-shirt For Mens _ Womens _ Anime _ Cartoon', price:349})">Add to Cart</button>
     </div>
-    <div class="product">
-        <img src="anime/t shirts/Mens 100% Cotton Halloween Skeleton Letter Print Short Sleeve T-Shirts - Black _ M.jpeg" width="200px" height="200">
-        <h1>Halloween Skeleton Letter Print</h1>
+  <div class="product">
+        <img src="tm44.jpeg" width="200px" height="200">
+        <h1>Oversized Virtues Graphic T-shirt _ boohooMAN USA</h1>
         <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Halloween Skeleton Letter Print', price:349})">Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Oversized Virtues Graphic T-shirt _ boohooMAN USA', price:349})">Add to Cart</button>
     </div>
-    <div class="product">
-        <img src="anime/t shirts/Mens 100% Cotton Letter & Pumpkin Print Halloween Short Sleeve T-Shirts - Grey _ M.jpeg" width="200px" height="200">
-        <h1>Letter & Pumpkin Print</h1>
+  <div class="product">
+        <img src="tm45.jpeg" width="200px" height="200">
+        <h1>Men's Design By Humans Eclipse By Hawkness T-Shirt - Black - Small</h1>
         <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Letter & Pumpkin Print', price:349})">Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Mens Design By Humans Eclipse By Hawkness T-Shirt - Black - Small', price:349})">Add to Cart</button>
     </div>
-    <div class="product">
-        <img src="anime/t shirts/Mens Cartoon Astronaut Bear Print O-Neck Short Sleeve Casual T-Shirt - Grey _ XL.jpeg" width="200px" height="200">
-        <h1>Cartoon Astronaut Bear Print</h1>
+  <div class="product">
+        <img src="tm46.jpeg" width="200px" height="200">
+        <h1>Men Bear Print Tee</h1>
         <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Cartoon Astronaut Bear Print', price:349})">Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Men Bear Print Tee', price:349})">Add to Cart</button>
     </div>
-    <div class="product">
-        <img src="anime/t shirts/Mens Cartoon Panda & Line Print round Neck Short Sleeve Cute T-Shirts - White _ 3XL.jpeg" width="200px" height="200">
-        <h1>Cartoon Panda & Line Print</h1>
+  <div class="product">
+        <img src="tm47.jpeg" width="200px" height="200">
+        <h1>Ultra Instinct Goku oversized T-Shirts</h1>
         <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Cartoon Panda & Line Print', price:349})">Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Ultra Instinct Goku oversized T-Shirts', price:349})">Add to Cart</button>
     </div>
-    <div class="product">
-        <img src="anime/t shirts/Mens Cotton Cartoon Dinosaur Print Crew Neck Sort Sleeve T-Shirts - Green _ 3XL.jpeg" width="200px" height="200">
-        <h1>Cotton Cartoon Dinosaur Print</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Cotton Cartoon Dinosaur Print', price:349})">Add to Cart</button>
+
+ 
+  
+    <style>
+        .pagination-container {
+            text-align: center; /* Center-aligns the content inside the container */
+            margin: 20px 0; /* Adjust margin as needed */
+        }
+        .pagination {
+            font-size: 24px; /* Adjust size as needed */
+            text-decoration: none;
+            color: #000; /* Adjust color as needed */
+            margin: 0 10px; /* Space between the arrows */
+        }
+        .pagination:hover {
+            color: #007bff; /* Change color on hover if desired */
+        }
+    </style>
+</head>
+<body>
+    <div class="pagination-container"> pg 2
+        <a href="menst-shirts.html" class="pagination">&#9664; Preview</a> <!-- Preview arrow -->
+ <!-- Next page arrow -->
     </div>
-    <div class="product">
-        <img src="anime/t shirts/Mens Funny Cartoon Ghost Printed Loose round Neck Loose Short Sleeve T-Shirts - Yellow _ XL.jpeg" width="200px" height="200">
-        <h1>Funny Cartoon Ghost Printed</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Funny Cartoon Ghost Printed', price:349})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="anime/t shirts/Mens Nope Panda Cartoon Print Short Sleeve Cotton Casual T-Shirt - Khaki _ M.jpeg" width="200px" height="200">
-        <h1>Nope Panda Cartoon Print</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Nope Panda Cartoon Print', price:349})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="anime/t shirts/Mens Poker Chest Print 100% Cotton Casual Short Sleeve T-Shirt - Black _ XL.jpeg" width="200px" height="200">
-        <h1>Poker Chest Print</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Poker Chest Print', price:349})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="anime/t shirts/One Piece Monkey D_ Luffy Cosplay Costume T-shirt Anime Graphic Prints Printing Harajuku Graphic T-shirt T shirt For Men's Women's Adults'.jpeg" width="200px" height="200">
-        <h1>One Piece Monkey D_ Luffy Cosplay Costume T-shirt</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'One Piece Monkey D_ Luffy Cosplay Costume T-shirt', price:349})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="anime/t shirts/Paper Plane of Liberty Print Crew Neck Short Sleeve T-Shirts - Khaki _ M.jpeg" width="200px" height="200">
-        <h1>Paper Plane of Liberty Print</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Paper Plane of Liberty Print', price:349})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="anime/t shirts/Plus Size Men's Frog Graphic Print T-shirt For Summer, Trendy Casual Short Sleeve Tees.jpeg" width="200px" height="200">
-        <h1>Frog Graphic Print T-shirt</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Frog Graphic Print T-shirt', price:349})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="anime/t shirts/SOLY HUX Men's Graphic Tees Vintage T-Shirts Floral Letter Print Crewneck T Shirts Short Sleeve Casual Summer Shirt.jpeg" width="200px" height="200">
-        <h1>SOLY HUX Men's Graphic Tees Vintage T-Shirts Floral Letter Print</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'SOLY HUX Mens Graphic Tees Vintage T-Shirts Floral Letter Print', price:349})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="anime/t shirts/Snoopy Too Cool Men's Graphic T-Shirt - White.jpeg" width="200px" height="200">
-        <h1>t shirts
-/Snoopy Too Cool Men's Graphic T-Shirt</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 't shirtsSnoopy Too Cool Mens Graphic T-Shirt', price:349})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="C:\Users\vamsh\OneDrive\Desktop\fusion new work\fusion-wear1-master\images\anime collection\black clover\56233add-6362-4485-850a-c94d88023f1c.jpeg" width="200px" height="200">
-        <h1>black clover t shirt</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'black clover', price:349})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="C:\Users\vamsh\OneDrive\Desktop\fusion new work\fusion-wear1-master\images\anime collection\black clover\56233add-6362-4485-850a-c94d88023f1c.jpeg" width="200px" height="200">
-        <h1>black clover t shirt</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'black clover', price:349})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="C:\Users\vamsh\OneDrive\Desktop\fusion new work\fusion-wear1-master\images\anime collection\black clover\56233add-6362-4485-850a-c94d88023f1c.jpeg" width="200px" height="200">
-        <h1>black clover t shirt</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'black clover', price:349})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="C:\Users\vamsh\OneDrive\Desktop\fusion new work\fusion-wear1-master\images\anime collection\black clover\56233add-6362-4485-850a-c94d88023f1c.jpeg" width="200px" height="200">
-        <h1>black clover t shirt</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'black clover', price:349})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="C:\Users\vamsh\OneDrive\Desktop\fusion new work\fusion-wear1-master\images\anime collection\black clover\56233add-6362-4485-850a-c94d88023f1c.jpeg" width="200px" height="200">
-        <h1>black clover t shirt</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'black clover', price:349})">Add to Cart</button>
-    </div>
-    
     <a href="cart.html" class="go-to-cart-btn">Go to Cart</a>
 
     <script>
@@ -285,4 +527,41 @@
         }
     </script>
 </body>
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script> 
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+    // Function to update cart count
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      document.getElementById('cart-count').textContent = cart.length;
+    }
+
+    // Function to add item to the cart
+    function addToCart(item) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push(item);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(item.name + ' added to cart!');
+      updateCartCount(); // Call function to update cart count after adding item
+    }
+
+    // On page load, update the cart count from the existing cart
+    window.onload = function () {
+      updateCartCount();
+    }
+  </script>
+</body>
+
 </html>
