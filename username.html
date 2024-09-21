@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="profile-container">
+    <div class="profile-card">
+      <img id="profile-picture" class="profile-img" src="default-profile.png" alt="Profile Picture">
+      <h2 id="profile-name">User Name</h2>
+      <p id="profile-email">user@example.com</p>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <script type="module">
+    import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+
+    const auth = getAuth();
+
+    // Function to log the user out
+    function logout() {
+      signOut(auth).then(() => {
+        window.location.href = "/login";
+      }).catch((error) => {
+        console.error("Logout error: ", error);
+      });
+    }
+
+    // Fetch and display the user's information
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        document.getElementById('profile-name').textContent = user.displayName || "Anonymous";
+        document.getElementById('profile-email').textContent = user.email;
+        if (user.photoURL) {
+          document.getElementById('profile-picture').src = user.photoURL;
+        }
+      } else {
+        window.location.href = "/login";
+      }
+    });
+  </script>
+</body>
+</html>
