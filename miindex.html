@@ -98,7 +98,21 @@
   </div>
 
 
+<style>
+  .yoki
+  {
+   /* Center the dotlottie-player */
+dotlottie-player {
+    display: block;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
+  }
+</style>
 
 
   <!--
@@ -490,14 +504,18 @@
       </div>
 
     </div>
-    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
-    <dotlottie-player src="https://lottie.host/9858e051-ca91-4ada-a831-922d1a082996/IgzdeVxieL.json" 
-                      background="none" 
-                      speed="1" 
-                      style="width: 300px; height: 300px;" 
-                      loop 
-                      autoplay>
-    </dotlottie-player>
+    <div class="yoki">
+      <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+
+      <dotlottie-player 
+          src="https://lottie.host/9858e051-ca91-4ada-a831-922d1a082996/IgzdeVxieL.json" 
+          background="none" 
+          speed="1" 
+          style="width: 300px; height: 300px;" 
+          loop 
+          autoplay>
+      </dotlottie-player>
+      
 
     <!--
       - PRODUCT
