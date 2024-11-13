@@ -329,9 +329,17 @@ dotlottie-player {
 
       }
     </style>
-    <div class="abbu">
-  <h1 style="align-items: center;font-family: fantasy";>THE FUSION WEARS<sup style="background-color:black: white;font font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;">Every thing u need</sup></h1>
-</div>
+   <link href="https://fonts.googleapis.com/css?family=Bigshot+One" rel="stylesheet">
+   <style>
+   .special-heading {
+       font-family: 'Bigshot One', sans-serif;
+       text-align: center;
+       font-size: 22px; /* Optional: Adjust for a specific size */
+   }
+   </style>
+   
+       <div>
+           <h1 class="special-heading" style="font-size: 500%;">Fusion Wear</h1>
   <main>
 
     <!--
@@ -506,7 +514,7 @@ dotlottie-player {
     </div>
     <div class="yoki">
       <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
-
+  
       <dotlottie-player 
           src="https://lottie.host/9858e051-ca91-4ada-a831-922d1a082996/IgzdeVxieL.json" 
           background="none" 
@@ -515,7 +523,17 @@ dotlottie-player {
           loop 
           autoplay>
       </dotlottie-player>
-      
+  </div>
+  
+  <style>
+    /* Hide the animation on screens smaller than 768px (typically mobile devices) */
+    @media (max-width: 767px) {
+      .yoki {
+        display: none;
+      }
+    }
+  </style>
+  
 
     <!--
       - PRODUCT
