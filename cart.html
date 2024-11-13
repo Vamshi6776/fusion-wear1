@@ -55,7 +55,7 @@
         }
 
         .item-options {
-            display: contentss;
+            display: contents;
             justify-content: space-between;
             margin-top: 10px;
         }
@@ -144,9 +144,33 @@
             font-size: 14px;
             margin-right: 10px;
         }
+
+        /* Loader styles */
+        #loader {
+            display: none; /* Hide loader initially */
+            position: fixed; /* Fixed position to cover the entire viewport */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.8); /* Light background */
+            align-items: center; /* Center the loader */
+            justify-content: center; /* Center the loader */
+            z-index: 1000; /* Ensure it's on top */
+        }
     </style>
 </head>
 <body>
+    <div id="loader">
+        <dotlottie-player 
+            src="https://lottie.host/098e2edb-d5d4-4b71-8a95-9dd854aa8ad0/7AbexvUgRb.json" 
+            background="transparent" 
+            speed="1" 
+            style="width: 300px; height: 300px;" 
+            loop>
+        </dotlottie-player>
+    </div>
+
     <div class="container">
         <h1>Your Cart</h1>
         <form id="cart-form">
@@ -172,6 +196,8 @@
         <a href="index.html">Back to Shopping</a>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/gh/auto-animate/dotlottie-player/dist/dotlottie-player.js"></script>
+
     <script>
         const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzOPYnCc104zpQJlVizLvZrQr_-YsDxAcXeSioZWAhb6jJ35qWE5M1piEPgePktyEbFpA/exec'; // Replace with your Google Apps Script web app URL
 
@@ -181,7 +207,7 @@
             if (cart.length === 0) {
                 cartItemsDiv.innerHTML = '<p>Your cart is empty.</p>';
             } else {
-                cartItemsDiv.innerHTML = '<ul>' + cart.map((item, index) => `
+                cartItemsDiv.innerHTML = '<ul>' + cart.map((item, index) => ` 
                     <li>
                         ${item.name || 'Unnamed Item'} - ₹${item.price || '0.00'}
                         <div class="item-options">
@@ -226,28 +252,33 @@
                 data[key] = value;
             });
 
-            // Add selected size and color to each cart item
-            cart = cart.map((item, index) => {
-                let size = document.getElementById(`size-${index}`).value;
-                let color = document.getElementById(`color-${index}`).value;
-                return { ...item, size, color };
-            });
+            // Show the loader while the order is being processed
+            document.getElementById('loader').style.display = 'flex';
 
-            // Add cart data to form data
-            data.cart = cart;
-
-            // Send data to Google Sheets
+            // Simulate submitting order data to the server
             fetch(SHEET_URL, {
                 method: 'POST',
-                contentType: 'application/json',
-                body: JSON.stringify(data)
+                body: JSON.stringify({
+                    ...data,
+                    cart: cart
+                })
             })
-            .then(response => response.text())
+            .then(response => response.json())
             .then(result => {
                 console.log('Success:', result);
                 alert('Order submitted successfully!');
-                // Save the cart items to localStorage
-                localStorage.setItem('orderData', JSON.stringify(cart));
+
+                // Save the order data to localStorage for the order summary page
+                localStorage.setItem('orderData', JSON.stringify({
+                    customer: {
+                        name: data.name,
+                        number: data.number,
+                        email: data.email,
+                        address: data.address
+                    },
+                    cart: cart
+                }));
+
                 // Clear the cart and redirect to the order summary page
                 localStorage.removeItem('cart');
                 document.getElementById('cart-form').reset();
@@ -255,11 +286,15 @@
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('There was an error submitting your order.');
+                alert('There was an issue submitting your order. Please try again.');
+            })
+            .finally(() => {
+                // Hide the loader after the request is completed
+                document.getElementById('loader').style.display = 'none';
             });
         });
 
-        window.onload = loadCart;
+        loadCart();
     </script>
 </body>
 </html>
