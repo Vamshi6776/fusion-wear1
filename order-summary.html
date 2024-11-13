@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="IMG-20240820-WA0014.jpg" type="image/icon type">
     <title>Order Summary</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f2f5;
+            background-color: white;
             color: #333;
         }
 
@@ -31,72 +32,86 @@
         }
 
         .order-summary {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
-        .order-summary ul {
+        .order-summary h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .order-summary p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .product-list {
             list-style-type: none;
             padding: 0;
-            margin: 0;
         }
 
-        .order-summary li {
+        .product-list li {
             padding: 15px;
             border-bottom: 1px solid #e1e1e1;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            font-size: 16px;
         }
 
-        .order-summary li:last-child {
-            border-bottom: none;
-        }
-
-        .back-btn {
-            display: inline-block;
+        .total-price {
+            font-weight: bold;
             margin-top: 20px;
-            padding: 12px 20px;
-            font-size: 16px;
-            color: #007bff;
-            text-decoration: none;
-            border: 1px solid #007bff;
-            border-radius: 5px;
-            background-color: #ffffff;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .back-btn:hover {
-            background-color: #007bff;
-            color: #ffffff;
+            font-size: 18px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Order Summary</h1>
-        <div id="order-summary" class="order-summary"></div>
-        <a href="index.html" class="back-btn">Back to Shopping</a>
+
+        <div class="order-summary">
+            <h2>Customer Information</h2>
+            <p><strong>Name:</strong> <span id="customer-name"></span></p>
+            <p><strong>Phone:</strong> <span id="customer-phone"></span></p>
+            <p><strong>Email:</strong> <span id="customer-email"></span></p>
+            <p><strong>Address:</strong> <span id="customer-address"></span></p>
+        </div>
+
+        <div class="order-summary">
+            <h2>Ordered Products</h2>
+            <ul class="product-list" id="product-list"></ul>
+        </div>
+
+        <div class="total-price" id="total-price"></div>
+
+        <a href="index.html">Back to Shopping</a>
     </div>
 
     <script>
-        function loadOrderSummary() {
-            // Retrieve the order data from localStorage
-            const orderData = JSON.parse(localStorage.getItem('orderData')) || [];
-            const orderSummaryDiv = document.getElementById('order-summary');
+        // Retrieve order data from localStorage
+        const orderData = JSON.parse(localStorage.getItem('orderData'));
 
-            if (orderData.length === 0) {
-                orderSummaryDiv.innerHTML = '<p>No items to display.</p>';
-            } else {
-                orderSummaryDiv.innerHTML = '<ul>' + orderData.map(item => `
-                    <li>
-                        ${item.name || 'Unnamed Item'} - ₹${item.price || '0.00'}
-                    </li>
-                `).join('') + '</ul>';
-            }
+        if (orderData) {
+            // Display customer info
+            document.getElementById('customer-name').textContent = orderData.customer.name;
+            document.getElementById('customer-phone').textContent = orderData.customer.number;
+            document.getElementById('customer-email').textContent = orderData.customer.email;
+            document.getElementById('customer-address').textContent = orderData.customer.address;
+
+            // Display ordered products
+            const productList = document.getElementById('product-list');
+            let totalPrice = 0;
+            orderData.cart.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `${item.name} - ₹${item.price} | Size: ${item.size} | Color: ${item.color}`;
+                productList.appendChild(li);
+                totalPrice += parseFloat(item.price);
+            });
+
+            // Display total price
+            document.getElementById('total-price').textContent = `Total: ₹${totalPrice.toFixed(2)}`;
+        } else {
+            document.querySelector('.container').innerHTML = '<p>No order data found.</p>';
         }
-
-        window.onload = loadOrderSummary;
     </script>
 </body>
 </html>
