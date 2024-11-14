@@ -59,7 +59,6 @@
   <!--
     - MODAL
   -->
-
   <div class="modal" data-modal>
 
     <div class="modal-close-overlay" data-modal-overlay></div>
@@ -71,7 +70,7 @@
       </button>
 
       <div class="newsletter-img">
-        <img src="./assets/images/newsletter.png" alt="subscribe newsletter" width="400" height="400">
+        <img src="C:\Users\vamsh\Downloads\jijijijijijij.jpg" alt="subscribe newsletter" width="400" height="400">
       </div>
 
       <div class="newsletter">
@@ -80,18 +79,77 @@
 
           <div class="newsletter-header">
 
-            <h3 class="newsletter-title">Subscribe Newsletter.</h3>
-
-            <p class="newsletter-desc">
-              Subscribe the <b>Anon</b> to get latest products and discount update.
-            </p>
-
-          </div>
-
-          <input type="email" name="email" class="email-field" placeholder="Email Address" required>
-
-          <button type="submit" class="btn-newsletter">Subscribe</button>
-
+            <h3 class="newsletter-title" style="font-family: Impact;font-size: 250%;">avail your offer by 3 get 2 free</h3>
+            <style>
+              /* Button Styling */
+              #sendCodeButton {
+                  padding: 12px 24px;
+                  font-size: 16px;
+                  font-weight: bold;
+                  color:#fdf7e7;
+                  background-color: #25D366;
+                  border: none;
+                  border-radius: 5px;
+                  cursor: pointer;
+                  transition: background-color 0.3s;
+              }
+      
+              #sendCodeButton:hover {
+                  background-color: #1EBE58;
+              }
+      
+              /* Message Styling */
+              #message {
+                  margin-top: 20px;
+                  font-size: 16px;
+                  color: red;
+                  font-weight: bold;
+              }
+          </style>
+          <button id="sendCodeButton" onclick="sendRandomCode()">Click here for code</button>
+          <div id="message"></div>
+      
+          <script>
+              // Check if the offer has already been claimed
+              document.addEventListener("DOMContentLoaded", function() {
+                  if (localStorage.getItem("offerClaimed") === "true") {
+                      showClaimedMessage();
+                  }
+              });
+      
+              function sendRandomCode() {
+                  // Check if the offer has already been claimed
+                  if (localStorage.getItem("offerClaimed") === "true") {
+                      showClaimedMessage();
+                      return;
+                  }
+      
+                  // Generate the random code and send it to WhatsApp
+                  const code = generateRandomCode(8); // Generate an 8-character code
+                  const phoneNumber = '9014798713'; // Replace with your WhatsApp number
+                  const message = `Your code is: ${code}`;
+                  const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                  window.open(whatsappURL, '_blank');
+      
+                  // Set offer as claimed in localStorage and display message
+                  localStorage.setItem("offerClaimed", "true");
+                  showClaimedMessage();
+              }
+      
+              function generateRandomCode(length) {
+                  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                  let result = '';
+                  for (let i = 0; i < length; i++) {
+                      result += characters.charAt(Math.floor(Math.random() * characters.length));
+                  }
+                  return result;
+              }
+      
+              function showClaimedMessage() {
+                 document.getElementById("sendCodeButton").style.display = "none";
+                 document.getElementById("message").innerText = "You have already claimed this offer we will be here with new coupons code soon.";
+              }
+          </script>
         </form>
 
       </div> 
@@ -101,22 +159,18 @@
 
   <div class="notification-toast" data-toast>
 
-    <button class="toast-close-btn" data-toast-close>
-      <ion-icon name="close-outline"></ion-icon>
-    </button>
-
     <div class="toast-banner">
-      <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS7L8ZF85c3GjH4BbxzG-iIiiofJ33hhFaSyizyzRF2DBq5-qmd5B1bQCtX2t5Sh41HCO-bVKlFwM8sfGZb5sv4OuJJQqm0f9DU4OvTTZ4&usqp=CAE" alt="ani image" width="80" height="70">
+      <img src="https://img.freepik.com/free-vector/vector-sale-banner-design-template_1017-12083.jpg" alt="Rose Gold Earrings" width="80" height="70">
     </div>
 
     <div class="toast-detail">
 
       <p class="toast-message">
-        HOT Offers
+        
       </p>
 
       <p class="toast-title">
-        buy 3 Wanted Poster Printed T-shirts get 1 free
+        Bill up to ₹1500 to receive 50% off on your next purchase of any product worth ₹1500 ! Shop now and save big on your future purchase!"
       </p>
 
       <p class="toast-meta">
