@@ -53,105 +53,171 @@
   </script>
 
 
-  <div class="overlay" data-overlay></div>
 
-  <!--
-    - MODAL
-  -->
+<div class="overlay" data-overlay></div>
 
-  <div class="modal" data-modal>
+<!--
+  - MODAL
+-->
+<div class="modal" data-modal>
 
-    <div class="modal-close-overlay" data-modal-overlay></div>
+  <div class="modal-close-overlay" data-modal-overlay></div>
 
-    <div class="modal-content">
+  <div class="modal-content">
 
-      <button class="modal-close-btn" data-modal-close>
-        <ion-icon name="close-outline"></ion-icon>
-      </button>
-
-      <div class="newsletter-img">
-        <img src="./assets/images/newsletter.png" alt="subscribe newsletter" width="400" height="400">
-      </div>
-
-      <div class="newsletter">
-
-        <form action="#">
-
-          <div class="newsletter-header">
-
-            <h3 class="newsletter-title">Subscribe Newsletter.</h3>
-
-            <p class="newsletter-desc">
-              Subscribe the <b>Anon</b> to get latest products and discount update.
-            </p>
-
-          </div>
-
-          <input type="email" name="email" class="email-field" placeholder="Email Address" required>
-
-          <button type="submit" class="btn-newsletter">Subscribe</button>
-
-        </form>
-
-      </div> 
-    </div>
-    </div>
-  
-
-  <div class="notification-toast" data-toast>
-
-    <button class="toast-close-btn" data-toast-close>
+    <button class="modal-close-btn" data-modal-close>
       <ion-icon name="close-outline"></ion-icon>
     </button>
 
-    <div class="toast-banner">
-      <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS7L8ZF85c3GjH4BbxzG-iIiiofJ33hhFaSyizyzRF2DBq5-qmd5B1bQCtX2t5Sh41HCO-bVKlFwM8sfGZb5sv4OuJJQqm0f9DU4OvTTZ4&usqp=CAE" alt="ani image" width="80" height="70">
+    <div class="newsletter-img">
+      <img src="C:\Users\vamsh\Downloads\jijijijijijij.jpg" alt="subscribe newsletter" width="400" height="400">
     </div>
 
-    <div class="toast-detail">
+    <div class="newsletter">
 
-      <p class="toast-message">
-        HOT Offers
-      </p>
+      <form action="#">
 
-      <p class="toast-title">
-        buy 3 Wanted Poster Printed T-shirts get 1 free
-      </p>
+        <div class="newsletter-header">
 
-      <p class="toast-meta">
-        <time datetime="PT2M">2 Minutes</time> ago
-      </p> 
+          <h3 class="newsletter-title" style="font-family: Impact;font-size: 250%;">avail your offer by 3 get 2 free</h3>
+          <style>
+            /* Button Styling */
+            #sendCodeButton {
+                padding: 12px 24px;
+                font-size: 16px;
+                font-weight: bold;
+                color:#fdf7e7;
+                background-color: #25D366;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+    
+            #sendCodeButton:hover {
+                background-color: #1EBE58;
+            }
+    
+            /* Message Styling */
+            #message {
+                margin-top: 20px;
+                font-size: 16px;
+                color: red;
+                font-weight: bold;
+            }
+        </style>
+        <button id="sendCodeButton" onclick="sendRandomCode()">Click here for code</button>
+        <div id="message"></div>
+    
+        <script>
+            // Check if the offer has already been claimed
+            document.addEventListener("DOMContentLoaded", function() {
+                if (localStorage.getItem("offerClaimed") === "true") {
+                    showClaimedMessage();
+                }
+            });
+    
+            function sendRandomCode() {
+                // Check if the offer has already been claimed
+                if (localStorage.getItem("offerClaimed") === "true") {
+                    showClaimedMessage();
+                    return;
+                }
+    
+                // Generate the random code and send it to WhatsApp
+                const code = generateRandomCode(8); // Generate an 8-character code
+                const phoneNumber = '9014798713'; // Replace with your WhatsApp number
+                const message = `Your code is: ${code}`;
+                const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                window.open(whatsappURL, '_blank');
+    
+                // Set offer as claimed in localStorage and display message
+                localStorage.setItem("offerClaimed", "true");
+                showClaimedMessage();
+            }
+    
+            function generateRandomCode(length) {
+                const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                let result = '';
+                for (let i = 0; i < length; i++) {
+                    result += characters.charAt(Math.floor(Math.random() * characters.length));
+                }
+                return result;
+            }
+    
+            function showClaimedMessage() {
+               document.getElementById("sendCodeButton").style.display = "none";
+               document.getElementById("message").innerText = "You have already claimed this offer we will be here with new coupons code soon.";
+            }
+        </script>
+      </form>
 
     </div> 
+  </div>
+  </div>
+
+
+<div class="notification-toast" data-toast>
+
+  <div class="toast-banner">
+    <img src="https://img.freepik.com/free-vector/vector-sale-banner-design-template_1017-12083.jpg" alt="Rose Gold Earrings" width="80" height="70">
+  </div>
+
+  <div class="toast-detail">
+
+    <p class="toast-message">
+      
+    </p>
+
+    <p class="toast-title">
+      Bill up to ₹1500 to receive 50% off on your next purchase of any product worth ₹1500 ! Shop now and save big on your future purchase!"
+    </p>
+
+    <p class="toast-meta">
+      <time datetime="PT2M">2 Minutes</time> ago
+    </p> 
+
+  </div> 
+
+</div>
+</div>
+</body>
+
+  <div class="mobile-bottom-navigation">
+
+   
+    <a href="cart.html"><button class="action-btn">
+      <ion-icon name="bag-handle-outline"></ion-icon>
+      <span class="count" id="cart-count">0</span>
+    </button></a>
+
+    <button class="action-btn">
+      <ion-icon name="home-outline"></ion-icon>
+    </button>
+
+    <button class="action-btn">
+      <ion-icon name="heart-outline"></ion-icon>
+
+      <span class="count">0</span>
+    </button>
+
+    <a href="C:\Users\vamsh\Downloads\fwnewwork\fusion-wear1-master\assets\catagoley.html"><button class="action-btn" data-mobile-menu-open-btn>
+      <ion-icon name="grid-outline"></ion-icon>
+    </button></a>
 
   </div>
 
-    <div class="mobile-bottom-navigation">
-
-      <button class="action-btn" data-mobile-menu-open-btn>
-        <ion-icon name="menu-outline"></ion-icon>
-      </button>
-
-      <a href="cart.html"><button class="action-btn">
-        <ion-icon name="bag-handle-outline"></ion-icon>
-        <span class="count" id="cart-count">0</span>
-      </button></a>
-
-      <button class="action-btn">
-        <ion-icon name="home-outline"></ion-icon>
-      </button>
-
-      <button class="action-btn">
-        <ion-icon name="heart-outline"></ion-icon>
-
-        <span class="count">0</span>
-      </button>
-
-      <a href="C:\Users\vamsh\Downloads\fwnewwork\fusion-wear1-master\assets\catagoley.html"><button class="action-btn" data-mobile-menu-open-btn>
-        <ion-icon name="grid-outline"></ion-icon>
-      </button></a>
+  <nav class="mobile-navigation-menu  has-scrollbar" data-mobile-menu>
 
     </div>
+    
+
+    </div>
+
+  </nav>
+
+</header>
+
 
     <nav class="mobile-navigation-menu  has-scrollbar" data-mobile-menu>
 
@@ -390,124 +456,107 @@
       </script>
   
    <div class="product">
-        <img src="tw1.jpeg" width="200px" height="200">
-        <h1>Round Printed Unisex Cotton Plain T Shirt, Half Sleeves</h1>
+        <img src="tw21.jpeg" width="200px" height="200">
+        <h1>Men Printed Round Neck Cotton Blend Beige T-Shirt</h1>
         <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Round Printed Unisex Cotton Plain T Shirt, Half Sleeves', price:349})">Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Men Printed Round Neck Cotton Blend Beige T-Shirt', price:349})">Add to Cart</button>
     </div>
   <div class="product">
-        <img src="tw2.jpeg" width="200px" height="200">
-        <h1>Graphic Print Crew-Neck T-Shirt | L</h1>
+        <img src="tw22.jpeg" width="200px" height="200">
+        <h1>'Not In Service' Comics Printing Oversize Female T-Shirt - Black _ S</h1>
         <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Graphic Print Crew-Neck T-Shirt | L', price:349})">Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Not In Service Comics Printing Oversize Female T-Shirt - Black _ S', price:349})">Add to Cart</button>
+    </div><div class="product">
+        <img src="tw23.jpeg" width="200px" height="200">
+        <h1>Not Today Panda T-Shirt, Panda TShirt, Panda lover, Panda gift, Cute Panda, Funny Panda, kawaii, Panda mama, Unisex T-Shirt, Panda tee</h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Not Today Panda T-Shirt, Panda TShirt, Panda lover, Panda gift, Cute Panda, Funny Panda, kawaii, Panda mama, Unisex T-Shirt, Panda tee', price:349})">Add to Cart</button>
+    </div><div class="product">
+        <img src="tw24.jpeg" width="200px" height="200">
+        <h1>On off t shirt__</h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'On off t shirt__', price:349})">Add to Cart</button>
+    </div><div class="product">
+        <img src="tw25.jpeg" width="200px" height="200">
+        <h1>Printed Round Neck Pure Cotton Black T-Shirt</h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Printed Round Neck Pure Cotton Black T-Shirt', price:349})">Add to Cart</button>
+    </div><div class="product">
+        <img src="tw26.jpeg" width="200px" height="200">
+        <h1>Simply Love Full Size JUST BREATHE Graphic Cotton Tee - Ivory _ S</h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Simply Love Full Size JUST BREATHE Graphic Cotton Tee - Ivory _ S', price:349})">Add to Cart</button>
+    </div><div class="product">
+        <img src="tw27.jpeg" width="200px" height="200">
+        <h1>Slogan and Flower Print Tee</h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Slogan and Flower Print Tee', price:349})">Add to Cart</button>
+    </div><div class="product">
+        <img src="tw28.jpeg" width="200px" height="200">
+        <h1>SMILE HUG 🤗</h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'SMILE HUG 🤗', price:349})">Add to Cart</button>
+    </div><div class="product">
+        <img src="tw29.jpeg" width="200px" height="200">
+        <h1>Sqf womens Self Design Graphic Printed Half Sleeve Polyester Tshirt</h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Sqf womens Self Design Graphic Printed Half Sleeve Polyester Tshirt', price:349})">Add to Cart</button>
+    </div><div class="product">
+        <img src="tw30.jpeg" width="200px" height="200">
+        <h1>SXV 'if you think i'm short’ Printed Cool Aesthetic T-shirt</h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'SXV if you think im short Printed Cool Aesthetic T-shirt', price:349})">Add to Cart</button>
+    </div><div class="product">
+        <img src="tw31.jpeg" width="200px" height="200">
+        <h1>T-shirt à manches courtes et col ras du cou pour femme avec imprimé lettre Paris, haut décontracté pour tous les jours, vêtements pour femmes, hauts pour femmes - TL3169-Black _ L</h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'T-shirt à manches courtes et col ras du cou pour femme avec imprimé lettre Paris, haut décontracté pour tous les jours, vêtements pour femmes, hauts pour femmes - TL3169-Black _ L', price:349})">Add to Cart</button>
+    </div><div class="product">
+        <img src="tw32.jpeg" width="200px" height="200">
+        <h1>Women's Heart Print Short Sleeve Crew Neck T-Shirt, Casual Summer Spring T-Shirt, Women's Clothing, Women's Tops - TL3181-yellow_M</h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Womens Heart Print Short Sleeve Crew Neck T-Shirt, Casual Summer Spring T-Shirt, Womens Clothing, Womens Tops - TL3181-yellow_M', price:349})">Add to Cart</button>
+    </div><div class="product">
+        <img src="tw33.jpeg" width="200px" height="200">
+        <h1>T-shirt femme KPOP Agust D T-shirt imprimé Harajuku D-2 Album Yoongi T-shirt vêtements pour femmes T-shirt surdimensionné à manches courtes pour femmes - T-shirt femme KPOP Agust D T-shirt imprimé Harajuku D-2 Alb</h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'T-shirt femme KPOP Agust D T-shirt imprimé Harajuku D-2 Album Yoongi T-shirt vêtements pour femmes T-shirt surdimensionné à manches courtes pour femmes - T-shirt femme KPOP Agust D T-shirt imprimé Harajuku D-2 Alb', price:349})">Add to Cart</button>
+    </div><div class="product">
+        <img src="tw34.jpeg" width="200px" height="200">
+        <h1>T-shirt graphique pour femme Little Prince Été 2024 T-shirts graphiques Littled Princes T-shirts à manches courtes et col rond - T-shirt graphique pour femme Little Prince Été 2024 T-shirts graphiques Littled Prin</h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'T-shirt graphique pour femme Little Prince Été 2024 T-shirts graphiques Littled Princes T-shirts à manches courtes et col rond - T-shirt graphique pour femme Little Prince Été 2024 T-shirts graphiques Littled Prin', price:349})">Add to Cart</button>
+    </div><div class="product">
+        <img src="tw35.jpeg" width="200px" height="200">
+        <h1>Wear Your Opinion Womens Printed Round Neck Unisex Fit T-Shirt (Design Strong Amazing)</h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Wear Your Opinion Womens Printed Round Neck Unisex Fit T-Shirt (Design Strong Amazing)', price:349})">Add to Cart</button>
+    </div><div class="product">
+        <img src="tw36.jpeg" width="200px" height="200">
+        <h1>We're All In This Together Svg, Inspirational Svg, Motivational Svg, Positive Svg, Be Yourself Svg, Minimalist Women's Shirt Svg Png Dxf</h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Wer e All In This Together Svg, Inspirational Svg, Motivational Svg, Positive Svg, Be Yourself Svg, Minimalist Womens Shirt Svg Png Dxf', price:349})">Add to Cart</button>
+    </div><div class="product">
+        <img src="tw37.jpeg" width="200px" height="200">
+        <h1>Whatever_ T-shirt Sassy Whatever Shirt</h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Whatever_ T-shirt Sassy Whatever Shirt', price:349})">Add to Cart</button>
     </div>
   <div class="product">
-        <img src="tw3.jpeg" width="200px" height="200">
-        <h1>New Funky football T-shirt for men</h1>
+        <img src="tw38.jpeg" width="200px" height="200">
+        <h1>Young Girl Casual Simple Smile Pattern Short Sleeve T-Shirt, Suitable For Summer</h1>
         <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'New Funky football T-shirt for men', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="tw4.jpeg" width="200px" height="200">
-        <h1>Be Kind Graphic T-Shirt</h1>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Young Girl Casual Simple Smile Pattern Short Sleeve T-Shirt, Suitable For Summer', price:349})">Add to Cart</button>
+    </div><div class="product">
+        <img src="tw39.jpeg" width="200px" height="200">
+        <h1>Women Printed Round Neck Polyester White T-Shirt</h1>
         <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Be Kind Graphic T-Shirt', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="tw5.jpeg" width="200px" height="200">
-        <h1>butterfly t-shirt design</h1>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Women Printed Round Neck Polyester White T-Shirt', price:349})">Add to Cart</button>
+    </div><div class="product">
+        <img src="tw40.jpeg" width="200px" height="200">
+        <h1>women Printed Round Neck Pure Cotton Black T-Shirt</h1>
         <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'butterfly t-shirt design', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="tw6.jpeg" width="200px" height="200">
-        <h1>Cartoon Cat Printed Short Sleeve O-neck Casual T-shirt for Women</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Cartoon Cat Printed Short Sleeve O-neck Casual T-shirt for Women', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="tw7.jpeg" width="200px" height="200">
-        <h1>Cute Penguin T Shirt - invinitees_com</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Cute Penguin T Shirt - invinitees_com', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="tw8.jpeg" width="200px" height="200">
-        <h1>Dream Tshirt _ Boho Tshirt _ Dream Feathers Tshirt _ Ladies Dream Tshirt _ Feather Arrows Tshirt</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Dream Tshirt _ Boho Tshirt _ Dream Feathers Tshirt _ Ladies Dream Tshirt _ Feather Arrows Tshirt', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="tw9.jpeg" width="200px" height="200">
-        <h1>embroidery Tee Shirt from peanuts</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'embroidery Tee Shirt from peanuts', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="tw10.jpeg" width="200px" height="200">
-        <h1>Fashion Outfits Women Graphic Cat Lovely Animal Fashion Short Sleeve Spring Summer Cartoon Print Female Clothes Tops Tees Tshirt T-Shirt, Orange & White _ XXXL</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Fashion Outfits Women Graphic Cat Lovely Animal Fashion Short Sleeve Spring Summer Cartoon Print Female Clothes Tops Tees Tshirt T-Shirt, Orange & White _ XXXL', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="tw11.jpeg" width="200px" height="200">
-        <h1>FashionSierra - Summer Dandelion Love Sweet Trend Women Short Sleeve - B6044W L</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'FashionSierra - Summer Dandelion Love Sweet Trend Women Short Sleeve - B6044W L', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="tw12.jpeg" width="200px" height="200">
-        <h1>Goddessvan 2019 Women Plus Size Loose Cat Print Casual Beach Vintage Funny Blouse Shirt Tops</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Goddessvan 2019 Women Plus Size Loose Cat Print Casual Beach Vintage Funny Blouse Shirt Tops', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="tw13.jpeg" width="200px" height="200">
-        <h1>Heybroh Men's Regular Fit T-Shirt Sleeping Panda 100% Cotton T-Shirt (Olive Green; X-Large)</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Heybroh Mens Regular Fit T-Shirt Sleeping Panda 100% Cotton T-Shirt (Olive Green; X-Large)', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="tw14.jpeg" width="200px" height="200">
-        <h1>I LIKE CATS MORE TEE</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'I LIKE CATS MORE TEE', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="tw15.jpeg" width="200px" height="200">
-        <h1>Inspired by Spirited Away Cosplay T-shirt Anime 100% Polyester Anime Harajuku Graphic Street Style T-shirt For Men's _ Women's _ Couple's</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Inspired by Spirited Away Cosplay T-shirt Anime 100% Polyester Anime Harajuku Graphic Street Style T-shirt For Mens _ Womens _ Couples', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="tw16.jpeg" width="200px" height="200">
-        <h1>Inspired by Totoro Cosplay Cosplay Costume T-shirt Polyester _ Cotton Blend Print Harajuku Graphic Kawaii T-shirt For Women's _ Men's</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Inspired by Totoro Cosplay Cosplay Costume T-shirt Polyester _ Cotton Blend Print Harajuku Graphic Kawaii T-shirt For Womens ', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="tw17.jpeg" width="200px" height="200">
-        <h1>Just Chill Sloth Shirt _ Cool Relaxing Anti Stress Novelty</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Just Chill Sloth Shirt _ Cool Relaxing Anti Stress Novelty', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="tw18.jpeg" width="200px" height="200">
-        <h1>Kung Fu Po-cket by lallama</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Kung Fu Po-cket by lallama', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="tw19.jpeg" width="200px" height="200">
-        <h1>laugh caat printed tshirt boys and girls</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'laugh caat printed tshirt boys and girls', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="tw20.jpeg" width="200px" height="200">
-        <h1>leopard Vintage Retro Sunset T-Shirt</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'leopard Vintage Retro Sunset T-Shirt', price:349})">Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'women Printed Round Neck Pure Cotton Black T-Shirt', price:349})">Add to Cart</button>
     </div>
   
   
@@ -528,8 +577,8 @@
     </style>
 </head>
 <body>
-    <div class="pagination-container"> <!-- Preview arrow -->
-        <a href="women t shirst2.html" class="pagination">Next &#9654;</a> <!-- Next page arrow -->
+    <div class="pagination-container">
+        <a href="women t shirt1.html" class="pagination">&#9664; Preview</a> <!-- Preview arrow --> <!-- Next page arrow -->
     </div>
     <a href="cart.html" class="go-to-cart-btn">Go to Cart</a>
 
@@ -554,7 +603,7 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script> 
+   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script> 
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <script>
     // Function to update cart count
