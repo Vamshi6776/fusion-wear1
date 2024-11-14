@@ -69,7 +69,7 @@
       </button>
 
       <div class="newsletter-img">
-        <img src="./assets/images/newsletter.png" alt="subscribe newsletter" width="400" height="400">
+        <img src="C:\Users\vamsh\Downloads\jijijijijijij.jpg" alt="subscribe newsletter" width="400" height="400">
       </div>
 
       <div class="newsletter">
@@ -78,18 +78,77 @@
 
           <div class="newsletter-header">
 
-            <h3 class="newsletter-title">Subscribe Newsletter.</h3>
-
-            <p class="newsletter-desc">
-              Subscribe the <b>Anon</b> to get latest products and discount update.
-            </p>
-
-          </div>
-
-          <input type="email" name="email" class="email-field" placeholder="Email Address" required>
-
-          <button type="submit" class="btn-newsletter">Subscribe</button>
-
+            <h3 class="newsletter-title" style="font-family: Impact;font-size: 250%;">avail your offer by 3 get 2 free</h3>
+            <style>
+              /* Button Styling */
+              #sendCodeButton {
+                  padding: 12px 24px;
+                  font-size: 16px;
+                  font-weight: bold;
+                  color:#fdf7e7;
+                  background-color: #25D366;
+                  border: none;
+                  border-radius: 5px;
+                  cursor: pointer;
+                  transition: background-color 0.3s;
+              }
+      
+              #sendCodeButton:hover {
+                  background-color: #1EBE58;
+              }
+      
+              /* Message Styling */
+              #message {
+                  margin-top: 20px;
+                  font-size: 16px;
+                  color: red;
+                  font-weight: bold;
+              }
+          </style>
+          <button id="sendCodeButton" onclick="sendRandomCode()">Click here for code</button>
+          <div id="message"></div>
+      
+          <script>
+              // Check if the offer has already been claimed
+              document.addEventListener("DOMContentLoaded", function() {
+                  if (localStorage.getItem("offerClaimed") === "true") {
+                      showClaimedMessage();
+                  }
+              });
+      
+              function sendRandomCode() {
+                  // Check if the offer has already been claimed
+                  if (localStorage.getItem("offerClaimed") === "true") {
+                      showClaimedMessage();
+                      return;
+                  }
+      
+                  // Generate the random code and send it to WhatsApp
+                  const code = generateRandomCode(8); // Generate an 8-character code
+                  const phoneNumber = '9014798713'; // Replace with your WhatsApp number
+                  const message = `Your code is: ${code}`;
+                  const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                  window.open(whatsappURL, '_blank');
+      
+                  // Set offer as claimed in localStorage and display message
+                  localStorage.setItem("offerClaimed", "true");
+                  showClaimedMessage();
+              }
+      
+              function generateRandomCode(length) {
+                  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                  let result = '';
+                  for (let i = 0; i < length; i++) {
+                      result += characters.charAt(Math.floor(Math.random() * characters.length));
+                  }
+                  return result;
+              }
+      
+              function showClaimedMessage() {
+                 document.getElementById("sendCodeButton").style.display = "none";
+                 document.getElementById("message").innerText = "You have already claimed this offer we will be here with new coupons code soon.";
+              }
+          </script>
         </form>
 
       </div> 
@@ -99,22 +158,18 @@
 
   <div class="notification-toast" data-toast>
 
-    <button class="toast-close-btn" data-toast-close>
-      <ion-icon name="close-outline"></ion-icon>
-    </button>
-
     <div class="toast-banner">
-      <img src="./assets/images/products/jewellery-1.jpg" alt="Rose Gold Earrings" width="80" height="70">
+      <img src="https://img.freepik.com/free-vector/vector-sale-banner-design-template_1017-12083.jpg" alt="Rose Gold Earrings" width="80" height="70">
     </div>
 
     <div class="toast-detail">
 
       <p class="toast-message">
-        Someone in new just bought
+        
       </p>
 
       <p class="toast-title">
-        Rose Gold Earrings
+        Bill up to ₹1500 to receive 50% off on your next purchase of any product worth ₹1500 ! Shop now and save big on your future purchase!"
       </p>
 
       <p class="toast-meta">
@@ -126,10 +181,6 @@
   </div>
 
     <div class="mobile-bottom-navigation">
-
-      <button class="action-btn" data-mobile-menu-open-btn>
-        <ion-icon name="menu-outline"></ion-icon>
-      </button>
 
       <a href="cart.html"><button class="action-btn">
         <ion-icon name="bag-handle-outline"></ion-icon>
@@ -152,140 +203,7 @@
 
     </div>
 
-    <nav class="mobile-navigation-menu  has-scrollbar" data-mobile-menu>
-
-      <div class="menu-top">
-        <h2 class="menu-title">Menu</h2>
-
-        <button class="menu-close-btn" data-mobile-menu-close-btn>
-          <ion-icon name="close-outline"></ion-icon>
-        </button>
-      </div>
-
-      <ul class="mobile-menu-category-list">
-
-        <li class="menu-category">
-          <a href="#" class="menu-title">Home</a>
-        </li>
-
-        <li class="menu-category">
-
-          <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Men's</p>
-
-            <div>
-              <ion-icon name="add-outline" class="add-icon"></ion-icon>
-              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
-            </div>
-          </button>
-
-          <ul class="submenu-category-list" data-accordion>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">Hoddies</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="t shirts (1).html" class="submenu-title">T-shirts</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">customise</a>
-            </li>
-          </ul>
-
-        </li>
-
-        <li class="menu-category">
-
-          <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Women's</p>
-
-            <div>
-              <ion-icon name="add-outline" class="add-icon"></ion-icon>
-              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
-            </div>
-          </button>
-
-          <ul class="submenu-category-list" data-accordion>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">Hoddies</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="t shirts (1).html" class="submenu-title">T-shirt</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">customise</a>
-            </li>
-          </ul>
-
-        </li>
-
-        <li class="menu-category">
-
-          <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Mugs</p>
-
-            <div>
-              <ion-icon name="add-outline" class="add-icon"></ion-icon>
-              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
-            </div>
-          </button>
-
-          <ul class="submenu-category-list" data-accordion>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">printed-mugs</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">customise</a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="menu-category">
-
-          <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Skins</p>
-
-            <div>
-              <ion-icon name="add-outline" class="add-icon"></ion-icon>
-              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
-            </div>
-          </button>
-
-          <ul class="submenu-category-list" data-accordion>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">laptop skins</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">mouse skins</a>
-            </li>
-          </ul>
-        </li>
-        <li class="menu-category">
-          <a href="#" class="menu-title">Hot Offers</a>
-        </li>
-
-      </ul>
-
-      <div class="menu-bottom">
-
-        <ul class="menu-category-list">
-          <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-          <div class="elfsight-app-c8ee0bbd-3062-4bfe-b218-61d9ca8ad719" data-elfsight-app-lazy></div>
-                  <div class="header-alert-news">          
-        </ul>
-
-      </div>
-
-    </nav>
+   
 
   </header>
 
