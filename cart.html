@@ -1,300 +1,480 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fusion wear black clover</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="IMG-20240813-WA0015.jpg" href=" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style-prefix.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBOq9EBZSMBuSRgrhfEiJJcdbQwgcxRiPQ",
+      authDomain: "fusion-wear-b7cdc.firebaseapp.com",
+      projectId: "fusion-wear-b7cdc",
+      storageBucket: "fusion-wear-b7cdc.appspot.com",
+      messagingSenderId: "156239565655",
+      appId: "1:156239565655:web:a7b97d349ec6503ad2a412",
+      measurementId: "G-RBR3YVCCXR"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+
+
+  
+<div class="overlay" data-overlay></div>
+
+<!--
+  - MODAL
+-->
+<div class="modal" data-modal>
+
+  <div class="modal-close-overlay" data-modal-overlay></div>
+
+  <div class="modal-content">
+
+    <button class="modal-close-btn" data-modal-close>
+      <ion-icon name="close-outline"></ion-icon>
+    </button>
+
+    <div class="newsletter-img">
+      <img src="C:\Users\vamsh\Downloads\jijijijijijij.jpg" alt="subscribe newsletter" width="400" height="400">
+    </div>
+
+    <div class="newsletter">
+
+      <form action="#">
+
+        <div class="newsletter-header">
+
+          <h3 class="newsletter-title" style="font-family: Impact;font-size: 250%;">avail your offer by 3 get 2 free</h3>
+          <style>
+            /* Button Styling */
+            #sendCodeButton {
+                padding: 12px 24px;
+                font-size: 16px;
+                font-weight: bold;
+                color:#fdf7e7;
+                background-color: #25D366;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+    
+            #sendCodeButton:hover {
+                background-color: #1EBE58;
+            }
+    
+            /* Message Styling */
+            #message {
+                margin-top: 20px;
+                font-size: 16px;
+                color: red;
+                font-weight: bold;
+            }
+        </style>
+        <button id="sendCodeButton" onclick="sendRandomCode()">Click here for code</button>
+        <div id="message"></div>
+    
+        <script>
+            // Check if the offer has already been claimed
+            document.addEventListener("DOMContentLoaded", function() {
+                if (localStorage.getItem("offerClaimed") === "true") {
+                    showClaimedMessage();
+                }
+            });
+    
+            function sendRandomCode() {
+                // Check if the offer has already been claimed
+                if (localStorage.getItem("offerClaimed") === "true") {
+                    showClaimedMessage();
+                    return;
+                }
+    
+                // Generate the random code and send it to WhatsApp
+                const code = generateRandomCode(8); // Generate an 8-character code
+                const phoneNumber = '9014798713'; // Replace with your WhatsApp number
+                const message = `Your code is: ${code}`;
+                const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                window.open(whatsappURL, '_blank');
+    
+                // Set offer as claimed in localStorage and display message
+                localStorage.setItem("offerClaimed", "true");
+                showClaimedMessage();
+            }
+    
+            function generateRandomCode(length) {
+                const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                let result = '';
+                for (let i = 0; i < length; i++) {
+                    result += characters.charAt(Math.floor(Math.random() * characters.length));
+                }
+                return result;
+            }
+    
+            function showClaimedMessage() {
+               document.getElementById("sendCodeButton").style.display = "none";
+               document.getElementById("message").innerText = "You have already claimed this offer we will be here with new coupons code soon.";
+            }
+        </script>
+      </form>
+
+    </div> 
+  </div>
+  </div>
+
+
+<div class="notification-toast" data-toast>
+
+  <div class="toast-banner">
+    <img src="https://img.freepik.com/free-vector/vector-sale-banner-design-template_1017-12083.jpg" alt="Rose Gold Earrings" width="80" height="70">
+  </div>
+
+  <div class="toast-detail">
+
+    <p class="toast-message">
+      
+    </p>
+
+    <p class="toast-title">
+      Bill up to ₹1500 to receive 50% off on your next purchase of any product worth ₹1500 ! Shop now and save big on your future purchase!"
+    </p>
+
+    <p class="toast-meta">
+      <time datetime="PT2M">2 Minutes</time> ago
+    </p> 
+
+  </div> 
+
+</div>
+</div>
+</body>
+
+  <div class="mobile-bottom-navigation">
+
+   
+    <a href="cart.html"><button class="action-btn">
+      <ion-icon name="bag-handle-outline"></ion-icon>
+      <span class="count" id="cart-count">0</span>
+    </button></a>
+   <a href="miindex.html"> <button class="action-btn">
+      <ion-icon name="home-outline"></ion-icon>
+    </button></a>
+<a href="order-summary.html"<button class="action-btn">
+      <ion-icon name="heart-outline"></ion-icon>
+
+      <span class="count">0</span>
+    </button></a>
+
+
+    <a href="C:\Users\vamsh\Downloads\fwnewwork\fusion-wear1-master\assets\catagoley.html"><button class="action-btn" data-mobile-menu-open-btn>
+      <ion-icon name="grid-outline"></ion-icon>
+    </button></a>
+
+  </div>
+
+  <nav class="mobile-navigation-menu  has-scrollbar" data-mobile-menu>
+
+    </div>
+    
+
+    </div>
+
+  </nav>
+
+</header>
+
+  <!--
+    - MAIN
+  -->
+
+  <main>
+              </div>
+
+            </div>
+
+          </div>
+         
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="IMG-20240820-WA0014.jpg" type="image/icon type">
-    <title>Cart Page</title>
+    <title>T-shirts</title>
+    <style>
+        .mySlides {display:none;}
+        </style>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
+            margin: 20px;
             padding: 0;
-            background-color: white;
-            color: #333;
+            background-color: #f4f4f4;
         }
-
-        .container {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 30px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        .product {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 300px;
+            margin: 20px;
+            display: inline-block;
+            vertical-align: top;
         }
-
-        h1 {
+        .product h1 {
             margin-top: 0;
-            color: #333;
-            font-size: 24px;
-            border-bottom: 2px solid #007bff;
-            padding-bottom: 10px;
         }
-
-        #cart-items {
-            margin-bottom: 20px;
-        }
-
-        #cart-items ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        #cart-items li {
-            padding: 15px;
-            border-bottom: 1px solid #e1e1e1;
-            display: flex;
-            flex-direction: column;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
-        #cart-items li:last-child {
-            border-bottom: none;
-        }
-
-        .item-options {
-            display: contents;
-            justify-content: space-between;
-            margin-top: 10px;
-        }
-
-        .remove-btn {
-            color: #d9534f;
-            cursor: pointer;
-            font-weight: bold;
-            text-decoration: none;
-            padding: 6px 12px;
-            border: 1px solid #d9534f;
-            border-radius: 5px;
-            background-color: #ffffff;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .remove-btn:hover {
-            background-color: #d9534f;
-            color: #ffffff;
-        }
-
-        a {
+        .add-to-cart-btn,
+        .go-to-cart-btn {
             display: inline-block;
-            margin-top: 20px;
-            padding: 12px 20px;
+            padding: 10px 15px;
             font-size: 16px;
-            color: #007bff;
-            text-decoration: none;
-            border: 1px solid #007bff;
-            border-radius: 5px;
-            background-color: #ffffff;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        a:hover {
-            background-color: #007bff;
-            color: #ffffff;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-            box-sizing: border-box;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            height: 120px;
-        }
-
-        .submit-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 20px;
-            font-size: 16px;
-            color: #ffffff;
-            background-color: #007bff;
+            color: #fff;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
             cursor: pointer;
+            text-decoration: none;
+            text-align: center;
             transition: background-color 0.3s;
         }
-
-        .submit-btn:hover {
+        .add-to-cart-btn {
+            background-color: #007bff;
+        }
+        .add-to-cart-btn:hover {
             background-color: #0056b3;
         }
-
-        select {
-            padding: 5px;
-            font-size: 14px;
-            margin-right: 10px;
+        .go-to-cart-btn {
+            background-color: #28a745;
+            margin-top: 20px;
+            text-align: center;
+            display: block;
         }
-
-        /* Loader styles */
-        #loader {
-            display: none; /* Hide loader initially */
-            position: fixed; /* Fixed position to cover the entire viewport */
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.8); /* Light background */
-            align-items: center; /* Center the loader */
-            justify-content: center; /* Center the loader */
-            z-index: 1000; /* Ensure it's on top */
+        .go-to-cart-btn:hover {
+            background-color: #218838;
         }
     </style>
 </head>
 <body>
-    <div id="loader">
-        <dotlottie-player 
-            src="https://lottie.host/098e2edb-d5d4-4b71-8a95-9dd854aa8ad0/7AbexvUgRb.json" 
-            background="transparent" 
-            speed="1" 
-            style="width: 300px; height: 300px;" 
-            loop>
-        </dotlottie-player>
+    <img src="https://i.pinimg.com/736x/e9/91/80/e991804378163190adbd288a473edc85.jpg" width="340">
+    <div class="w3-content w3-section" style="max-width:200px">
+        <img class="mySlides" src="anime/t shirts/Men_s_T-shirt_-_Green___XL-removebg-preview.png" style="width:100%" height="300px">
+        <img class="mySlides" src="anime/t shirts/100__Cotton_Funny_Game_Print_round_Neck_Loose_Short_Sleeve_T-Shirts_-_Black___S-removebg-preview.png" style="width:100%" height="300px">
+        <img class="mySlides" src="anime/t shirts/Guys_Dragon_Print_Tee-removebg-preview.png" style="width:100%" height="300px">
+        <img class="mySlides" src="anime/t shirts/Cute_Cartoon_Astronaut_Print_Short_Sleeve_100_Cotton_Breathable_T-Shirts_-_Black___M-removebg-preview.png" style="width:100%" height="300px">
+        <img class="mySlides" src="anime/t shirts/\Mens_Astronaut_Shooting_Cartoon_Print_Crew_Neck_Short_Sleeve_T-Shirts_-_Grey___XL-removebg-preview.png" style="width:100%" height="300px">
+      </div>
+      
+      <script>
+      var myIndex = 0;
+      carousel();
+      
+      function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";  
+        }
+        myIndex++;
+        if (myIndex > x.length) {myIndex = 1}    
+        x[myIndex-1].style.display = "block";  
+        setTimeout(carousel, 2000); // Change image every 2 seconds
+      }
+      </script>
+      
+      
+    <div class="product">
+        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRM_NiwR4K4ZL5WN2VDshyBwlHTCvCQKPPouqx7EXNW4p2KAcdTcAllo0WBaUdsOqWJ0sr6VxvS6MCYa0ufmexs-oKuuT-1ONEYfKwFIpLz7tRmVa2eMtnN&usqp=CAE" width="200px" height="200">
+        <h1>one piece Hoodies for Luffy Gear 5 </h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Darkbuck Anime Oversized Hoodies for Men & Women Luffy Gear 5 dropshoulder Unisex Hoodie', price:349})">Add to Cart</button>
     </div>
-
-    <div class="container">
-        <h1>Your Cart</h1>
-        <form id="cart-form">
-            <div id="cart-items" aria-live="polite"></div>
-            <div class="form-group">
-                <label for="customer-name">Name</label>
-                <input type="text" id="customer-name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="customer-number">Phone Number</label>
-                <input type="text" id="customer-number" name="number" required pattern="[0-9]{10}" title="Enter a valid 10-digit phone number">
-            </div>
-            <div class="form-group">
-                <label for="customer-email">Email</label>
-                <input type="email" id="customer-email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="customer-address">Address</label>
-                <textarea id="customer-address" name="address" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Submit Order</button>
-        </form>
-        <a href="index.html">Back to Shopping</a>
+    <div class="product">
+        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRhbvG5DOqXBr_eEl3pThn9YVoIJbWBH4eOyXGc1HRktJZIPSyyGRAaWSZ6W8_WGnI4wMtiS3Xrn1n3FKaY93J8GlznJfJqqH8mWoL-2K8RCBlZLkJVDg8e&usqp=CAE" width="200px" height="200">
+        <h1>Luffy The Pirate - One Piece Hoodie</h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Luffy The Pirate - One Piece Hoodie', price:349})">Add to Cart</button>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/gh/auto-animate/dotlottie-player/dist/dotlottie-player.js"></script>
+    <div class="product">
+        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT99fGh_uV6TTD0RmpkqZ4FLgAujwrTfkmi4wRKQPng4pVZqlA00DcA8rA25nm3WrUpGUHfgZIB-JjYqTchXelPxUHX0NlV3S1ltOYJ5z5uq23F9JnjmDzQeQ&usqp=CAE" width="200px" height="200">
+        <h1> One Piece Luffy: Pirate King Hoodie </h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'One Piece Luffy: Pirate King Hoodie ', price:349})">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ57QSpeZpzVTX8wEj3OYddJXBfKn86OroDcx14d2kgvIhzDXNT7yfE9x0juMJik8eAmkft2Uw-Z-GpB67NyUl0nmUo8yKb7tFxAM19CnM3b7vUq-dwXXXbfg&usqp=CAE" width="200px" height="200">
+        <h1>Luffy Gear 5 / One Piece Hoodie</h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Luffy Gear 5 / One Piece Hoodie', price:349})">Add to Cart</button>
+    </div>
+   <div class="product">
+        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSuODNNakLizGfVIBNYOyvDiOqwZ6-rghq-cWdHfjSm7Nei_jpeKzrFzAIvG2NDNn-PbveZVY2xfK8YrOhSBPyTfr_inHwLEX63MJoPrPwaGPWUHT7SmeugAg&usqp=CAE" width="200px" height="200">
+        <h1>one piece Straw Hat Luffy black Hoodie full Sleeve</h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Straw Hat Luffy Hoodie ', price:349})">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRP-hk-gxQ_k_vDzybKne4Ds2CAjAe3_uCsSkHIJIAGR2I3T-uq60PL1bjk49-KHPlgIxW8zXBwCe_DcG9hANRaNxxupiFbqjLwkr2EViZZGV0LKyJHefSkFQ&usqp=CAE" width="200px" height="200">
+        <h1> Roronoa Zoro king of hell- One Piece white Hoodie</h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Roronoa Zoro - One Piece Hoodie', price:349})">Add to Cart</button>
+    </div>
+  <div class="product">
+        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQyO0KXHGoAvlUdoElFzwB1WxwObOERvDvuaoC8TqtxC0QbzmVyVeSoNYluCyMQ5QXMLsHXkSvlxv9s6vKWnvaLhCrdIHGwAcO7taZV6R6QbrJ3jJ5sUHZuOw&usqp=CAE" width="200px" height="200">
+        <h1>fifth gear Luffy Gear 5 Anime Hoodie | Anime Hoodies</h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'CRAZYMONK Luffy Gear 5 Anime Hoodie | Anime Hoodies', price:349})">Add to Cart</button>
+    </div>
+   <div class="product">
+        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSuFkN2fp7vujkSulspbZGP5Sa1t94OiQZA2ZDrXsHaKVkp47-ARU76VZt_n2xq0Hvf6Je0QK9e2ve4zAXbyxHvfR1dv-dhg9TKnyFyAYYyIIewy49YHQyCgQ&usqp=CAE" width="200px" height="200">
+        <h1>One Piece zoro king of hell  for Men black Hoddie</h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Tenebrose One Piece Anime Hoodie for Men', price:349})">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRwxIGUjBm504ZMbfZrOsRrB3BXxN4cz6hBdTXfh-y8QzYfx7yilxpxk8wCK4auEwSGcC1H_-y14ystSsBYVLF-4tA7GmXSMWypyWH0Pmg2DJ_ixYrS4UmTMw&usqp=CAY" width="200px" height="200">
+        <h1> One Piece Anime black luffy Wanted poster </h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Buy One Piece Anime Hoodie', price:349})">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRQbJVW5pTSJVs0JRVZmjH0AU7exzhFxl2Cn6nbM9eOMHAYHfomhUp_3SiIKhC70R9yWWuBhaUMViixXAVO-4o0-HpHS-OtYMIFTSrORBbgxDU94BMD1VNPpeI&usqp=CAY" width="200px" height="200">
+        <h1>fire fire fruite gold .D Ace Hoodie-One Piece  </h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Ace Hoodie-One Piece', price:349})">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSYzR31WYlu-PdRGpGkfvyUdPyojgtT0uwmd8EXAaf1F8nrz53ZR2-C2Jj6txLZqFenBPO6nP74U2wsjBboKG0ymZGiilcWbl4ntH6BHbOcugrE6GedRQLzvg&usqp=CAY" width="200px" height="200">
+        <h1>One Piece Luffy Wanted Poster Anime Printing T-Shirts</h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Drizzle CLICKS One Piece Luffy Wanted Poster Anime Printing T-Shirts for Men Collections', price:349})">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTdrKQRMfmGsp-4L4D5MjYXUvjK3XsNJeagS59yfwog5dxCZ5Ensz6aQqEufH2p-hOzcVzZu-IBE-8Q1r8VHlrHAkma_mBTrTrQa9LtWQ-Hsduo9moTrzfZNA&usqp=CAE" width="200px" height="200">
+        <h1>WANTED- RORONOA ZORO - Cotton T-Shirt</h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'WANTED- RORONOA ZORO - Cotton T-Shirt', price:349})">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQkyfZXQKIM2t_KD-j93Z6xd71CQboo326oIQ7ry37Y7bCubcUUr-3AgI7y1CwZSVbtlwtRBJnPyngAxqMrk-6Ak_xDw9HvPprlVnCf7cg&usqp=CAE" width="200px" height="200">
+        <h1>One Piece Sanji Full Wanted Poster Short-sleeve T-shirt</h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Ripple Junction One Piece Sanji Full Wanted Poster Anime Adult Short-sleeve Graphic T-shirt', price:349})">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRtKJXZtUxJ22YjgrNnLLhUahwNZSZzUcLivNxkRwKcvFH-yKLkQ5C1e3X_vmjQS6k-ze0oUNZicl5OvYTqUB92HZ0uhvJXktdy3Z-0xva8v_Gk-hktWtJRlQ&usqp=CAY" width="200px" height="200">
+        <h1>Men's Black War Is Over Shanks Printed T-shirt L / Black</h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Mens Black War Is Over Shanks Printed T-shi', price:349})">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQSPO3__ne6JIBiNk2RTI1I1OTwresbOfWVfKQaN8rHNDwQhlklfn7-8YYiAyHB85s1xgmH6ldj95y_PLPzEFz4z6nchXT04zbDG-R2gl0&usqp=CAY" width="200px" height="200">
+        <h1>Sasticopy Graphic Print Men Crew Neck Black T-shirt</h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Sasticopy Graphic Print Men Crew Neck Black T-shirt', price:349})">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSpYhDzYO0aWcz5CDyWWyi9N3Irp6I67lr5dajg5l1RlJHxJTDsDluVEKQuO7mQ1iYEr_4_S9H8EiZqkf9rJIdrjqszW1yhg7x8LDpLLfA&usqp=CAY" width="200px" height="200">
+        <h1>Heart Pirates(Law - One Piece) - Hoodie</h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Heart Pirates(Law - One Piece) - Hoodie', price:349})">Add to Cart</button>
+    </div>
+   <div class="product">
+        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRov302sdX_n43dybZ_Qg8dAIwU30rnRrn1gA4wo2SSgKo9Ei6TODP_df5g1gUcOFDpaXKwyLOk64-mxJpXHErQkROHfG6uQ3FQckEAEsW6AENKw40L5Ajn4g&usqp=CAE" width="200px" height="200">
+        <h1>One Piece Anime Hoodies Luffy Zoro Kid Law Sweatshirts </h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Diommell One Piece Anime Hoodies Luffy Zoro Kid Law Sweatshirts Anime Gift | Ubuy ', price:349})">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQlur1ueb883njWkaYUDWoiRBXLHsC3Pzr_goEmTqoQMvS5IGKhTO4vtQlJ2ebrUzC2AtH-uSO7aHiTYzwLsT3K0M4V-uYatbUPmKNwWthE0FEfc-5S_29muw&usqp=CAE" width="200px" height="200">
+        <h1>monkey .D Luffy One Piece Men Oversized Printed T-Shirt</h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Luffy One Piece Men Oversized Printed T-Shirtt', price:349})">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSDsHRxam9-Ff1sm286LunTnbEJZLj7Q00qWmT2ZDOB42cRAa9LaQ2ngYujp5yPFE1Nk0Tdit1tsBp7IxcF20tpow6JYbOflIUcu0p7q_3HO3KGMZeh97iSTA&usqp=CAc" width="200px" height="200">
+        <h1> Jump Cuts Mens Printed Hooded Neck Fullsleeve </h1>
+        <p>Price: ₹349.00</p>
+        <button class="add-to-cart-btn" onclick="addToCart({name: 'Jump Cuts Mens Printed Hooded Neck Fullsleeve Black and Yellow Cottonblend Slim Fit T-Shirt', price:349})">Add to Cart</button>
+    </div>
+    <a href="cart.html" class="go-to-cart-btn">Go to Cart</a>
 
     <script>
-        const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzOPYnCc104zpQJlVizLvZrQr_-YsDxAcXeSioZWAhb6jJ35qWE5M1piEPgePktyEbFpA/exec'; // Replace with your Google Apps Script web app URL
-
-        function loadCart() {
+        function addToCart(item) {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            let cartItemsDiv = document.getElementById('cart-items');
-            if (cart.length === 0) {
-                cartItemsDiv.innerHTML = '<p>Your cart is empty.</p>';
-            } else {
-                cartItemsDiv.innerHTML = '<ul>' + cart.map((item, index) => ` 
-                    <li>
-                        ${item.name || 'Unnamed Item'} - ₹${item.price || '0.00'}
-                        <div class="item-options">
-                            <label for="size-${index}">Size:</label>
-                            <select id="size-${index}" name="size-${index}">
-                                <option value="S">Small</option>
-                                <option value="M">Medium</option>
-                                <option value="L">Large</option>
-                                <option value="XL">Extra Large</option>
-                            </select>
-
-                            <label for="color-${index}">Color:</label>
-                            <select id="color-${index}" name="color-${index}">
-                                <option value="Red">Red</option>
-                                <option value="Blue">Blue</option>
-                                <option value="Green">Green</option>
-                                <option value="Black">Black</option>
-                                <option value="White">White</option>
-                            </select>
-
-                            <a class="remove-btn" aria-label="Remove ${item.name || 'item'}" onclick="removeItem(${index})">Remove</a>
-                        </div>
-                    </li>
-                `).join('') + '</ul>';
-            }
+            cart.push(item);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(item.name + ' added to cart!');
         }
-
-        function removeItem(index) {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart.splice(index, 1); // Remove the item at the specified index
-            localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
-            loadCart(); // Reload the cart to reflect the changes
-        }
-
-        document.getElementById('cart-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
-            
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            let formData = new FormData(this);
-            let data = {};
-            formData.forEach((value, key) => {
-                data[key] = value;
-            });
-
-            // Show the loader while the order is being processed
-            document.getElementById('loader').style.display = 'flex';
-
-            // Simulate submitting order data to the server
-            fetch(SHEET_URL, {
-                method: 'POST',
-                body: JSON.stringify({
-                    ...data,
-                    cart: cart
-                })
-            })
-            .then(response => response.json())
-            .then(result => {
-                console.log('Success:', result);
-                alert('Order submitted successfully!');
-
-                // Save the order data to localStorage for the order summary page
-                localStorage.setItem('orderData', JSON.stringify({
-                    customer: {
-                        name: data.name,
-                        number: data.number,
-                        email: data.email,
-                        address: data.address
-                    },
-                    cart: cart
-                }));
-
-                // Clear the cart and redirect to the order summary page
-                localStorage.removeItem('cart');
-                document.getElementById('cart-form').reset();
-                window.location.href = 'order-summary.html';
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('There was an issue submitting your order. Please try again.');
-            })
-            .finally(() => {
-                // Hide the loader after the request is completed
-                document.getElementById('loader').style.display = 'none';
-            });
-        });
-
-        loadCart();
     </script>
 </body>
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script> 
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+    // Function to update cart count
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      document.getElementById('cart-count').textContent = cart.length;
+    }
+
+    // Function to add item to the cart
+    function addToCart(item) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push(item);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(item.name + ' added to cart!');
+      updateCartCount(); // Call function to update cart count after adding item
+    }
+
+    // On page load, update the cart count from the existing cart
+    window.onload = function () {
+      updateCartCount();
+    }
+  </script>
+
+
+</body>
+
 </html>
+
