@@ -3,320 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="IMG-20240820-WA0014.jpg" type="image/icon type">
-    <title>Cart Page</title>
+    <title>Order Summary</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: white;
-            color: #333;
+            padding: 20px;
+            background-color: #f9f9f9;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 30px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        .order-summary {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
-            margin-top: 0;
             color: #333;
-            font-size: 24px;
-            border-bottom: 2px solid #007bff;
-            padding-bottom: 10px;
         }
 
-        #cart-items {
-            margin-bottom: 20px;
+        p {
+            font-size: 16px;
+            color: #333;
         }
 
-        #cart-items ul {
+        ul {
             list-style-type: none;
             padding: 0;
-            margin: 0;
         }
 
-        #cart-items li {
-            padding: 15px;
-            border-bottom: 1px solid #e1e1e1;
-            display: flex;
-            flex-direction: column;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
-        #cart-items li:last-child {
-            border-bottom: none;
-        }
-
-        .item-options {
-            display: contents;
-            justify-content: space-between;
-            margin-top: 10px;
-        }
-
-        .remove-btn {
-            color: #d9534f;
-            cursor: pointer;
-            font-weight: bold;
-            text-decoration: none;
-            padding: 6px 12px;
-            border: 1px solid #d9534f;
-            border-radius: 5px;
-            background-color: #ffffff;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .remove-btn:hover {
-            background-color: #d9534f;
-            color: #ffffff;
-        }
-
-        a {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 20px;
-            font-size: 16px;
-            color: #007bff;
-            text-decoration: none;
-            border: 1px solid #007bff;
-            border-radius: 5px;
-            background-color: #ffffff;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        a:hover {
-            background-color: #007bff;
-            color: #ffffff;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-            box-sizing: border-box;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            height: 120px;
-        }
-
-        .submit-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 20px;
-            font-size: 16px;
-            color: #ffffff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .submit-btn:hover {
-            background-color: #0056b3;
-        }
-
-        select {
-            padding: 5px;
+        li {
             font-size: 14px;
-            margin-right: 10px;
+            color: #555;
+            padding: 8px 0;
         }
 
-        /* Loader styles */
-        #loader {
-            display: none; /* Hide loader initially */
-            position: fixed; /* Fixed position to cover the entire viewport */
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.8); /* Light background */
-            align-items: center; /* Center the loader */
-            justify-content: center; /* Center the loader */
-            z-index: 1000; /* Ensure it's on top */
+        .back-button {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <div id="loader">
-        <dotlottie-player 
-            src="https://lottie.host/098e2edb-d5d4-4b71-8a95-9dd854aa8ad0/7AbexvUgRb.json" 
-            background="transparent" 
-            speed="1" 
-            style="width: 300px; height: 300px;" 
-            loop>
-        </dotlottie-player>
+    <div class="order-summary">
+        <h1>Order Summary</h1>
+        <div id="order-summary"></div>
+        <a href="cart.html" class="back-button">Back to Cart</a>
     </div>
 
-    <div class="container">
-        <h1>Your Cart</h1>
-        <form id="cart-form">
-            <div id="cart-items" aria-live="polite"></div>
-            <div class="form-group">
-                <label for="customer-name">Name</label>
-                <input type="text" id="customer-name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="customer-number">Phone Number</label>
-                <input type="text" id="customer-number" name="number" required pattern="[0-9]{10}" title="Enter a valid 10-digit phone number">
-            </div>
-            <div class="form-group">
-                <label for="customer-email">Email</label>
-                <input type="email" id="customer-email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="customer-address">Address</label>
-                <textarea id="customer-address" name="address" required></textarea>
-            </div>
-            <button type="button" id="pay-button" class="submit-btn">Pay Online</button>
-        </form>
-        <a href="index.html">Back to Shopping</a>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/gh/auto-animate/dotlottie-player/dist/dotlottie-player.js"></script>
     <script>
-        const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzOPYnCc104zpQJlVizLvZrQr_-YsDxAcXeSioZWAhb6jJ35qWE5M1piEPgePktyEbFpA/exec'; // Replace with your Google Apps Script web app URL
+        window.onload = function() {
+            const orderData = JSON.parse(localStorage.getItem('orderData'));
 
-        function loadCart() {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            let cartItemsDiv = document.getElementById('cart-items');
-            if (cart.length === 0) {
-                cartItemsDiv.innerHTML = '<p>Your cart is empty.</p>';
-            } else {
-                cartItemsDiv.innerHTML = '<ul>' + cart.map((item, index) => ` 
-                    <li>
-                        ${item.name || 'Unnamed Item'} - ₹${item.price || '0.00'}
-                        <div class="item-options">
-                            <label for="size-${index}">Size:</label>
-                            <select id="size-${index}" name="size-${index}">
-                                <option value="S">Small</option>
-                                <option value="M">Medium</option>
-                                <option value="L">Large</option>
-                                <option value="XL">Extra Large</option>
-                            </select>
-
-                            <label for="color-${index}">Color:</label>
-                            <select id="color-${index}" name="color-${index}">
-                                <option value="Red">Red</option>
-                                <option value="Blue">Blue</option>
-                                <option value="Green">Green</option>
-                                <option value="Black">Black</option>
-                                <option value="White">White</option>
-                            </select>
-
-                            <a class="remove-btn" aria-label="Remove ${item.name || 'item'}" onclick="removeItem(${index})">Remove</a>
-                        </div>
-                    </li>
-                `).join('') + '</ul>';
+            if (orderData) {
+                document.getElementById('order-summary').innerHTML = `
+                    <p><strong>Name:</strong> ${orderData.customer.name}</p>
+                    <p><strong>Phone:</strong> ${orderData.customer.number}</p>
+                    <p><strong>Email:</strong> ${orderData.customer.email}</p>
+                    <p><strong>Address:</strong> ${orderData.customer.address}</p>
+                    <h3>the payment you have done the products:</h3>
+                    <ul>
+                        ${orderData.cart.map(item => `
+                            <li>${item.name} - ₹${item.price}</li>
+                        `).join('')}
+                    </ul>
+                `;
             }
-        }
-
-        function removeItem(index) {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart.splice(index, 1); // Remove the item at the specified index
-            localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
-            loadCart(); // Reload the cart to reflect the changes
-        }
-
-        document.getElementById('cart-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
-        });
-
-        const RAZORPAY_KEY = 'rzp_live_FcuvdvTYCmLf7m'; // Replace with your Razorpay key
-
-        document.getElementById('pay-button').addEventListener('click', function () {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            let totalAmount = cart.reduce((sum, item) => sum + parseFloat(item.price || 0), 0);
-
-            if (totalAmount <= 0) {
-                alert('Please add items to the cart before proceeding.');
-                return;  // Stop if the total amount is 0
-            }
-
-            console.log('Total Amount:', totalAmount);
-
-            let options = {
-                key: RAZORPAY_KEY,
-                amount: totalAmount * 100, // Amount in paise
-                currency: "INR",
-                name: "Fusion Wear",
-                description: "Complete your purchase",
-                handler: function (response) {
-                    console.log('Payment ID:', response.razorpay_payment_id);
-                    alert('Payment Successful! Payment ID: ' + response.razorpay_payment_id);
-
-                    // Place the order after successful payment
-                    let data = {
-                        name: document.getElementById('customer-name').value,
-                        number: document.getElementById('customer-number').value,
-                        email: document.getElementById('customer-email').value,
-                        address: document.getElementById('customer-address').value,
-                        cart: cart,
-                        paymentId: response.razorpay_payment_id
-                    };
-
-                    // Show the loader while the order is being processed
-                    document.getElementById('loader').style.display = 'flex';
-
-                    // Submit the order details to Google Sheets
-                    fetch(SHEET_URL, {
-                        method: 'POST',
-                        body: JSON.stringify(data)
-                    })
-                    .then(response => response.json())
-                    .then(result => {
-                        console.log('Order submitted successfully:', result);
-                        // Clear the cart and reset the form
-                        localStorage.removeItem('cart');
-                        document.getElementById('cart-form').reset();
-                        window.location.href = 'order-summary.html';
-                    })
-                    .catch(error => {
-                        console.error('Error placing order:', error);
-                        alert('There was an issue submitting your order. Please try again.');
-                    })
-                    .finally(() => {
-                        // Hide the loader after the request is completed
-                        document.getElementById('loader').style.display = 'none';
-                    });
-                },
-                prefill: {
-                    name: document.getElementById('customer-name').value,
-                    email: document.getElementById('customer-email').value,
-                    contact: document.getElementById('customer-number').value
-                },
-                theme: { color: "#007bff" }
-            };
-
-            let rzp = new Razorpay(options);
-            rzp.open();
-        });
-
-        loadCart();
+        };
     </script>
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </body>
 </html>
