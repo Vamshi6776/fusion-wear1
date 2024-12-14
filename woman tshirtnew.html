@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sukuna T-shirt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #1d1d1d;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .product-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            padding: 20px;
+        }
+
+        .product-image {
+            max-width: 400px;
+            margin-right: 30px;
+        }
+
+        .product-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .product-details {
+            max-width: 500px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-details h1 {
+            font-size: 30px;
+            color: #333;
+        }
+
+        .product-details p {
+            color: #555;
+            font-size: 18px;
+        }
+
+        .price {
+            font-size: 24px;
+            color: #E91E63;
+            margin: 10px 0;
+        }
+
+        .btn-buy,
+        .add-to-cart-btn {
+            display: inline-block;
+            background-color: rgb(246, 246, 248);
+            color: green;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-buy:hover,
+        .add-to-cart-btn:hover {
+         background-color: lightblue;
+        }
+
+
+        footer {
+            background-color: #1d1d1d;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Exclusive woman tshirt</h1><sub>fusion wears</sub>
+    </header>
+
+    <div class="product-container">
+        <!-- Product Image Section -->
+        <div class="product-image">
+            <img src="https://m.media-amazon.com/images/I/41re9zmsIWL.jpg" alt="Sukuna T-shirt">
+        </div>
+
+        <!-- Product Details Section -->
+        <div class="product-details">
+            <h1>woamn t shirt</h1>
+            <p>los angels t shirt</p>
+
+            <div class="price">₹349</div>
+
+            <p><strong>Available Sizes:</strong> S, M, L, XL, XXL</p>
+            <p><strong>Material:</strong> 100% Cotton</p>
+            <p><strong>Color:</strong> Black (with printed design)</p>
+
+            <!-- Add to Cart Button -->
+            <button class="add-to-cart-btn" onclick="addToCart({name: 'woman T-shirt', price: 349})">Add to Cart</button>
+
+            <button class="add-to-cart-btn"><a href="cart.html" class="go-to-cart-btn">Go to Cart</a></button>
+        </div>
+    </div>
+
+   
+
+    <script>
+        // Function to update cart count
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            document.getElementById('cart-count').textContent = cart.length;
+        }
+
+        // Function to add item to the cart
+        function addToCart(item) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push(item);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(item.name + ' added to cart!');
+            updateCartCount(); // Call function to update cart count after adding item
+        }
+
+        // On page load, update the cart count from the existing cart
+        window.onload = function () {
+            updateCartCount();
+        }
+    </script>
+
+</body>
+
+</html>
