@@ -50,154 +50,155 @@
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
   </script>
+  
+ 
+  <div class="overlay" data-overlay></div>
 
+  <!--
+    - MODAL
+  -->
+  <div class="modal" data-modal>
 
-<div class="overlay" data-overlay></div>
+    <div class="modal-close-overlay" data-modal-overlay></div>
 
-<!--
-  - MODAL
--->
-<div class="modal" data-modal>
+    <div class="modal-content">
 
-  <div class="modal-close-overlay" data-modal-overlay></div>
+      <button class="modal-close-btn" data-modal-close>
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
 
-  <div class="modal-content">
+      <div class="newsletter-img">
+        <img src="C:\Users\vamsh\Downloads\jijijijijijij.jpg" alt="subscribe newsletter" width="400" height="400">
+      </div>
 
-    <button class="modal-close-btn" data-modal-close>
-      <ion-icon name="close-outline"></ion-icon>
-    </button>
+      <div class="newsletter">
 
-    <div class="newsletter-img">
-      <img src="C:\Users\vamsh\Downloads\jijijijijijij.jpg" alt="subscribe newsletter" width="400" height="400">
+        <form action="#">
+
+          <div class="newsletter-header">
+
+            <h3 class="newsletter-title" style="font-family: Impact;font-size: 250%;">avail your offer by 3 get 2 free</h3>
+            <style>
+              /* Button Styling */
+              #sendCodeButton {
+                  padding: 12px 24px;
+                  font-size: 16px;
+                  font-weight: bold;
+                  color:#fdf7e7;
+                  background-color: #25D366;
+                  border: none;
+                  border-radius: 5px;
+                  cursor: pointer;
+                  transition: background-color 0.3s;
+              }
+      
+              #sendCodeButton:hover {
+                  background-color: #1EBE58;
+              }
+      
+              /* Message Styling */
+              #message {
+                  margin-top: 20px;
+                  font-size: 16px;
+                  color: red;
+                  font-weight: bold;
+              }
+          </style>
+          <button id="sendCodeButton" onclick="sendRandomCode()">Click here for code</button>
+          <div id="message"></div>
+      
+          <script>
+              // Check if the offer has already been claimed
+              document.addEventListener("DOMContentLoaded", function() {
+                  if (localStorage.getItem("offerClaimed") === "true") {
+                      showClaimedMessage();
+                  }
+              });
+      
+              function sendRandomCode() {
+                  // Check if the offer has already been claimed
+                  if (localStorage.getItem("offerClaimed") === "true") {
+                      showClaimedMessage();
+                      return;
+                  }
+      
+                  // Generate the random code and send it to WhatsApp
+                  const code = generateRandomCode(8); // Generate an 8-character code
+                  const phoneNumber = '9014798713'; // Replace with your WhatsApp number
+                  const message = `Your code is: ${code}`;
+                  const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                  window.open(whatsappURL, '_blank');
+      
+                  // Set offer as claimed in localStorage and display message
+                  localStorage.setItem("offerClaimed", "true");
+                  showClaimedMessage();
+              }
+      
+              function generateRandomCode(length) {
+                  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                  let result = '';
+                  for (let i = 0; i < length; i++) {
+                      result += characters.charAt(Math.floor(Math.random() * characters.length));
+                  }
+                  return result;
+              }
+      
+              function showClaimedMessage() {
+                 document.getElementById("sendCodeButton").style.display = "none";
+                 document.getElementById("message").innerText = "You have already claimed this offer we will be here with new coupons code soon.";
+              }
+          </script>
+        </form>
+
+      </div> 
+    </div>
+    </div>
+  
+
+  <div class="notification-toast" data-toast>
+
+    <div class="toast-banner">
+      <img src="https://img.freepik.com/free-vector/vector-sale-banner-design-template_1017-12083.jpg" alt="Rose Gold Earrings" width="80" height="70">
     </div>
 
-    <div class="newsletter">
+    <div class="toast-detail">
 
-      <form action="#">
+      <p class="toast-message">
+        
+      </p>
 
-        <div class="newsletter-header">
+      <p class="toast-title">
+        Bill up to ₹1500 to receive 50% off on your next purchase of any product worth ₹1500 ! Shop now and save big on your future purchase!"
+      </p>
 
-          <h3 class="newsletter-title" style="font-family: Impact;font-size: 250%;">avail your offer by 3 get 2 free</h3>
-          <style>
-            /* Button Styling */
-            #sendCodeButton {
-                padding: 12px 24px;
-                font-size: 16px;
-                font-weight: bold;
-                color:#fdf7e7;
-                background-color: #25D366;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: background-color 0.3s;
-            }
-    
-            #sendCodeButton:hover {
-                background-color: #1EBE58;
-            }
-    
-            /* Message Styling */
-            #message {
-                margin-top: 20px;
-                font-size: 16px;
-                color: red;
-                font-weight: bold;
-            }
-        </style>
-        <button id="sendCodeButton" onclick="sendRandomCode()">Click here for code</button>
-        <div id="message"></div>
-    
-        <script>
-            // Check if the offer has already been claimed
-            document.addEventListener("DOMContentLoaded", function() {
-                if (localStorage.getItem("offerClaimed") === "true") {
-                    showClaimedMessage();
-                }
-            });
-    
-            function sendRandomCode() {
-                // Check if the offer has already been claimed
-                if (localStorage.getItem("offerClaimed") === "true") {
-                    showClaimedMessage();
-                    return;
-                }
-    
-                // Generate the random code and send it to WhatsApp
-                const code = generateRandomCode(8); // Generate an 8-character code
-                const phoneNumber = '9014798713'; // Replace with your WhatsApp number
-                const message = `Your code is: ${code}`;
-                const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-                window.open(whatsappURL, '_blank');
-    
-                // Set offer as claimed in localStorage and display message
-                localStorage.setItem("offerClaimed", "true");
-                showClaimedMessage();
-            }
-    
-            function generateRandomCode(length) {
-                const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-                let result = '';
-                for (let i = 0; i < length; i++) {
-                    result += characters.charAt(Math.floor(Math.random() * characters.length));
-                }
-                return result;
-            }
-    
-            function showClaimedMessage() {
-               document.getElementById("sendCodeButton").style.display = "none";
-               document.getElementById("message").innerText = "You have already claimed this offer we will be here with new coupons code soon.";
-            }
-        </script>
-      </form>
+      <p class="toast-meta">
+        <time datetime="PT2M">2 Minutes</time> ago
+      </p> 
 
     </div> 
+
   </div>
-  </div>
-
-
-<div class="notification-toast" data-toast>
-
-  <div class="toast-banner">
-    <img src="https://img.freepik.com/free-vector/vector-sale-banner-design-template_1017-12083.jpg" alt="Rose Gold Earrings" width="80" height="70">
-  </div>
-
-  <div class="toast-detail">
-
-    <p class="toast-message">
-      
-    </p>
-
-    <p class="toast-title">
-      Bill up to ₹1500 to receive 50% off on your next purchase of any product worth ₹1500 ! Shop now and save big on your future purchase!"
-    </p>
-
-    <p class="toast-meta">
-      <time datetime="PT2M">2 Minutes</time> ago
-    </p> 
-
-  </div> 
-
-</div>
 </div>
 </body>
 
-
     <div class="mobile-bottom-navigation">
 
+     
       <a href="cart.html"><button class="action-btn">
         <ion-icon name="bag-handle-outline"></ion-icon>
         <span class="count" id="cart-count">0</span>
       </button></a>
 
-      <a href="miindex.html"<button class="action-btn">
+      <a href="miindex.html><button class="action-btn">
         <ion-icon name="home-outline"></ion-icon>
       </button></a>
 
-      <a href="order-summary.html"><button class="action-btn">
-        <ion-icon name="heart-outline"></ion-icon>
+    <a href="order-summary.html"<button class="action-btn">
+      <ion-icon name="heart-outline"></ion-icon>
 
-        <span class="count">0</span>
-      </button></a>
+      <span class="count">0</span>
+    </button></a>
+
 
       <a href="C:\Users\vamsh\Downloads\fwnewwork\fusion-wear1-master\assets\catagoley.html"><button class="action-btn" data-mobile-menu-open-btn>
         <ion-icon name="grid-outline"></ion-icon>
@@ -206,6 +207,212 @@
     </div>
 
     <nav class="mobile-navigation-menu  has-scrollbar" data-mobile-menu>
+
+      </div>
+      
+
+      </div>
+
+    </nav>
+
+  </header>
+
+
+    <div class="mobile-bottom-navigation">
+
+     
+      <a href="cart.html"><button class="action-btn">
+        <ion-icon name="bag-handle-outline"></ion-icon>
+        <span class="count" id="cart-count">0</span>
+      </button></a>
+
+        <a href="miindex.html"> <button class="action-btn">
+      <ion-icon name="home-outline"></ion-icon>
+    </button></a>
+      
+      <button class="action-btn">
+        <ion-icon name="heart-outline"></ion-icon>
+
+        <span class="count">0</span>
+      </button>
+
+      <a href="C:\Users\vamsh\Downloads\fwnewwork\fusion-wear1-master\assets\catagoley.html"><button class="action-btn" data-mobile-menu-open-btn>
+        <ion-icon name="grid-outline"></ion-icon>
+      </button></a>
+
+    </div>
+
+    <nav class="mobile-navigation-menu  has-scrollbar" data-mobile-menu>
+
+      </div>
+      
+
+      </div>
+
+    </nav>
+
+  </header>
+  
+    <div class="mobile-bottom-navigation">
+
+    
+      <a href="cart.html"><button class="action-btn">
+        <ion-icon name="bag-handle-outline"></ion-icon>
+        <span class="count" id="cart-count">0</span>
+      </button></a>
+
+      <button class="action-btn">
+        <ion-icon name="home-outline"></ion-icon>
+      </button>
+
+      <button class="action-btn">
+        <ion-icon name="heart-outline"></ion-icon>
+
+        <span class="count">0</span>
+      </button>
+
+      <a href="C:\Users\vamsh\Downloads\fwnewwork\fusion-wear1-master\assets\catagoley.html"><button class="action-btn" data-mobile-menu-open-btn>
+        <ion-icon name="grid-outline"></ion-icon>
+      </button></a>
+
+    </div>
+
+    <nav class="mobile-navigation-menu  has-scrollbar" data-mobile-menu>
+
+      <div class="menu-top">
+        <h2 class="menu-title">Menu</h2>
+
+        <button class="menu-close-btn" data-mobile-menu-close-btn>
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+      </div>
+
+      <ul class="mobile-menu-category-list">
+
+        <li class="menu-category">
+          <a href="#" class="menu-title">Home</a>
+        </li>
+
+        <li class="menu-category">
+
+          <button class="accordion-menu" data-accordion-btn>
+            <p class="menu-title">Men's</p>
+
+            <div>
+              <ion-icon name="add-outline" class="add-icon"></ion-icon>
+              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+            </div>
+          </button>
+
+          <ul class="submenu-category-list" data-accordion>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">Hoddies</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="t shirts (1).html" class="submenu-title">T-shirts</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">customise</a>
+            </li>
+          </ul>
+
+        </li>
+
+        <li class="menu-category">
+
+          <button class="accordion-menu" data-accordion-btn>
+            <p class="menu-title">Women's</p>
+
+            <div>
+              <ion-icon name="add-outline" class="add-icon"></ion-icon>
+              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+            </div>
+          </button>
+
+          <ul class="submenu-category-list" data-accordion>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">Hoddies</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="t shirts (1).html" class="submenu-title">T-shirt</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">customise</a>
+            </li>
+          </ul>
+
+        </li>
+
+        <li class="menu-category">
+
+          <button class="accordion-menu" data-accordion-btn>
+            <p class="menu-title">Mugs</p>
+
+            <div>
+              <ion-icon name="add-outline" class="add-icon"></ion-icon>
+              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+            </div>
+          </button>
+
+          <ul class="submenu-category-list" data-accordion>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">printed-mugs</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">customise</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="menu-category">
+
+          <button class="accordion-menu" data-accordion-btn>
+            <p class="menu-title">Skins</p>
+
+            <div>
+              <ion-icon name="add-outline" class="add-icon"></ion-icon>
+              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+            </div>
+          </button>
+
+          <ul class="submenu-category-list" data-accordion>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">laptop skins</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title">mouse skins</a>
+            </li>
+          </ul>
+        </li>
+        <li class="menu-category">
+          <a href="#" class="menu-title">Hot Offers</a>
+        </li>
+
+      </ul>
+
+      <div class="menu-bottom">
+
+        <ul class="menu-category-list">
+          <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+          <div class="elfsight-app-c8ee0bbd-3062-4bfe-b218-61d9ca8ad719" data-elfsight-app-lazy></div>
+                  <div class="header-alert-news">          
+        </ul>
+
+      </div>
+
+    </nav>
+
+  </header>
 
 
 
@@ -277,37 +484,26 @@
         .go-to-cart-btn:hover {
             background-color: #218838;
         }
+        .P{
+          size-adjust: 100%;
+        }
     </style>
 </head>
 <body>
-    <img src="BG3.png" width="340">
-    <div class="w3-content w3-section" style="max-width:200px">
-        <img class="mySlides" src="AC (2).png"width:100%" height="300px">
-        <img class="mySlides" src="AC (1).png" style="width:100%" height="300px">
-        <img class="mySlides" src="AC (4).png" style="width:100%" height="300px">
-        <img class="mySlides" src="AC (3).png" style="width:100%" height="300px">
-        <img class="mySlides" src="AC (5).png" style="width:100%" height="300px">
-      </div>
+  <H1 align="center">anime collection</H1>
       
-      <script>
-      var myIndex = 0;
-      carousel();
-      
-      function carousel() {
-        var i;
-        var x = document.getElementsByClassName("mySlides");
-        for (i = 0; i < x.length; i++) {
-          x[i].style.display = "none";  
-        }
-        myIndex++;
-        if (myIndex > x.length) {myIndex = 1}    
-        x[myIndex-1].style.display = "block";  
-        setTimeout(carousel, 2000); // Change image every 2 seconds
-      }
-      </script>
-      
-      
-    <div class="product">
+      <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+      <lottie-player 
+          src="https://lottie.host/3beb0bf7-a44f-49a9-ae9f-61fcafd76eb0/FOwZelMeit.json" 
+          background="transparent"
+          speed="1" 
+          style="width: 300px; height: 300px" 
+          loop 
+          autoplay 
+          direction="1" 
+          mode="normal">
+      </lottie-player>
+      <div class="product">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRf0GDqBsFEX6fC_knxtNVG_c-XxGIPj-AUg&s" width="200px" height="200">
         <h1>Naruto pain t shirts for men half sleeves round</h1>
         <p>Price: ₹299.00</p>
@@ -331,7 +527,7 @@
         <p>Price: ₹249.00</p>
         <button class="add-to-cart-btn" onclick="addToCart({name: 'Free Authority Printed, Typography Men Round Neck Black T-Shirt ...', price:249})">Add to Cart</button>
     </div>
-   <div class="product">
+    <div class="product">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTardYJR6U52TQlbiRCrpwkzGzU41VGvhrZ47QMSS8mcqEMQDkeAPU73sKr&s=10" width="200px" height="200">
         <h1>Naruto Animal Oversized black T-Shirt for Men S</h1>
         <p>Price: ₹349.00</p>
@@ -343,13 +539,13 @@
         <p>Price: ₹249.00</p>
         <button class="add-to-cart-btn" onclick="addToCart({name: 'Buy Women Naruto Printed Cotton T-shirt Online at ', price:249})">Add to Cart</button>
     </div>
-  <div class="product">
+    <div class="product">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaKDtjS1Zyf55_nw1cyHF98OjZr18T5L0G_Q&usqp=CAU" width="200px" height="200">
         <h1>Obito Uchiha | Naruto Unisex Oversized black T-Shirt </h1>
         <p>Price: ₹349.00</p>
         <button class="add-to-cart-btn" onclick="addToCart({name: 'Obito Uchiha | Naruto Unisex Oversized T-Shirt S', price:349})">Add to Cart</button>
     </div>
-   <div class="product">
+    <div class="product">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhBm-MhaHYiDxCRtwQshOprjJeK-c_9Azn4lVheuDeNHhIjPDGW9cQgeNd&s=10" width="200px" height="200">
         <h1>uzumaki Naruto anime -Oversized black  T shirt anime </h1>
         <p>Price: ₹199.00</p>
@@ -403,7 +599,7 @@
         <p>Price: ₹349.00</p>
         <button class="add-to-cart-btn" onclick="addToCart({name: 'Naruto Shippuden Kakashi Hatake Graphic Men's Black T-shirt : Target', price:349})">Add to Cart</button>
     </div>
-   <div class="product">
+    <div class="product">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSBpcsG9REopBbDoX1ULF8VE9thic-1Zx3zw&s" width="200px" height="200">
         <h1>Gara Of The Sand Oversize T-shirt naruto anime</h1>
         <p>Price: ₹299.00</p>
@@ -421,7 +617,7 @@
         <p>Price: ₹299.00</p>
         <button class="add-to-cart-btn" onclick="addToCart({name: 'Fans Army Mens Anime Printed Itachi Uchiha T-Shirt', price:299})">Add to Cart</button>
     </div>
-  <div class="product">
+    <div class="product">
         <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTlT_XHHQKqf1cBIpt2IHBxEI0gbw8WtQQzVBu1VA6YY61ulMm2IoyqD7XTbotkBao8XUfuvQKCC_FmlX5__cJ8K641BT1IxniY6j4bjpzuWuSJNdGJFYR-&usqp=CAE" width="200px" height="200">
         <h1>Printed Black T-Shirt black clover</h1>
         <p>Price: ₹349.00</p>
@@ -535,7 +731,7 @@
         <p>Price: ₹299.00</p>
         <button class="add-to-cart-btn" onclick="addToCart({name: 'Black Bulls best tro', price:299})">Add to Cart</button>
     </div>
-  <div class="product">
+    <div class="product">
         <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRdrxpimLNI5_WgqUfKx1P6Jc1xVa3hDyCscWvpNY5afZsQC4FBceV6FhIz3xRG7m39wWBki9IjirZPLSKGnDTf54LzLT1fd2jFz3xUFjrV&usqp=CAY" width="200px" height="200">
         <h1>Ichigo Kurosaki - bleach bankai embroidery Hoddie</h1>
         <p>Price: ₹999.00</p>
@@ -559,7 +755,7 @@
         <p>Price: ₹699.00</p>
         <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach Ulquiorra Cifer Oversized Hoodie M', price:699})">Add to Cart</button>
     </div>
-   <div class="product">
+    <div class="product">
         <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTYXJWOpUBW_BMnaQ2G0kl5F7SYkjFliAGJCz9YCTpwad4CG1NGP5Pir_bOXw3OLhW3rucXrGMW0cXkHfVUPWvsWqD0DO-_Zs00mAOOtum9&usqp=CAY" width="200px" height="200">
         <h1>Bleach Hoodie - Ichigo Kurosaki  The Unrealm  </h1>
         <p>Price: ₹699.00</p>
@@ -571,13 +767,13 @@
         <p>Price: ₹699.00</p>
         <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach Merch Medium', price:699})">Add to Cart</button>
     </div>
-  <div class="product">
+    <div class="product">
         <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcR265botg8UNHyx5w49nCwN4M6mE_fCQIiVqGXpNmovlHdZj8luZ8ZT4KxR9eoUmTkr_FnFqAawXyFOqh3nrDYMQtKs_O9p11h_Gb6QLbzY&usqp=CAY" width="200px" height="200">
         <h1>Bleach Ichigo Hollow Oversized Tshirt</h1>
         <p>Price: ₹449.00</p>
         <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach Ichigo Hollow Oversized Tshirt White', price:449})">Add to Cart</button>
     </div>
-   <div class="product">
+    <div class="product">
         <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRjfBUfbCkeCeMnVB-0BcHXvx7m_JK_ge36PDadZYNIr3yGddpPebtfewiwXqfVZ44urfvNuxLLlz9LkY6LAAqLxhWm3ZT-gWRVEGBtdiM&usqp=CAY" width="200px" height="200">
         <h1>Bleach Bankai Embroidered T-Shirt Lavender</h1>
         <p>Price: ₹649.00</p>
@@ -631,7 +827,7 @@
         <p>Price: ₹299.00</p>
         <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach Ichigo Kurosaki Oversized T-Shirt', price:299})">Add to Cart</button>
     </div>
-   <div class="product">
+    <div class="product">
         <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQqLtF5IfioJQz6S30fWtFs1U9nqb-Skdezxbhn2eq33LT0IjkGA8XnaBPYVWkRuvZtk4sC9XrluPE-Q22_pevIIjE7WAlkgOnFAPFfMSD9&usqp=CAY" width="200px" height="200">
         <h1>Bleach Hollow T-shirt - Masacio White </h1>
         <p>Price: ₹149.00</p>
@@ -649,7 +845,7 @@
         <p>Price: ₹549.00</p>
         <button class="add-to-cart-btn" onclick="addToCart({name: 'crazymonk Bleach Hollow Mask Ichigo Kurosaki  Hoodie', price:549})">Add to Cart</button>
     </div>
-  <div class="product">
+    <div class="product">
         <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRM_NiwR4K4ZL5WN2VDshyBwlHTCvCQKPPouqx7EXNW4p2KAcdTcAllo0WBaUdsOqWJ0sr6VxvS6MCYa0ufmexs-oKuuT-1ONEYfKwFIpLz7tRmVa2eMtnN&usqp=CAE" width="200px" height="200">
         <h1>one piece Hoodies for Luffy Gear 5 </h1>
         <p>Price: ₹699.00</p>
@@ -673,7 +869,7 @@
         <p>Price: ₹499.00</p>
         <button class="add-to-cart-btn" onclick="addToCart({name: 'Luffy Gear 5 / One Piece Hoodie', price:499})">Add to Cart</button>
     </div>
-   <div class="product">
+    <div class="product">
         <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSuODNNakLizGfVIBNYOyvDiOqwZ6-rghq-cWdHfjSm7Nei_jpeKzrFzAIvG2NDNn-PbveZVY2xfK8YrOhSBPyTfr_inHwLEX63MJoPrPwaGPWUHT7SmeugAg&usqp=CAE" width="200px" height="200">
         <h1>one piece Straw Hat Luffy black Hoodie </h1>
         <p>Price: ₹649.00</p>
@@ -685,13 +881,13 @@
         <p>Price: ₹899.00</p>
         <button class="add-to-cart-btn" onclick="addToCart({name: 'Roronoa Zoro - One Piece Hoodie', price:899})">Add to Cart</button>
     </div>
-  <div class="product">
+    <div class="product">
         <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQyO0KXHGoAvlUdoElFzwB1WxwObOERvDvuaoC8TqtxC0QbzmVyVeSoNYluCyMQ5QXMLsHXkSvlxv9s6vKWnvaLhCrdIHGwAcO7taZV6R6QbrJ3jJ5sUHZuOw&usqp=CAE" width="200px" height="200">
         <h1>fifth gear Luffy Gear 5 Anime Hoodie | Anime Hoodies</h1>
         <p>Price: ₹999.00</p>
         <button class="add-to-cart-btn" onclick="addToCart({name: 'CRAZYMONK Luffy Gear 5 Anime Hoodie | Anime Hoodies', price:999})">Add to Cart</button>
     </div>
-   <div class="product">
+    <div class="product">
         <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSuFkN2fp7vujkSulspbZGP5Sa1t94OiQZA2ZDrXsHaKVkp47-ARU76VZt_n2xq0Hvf6Je0QK9e2ve4zAXbyxHvfR1dv-dhg9TKnyFyAYYyIIewy49YHQyCgQ&usqp=CAE" width="200px" height="200">
         <h1>One Piece zoro king of hell  for Men black Hoddie</h1>
         <p>Price: ₹749.00</p>
@@ -745,7 +941,7 @@
         <p>Price: ₹549.00</p>
         <button class="add-to-cart-btn" onclick="addToCart({name: 'Heart Pirates(Law - One Piece) - Hoodie', price:549})">Add to Cart</button>
     </div>
-   <div class="product">
+    <div class="product">
         <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRov302sdX_n43dybZ_Qg8dAIwU30rnRrn1gA4wo2SSgKo9Ei6TODP_df5g1gUcOFDpaXKwyLOk64-mxJpXHErQkROHfG6uQ3FQckEAEsW6AENKw40L5Ajn4g&usqp=CAE" width="200px" height="200">
         <h1>One Piece Anime Hoodies Luffy Zoro Kid Law Sweatshirts </h1>
         <p>Price: ₹749.00</p>
@@ -763,6 +959,7 @@
         <p>Price: ₹549.00</p>
         <button class="add-to-cart-btn" onclick="addToCart({name: 'Jump Cuts Mens Printed Hooded Neck Fullsleeve Black and Yellow Cottonblend Slim Fit T-Shirt', price:549})">Add to Cart</button>
     </div>
+
     <a href="cart.html" class="go-to-cart-btn">Go to Cart</a>
 
     <script>
@@ -786,7 +983,7 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script> 
+   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script> 
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <script>
     // Function to update cart count
@@ -808,8 +1005,7 @@
     window.onload = function () {
       updateCartCount();
     }
-  </script>
-
+  </script> 
 
 </body>
 
