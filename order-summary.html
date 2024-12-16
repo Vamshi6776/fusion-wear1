@@ -8,24 +8,32 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 20px;
-            background-color: #f9f9f9;
+            padding: 0;
+            background-color: #f4f4f4;
         }
 
-        .order-summary {
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
             background-color: #fff;
-            padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        h1 {
+        h1, h2, h3 {
             color: #333;
+        }
+
+        #order-summary {
+            margin-top: 20px;
         }
 
         p {
-            font-size: 16px;
-            color: #333;
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.5;
         }
 
         ul {
@@ -34,52 +42,52 @@
         }
 
         li {
-            font-size: 14px;
-            color: #555;
-            padding: 8px 0;
-        }
-
-        .back-button {
-            margin-top: 20px;
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin: 5px 0;
             border-radius: 5px;
         }
 
-        .back-button:hover {
-            background-color: #0056b3;
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <div class="order-summary">
+    <div class="container">
         <h1>Order Summary</h1>
         <div id="order-summary"></div>
-        <a href="cart.html" class="back-button">Back to Cart</a>
+        <a href="index.html">Back to Shopping</a>
     </div>
 
     <script>
-        window.onload = function() {
-            const orderData = JSON.parse(localStorage.getItem('orderData'));
+        const orderDetails = JSON.parse(localStorage.getItem('orderDetails'));
 
-            if (orderData) {
-                document.getElementById('order-summary').innerHTML = `
-                    <p><strong>Name:</strong> ${orderData.customer.name}</p>
-                    <p><strong>Phone:</strong> ${orderData.customer.number}</p>
-                    <p><strong>Email:</strong> ${orderData.customer.email}</p>
-                    <p><strong>Address:</strong> ${orderData.customer.address}</p>
-                    <h3>the payment you have done the products:</h3>
-                    <ul>
-                        ${orderData.cart.map(item => `
-                            <li>${item.name} - ₹${item.price}</li>
-                        `).join('')}
-                    </ul>
-                `;
-            }
-        };
+        if (orderDetails) {
+            document.getElementById('order-summary').innerHTML = `
+                <h2>Order Summary</h2>
+                <p><strong>Name:</strong> ${orderDetails.name}</p>
+                <p><strong>Phone:</strong> ${orderDetails.number}</p>
+                <p><strong>Email:</strong> ${orderDetails.email}</p>
+                <p><strong>Address:</strong> ${orderDetails.address}</p>
+                <h3>Items Ordered:</h3>
+                <ul>
+                    ${orderDetails.cart.map(item => `<li><strong>${item.name}</strong> - ₹${item.price}</li>`).join('')}
+                </ul>
+                <p><strong>Payment ID:</strong> ${orderDetails.paymentId}</p>
+            `;
+        } else {
+            document.getElementById('order-summary').innerHTML = '<p>Order details not found.</p>';
+        }
     </script>
 </body>
 </html>
