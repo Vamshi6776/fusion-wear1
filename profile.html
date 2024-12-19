@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - Fusion Wears</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #d4fc79, #96e6a1);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+        h1 {
+            font-size: 22px;
+            color: #4caf50;
+            margin-bottom: 20px;
+        }
+        .info p {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 20px auto;
+            display: block;
+            object-fit: cover;
+            border: 2px solid #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Profile</h1>
+        <img id="userProfilePic" class="profile-pic" alt="Profile Picture">
+        <div class="info">
+            <p><strong>Name:</strong> <span id="userName"></span></p>
+            <p><strong>Phone Number:</strong> <span id="userNumber"></span></p>
+            <p><strong>Address:</strong> <span id="userAddress"></span></p>
+        </div>
+    </div>
+    <script>
+        document.getElementById('userName').textContent = localStorage.getItem('userName');
+        document.getElementById('userNumber').textContent = localStorage.getItem('userNumber');
+        document.getElementById('userAddress').textContent = localStorage.getItem('userAddress');
+
+        const profilePic = localStorage.getItem('userProfilePic');
+        if (profilePic) {
+            document.getElementById('userProfilePic').src = profilePic;
+        } else {
+            document.getElementById('userProfilePic').alt = 'No Profile Picture Uploaded';
+        }
+    </script>
+</body>
+</html>
