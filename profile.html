@@ -6,60 +6,82 @@
     <title>User Profile - Fusion Wears</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #d4fc79, #96e6a1);
             margin: 0;
             padding: 0;
-            background: linear-gradient(120deg, #d4fc79, #96e6a1);
-            color: #333;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
         }
         .container {
             background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             text-align: center;
-            width: 90%;
-            max-width: 400px;
+            width: 100%;
+            max-width: 450px;
+            transition: transform 0.3s ease;
+        }
+        .container:hover {
+            transform: translateY(-5px);
         }
         h1 {
-            font-size: 22px;
-            color: #4caf50;
+            font-size: 24px;
+            color: #000; /* Set text color to black */
             margin-bottom: 20px;
         }
         .info p {
-            margin: 10px 0;
-            font-size: 14px;
+            margin: 12px 0;
+            font-size: 16px;
+            color: #000; /* Set text color to black */
+        }
+        .info span {
+            font-weight: bold;
+            color: #000; /* Set text color to black */
         }
         .profile-pic {
-            width: 120px;
-            height: 120px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             margin: 20px auto;
             display: block;
             object-fit: cover;
-            border: 2px solid #4caf50;
+            border: 3px solid #4caf50;
+            transition: transform 0.3s ease;
         }
-        .hoi{
-            w
+        .profile-pic:hover {
+            transform: scale(1.05);
+        }
+        a {
+            text-decoration: none;
+            color:black;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 20px;
+            display: inline-block;
+            
+        }
+        a:hover {
+            color: red;
+         /* Add a slight slide effect on hover */
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="container">
         <h1>Your Profile</h1>
         <img id="userProfilePic" class="profile-pic" alt="Profile Picture">
+        <div class="info">
             <p><strong>Name:</strong> <span id="userName"></span></p>
             <p><strong>Phone Number:</strong> <span id="userNumber"></span></p>
             <p><strong>Address:</strong> <span id="userAddress"></span></p>
-            <h1>upadate ur profile</h1>
-   <a href="login.html"><button class="hoi">edit your profile</button></a>
         </div>
+        <a href="login.html">Update Your Profile</a>
     </div>
+
     <script>
         document.getElementById('userName').textContent = localStorage.getItem('userName');
         document.getElementById('userNumber').textContent = localStorage.getItem('userNumber');
@@ -72,6 +94,5 @@
             document.getElementById('userProfilePic').alt = 'No Profile Picture Uploaded';
         }
     </script>
-    
 </body>
 </html>
