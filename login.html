@@ -85,7 +85,7 @@
             <label for="profilePic">Upload Profile Picture:</label>
             <input type="file" id="profilePic" name="profilePic" accept="image/*" required>
 
-            <button type="submit">Submit</button>
+            <button type="submit"><a href="miindex.html">Update</a></button>
         </form>
     </div>
     <script>
@@ -103,7 +103,7 @@
             const reader = new FileReader();
             reader.onload = function () {
                 localStorage.setItem('userProfilePic', reader.result);
-                window.location.href = 'profile.html';
+                window.location.href = 'miindex.html';
             };
             reader.readAsDataURL(profilePic);
         });
