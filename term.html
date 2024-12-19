@@ -1,184 +1,203 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            /* Set background image */
+    <title>Terms and Conditions</title>
+    <style>
+        /* Set background image */
+        h1 {
+            color: white;
+            font-size: 3rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: block;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            position: relative;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .modal p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .close {
+            color: #aaa;
+            font-size: 30px;
+            font-weight: bold;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #333;
+            text-decoration: none;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        button:hover:enabled {
+            background-color: #45a049;
+        }
+
+        .modal a {
+            display: block;
+            margin: 15px 0;
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .modal a:hover {
+            color: #0056b3;
+        }
+
+        .modal label {
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        #siteContent {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 30px;
+            display: none;
+        }
+        
+        /* Responsive adjustment */
+        @media (max-width: 600px) {
+            .modal-content {
+                width: 90%;
+                padding: 20px;
+            }
 
             h1 {
-                color: white; /* Text color */
-                font-size: 3rem;
-                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Optional text shadow for readability */
+                font-size: 2rem;
             }
+        }
+    </style>
+</head>
+<body>
 
-            /* Modal styles */
-            .modal {
-                display: block; /* Ensure the modal is visible initially */
-                position: fixed;
-                z-index: 1;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.7);
-                transition: opacity 0.3s ease;
-            }
-
-            .modal-content {
-                background-color: #fff;
-                margin: 10% auto;
-                padding: 30px;
-                border-radius: 10px;
-                width: 80%;
-                max-width: 500px;
-                position: relative;
-                text-align: center;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-                animation: fadeIn 0.5s ease-out;
-            }
-
-            /* Fade-in animation */
-            @keyframes fadeIn {
-                from {
-                    opacity: 0;
-                    transform: translateY(-50px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            .modal h2 {
-                margin-bottom: 20px;
-                font-size: 24px;
-                font-weight: 600;
-            }
-
-            .modal p {
-                font-size: 16px;
-                margin-bottom: 15px;
-            }
-
-            .close {
-                color: #aaa;
-                font-size: 30px;
-                font-weight: bold;
-                position: absolute;
-                right: 20px;
-                top: 15px;
-                cursor: pointer;
-            }
-
-            .close:hover,
-            .close:focus {
-                color: #333;
-                text-decoration: none;
-            }
-
-            button {
-                padding: 12px 20px;
-                font-size: 16px;
-                cursor: pointer;
-                background-color: #4CAF50;
-                color: white;
-                border: none;
-                border-radius: 5px;
-                transition: background-color 0.3s;
-            }
-
-            button:disabled {
-                background-color: #ccc;
-                cursor: not-allowed;
-            }
-
-            button:hover:enabled {
-                background-color: #45a049;
-            }
-
-            .modal a {
-                display: block;
-                margin: 15px 0;
-                text-decoration: none;
-                color: #007BFF;
-                font-size: 14px;
-                transition: color 0.3s;
-            }
-
-            .modal a:hover {
-                color: #0056b3;
-            }
-
-            .modal label {
-                font-size: 14px;
-                display: inline-block;
-                margin-bottom: 10px;
-            }
-
-            #siteContent {
-                font-family: Arial, sans-serif;
-                text-align: center;
-                margin-top: 30px;
-                display: none; /* Initially hidden */
-            }
-        </style>
-    </head>
-    <body>
-
-        <!-- The Modal -->
-        <div id="termsModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>Terms and Conditions of fusion wears</h2>
-                <p>Please read and accept:</p>
-                <a href="terms and condtions.html" target="_blank">Privacy Policy</a>
-                <a href="terms and condtions.html" target="_blank">Terms and Conditions</a>
-                <div>
-                    <label>
-                        <input type="checkbox" id="acceptTerms"> I have read and accept the terms
-                    </label>
-                </div>
-                <a href="login.html"><button id="acceptBtn" disabled>Accept</button></a>
+    <!-- The Modal -->
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Terms and Conditions of Fusion Wears</h2>
+            <p>Please read and accept:</p>
+            <a href="terms and condtions.html" target="_blank">Privacy Policy</a>
+            <a href="terms and condtions.html" target="_blank">Terms and Conditions</a>
+            <div>
+                <label>
+                    <input type="checkbox" id="acceptTerms"> I have read and accept the terms
+                </label>
             </div>
+            <a href="login.html"><button id="acceptBtn" disabled>Accept</button></a>
         </div>
+    </div>
 
-        <!-- Your Website Content (initially hidden) -->
+    <!-- Your Website Content (initially hidden) -->
+    <div id="siteContent">
+        <h1>Welcome to Fusion Wear!</h1>
+        <!-- Rest of your content goes here -->
+    </div>
 
-        <script>
-            // Get modal and buttons
-            var modal = document.getElementById("termsModal");
-            var closeModalBtn = document.getElementsByClassName("close")[0];
-            var acceptBtn = document.getElementById("acceptBtn");
-            var acceptCheckbox = document.getElementById("acceptTerms");
-            var siteContent = document.getElementById("siteContent");
+    <script>
+        // Get modal and buttons
+        var modal = document.getElementById("termsModal");
+        var closeModalBtn = document.getElementsByClassName("close")[0];
+        var acceptBtn = document.getElementById("acceptBtn");
+        var acceptCheckbox = document.getElementById("acceptTerms");
+        var siteContent = document.getElementById("siteContent");
 
-            // Show modal and hide site content initially
-            window.onload = function() {
-                modal.style.display = "block";
-                siteContent.style.display = "none";  // Hide the content initially
-            }
+        // Show modal and hide site content initially
+        window.onload = function() {
+            modal.style.display = "block";
+            siteContent.style.display = "none";  // Hide the content initially
+        }
 
-            // Close the modal
-            closeModalBtn.onclick = function() {
+        // Close the modal
+        closeModalBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Enable the Accept button when checkbox is checked
+        acceptCheckbox.onchange = function() {
+            acceptBtn.disabled = !acceptCheckbox.checked;
+        }
+
+        // Close the modal and show site content after acceptance
+        acceptBtn.onclick = function() {
+            modal.style.display = "none";
+            siteContent.style.display = "block";  // Show the site content
+        }
+
+        // Close modal if clicked outside of the modal-content
+        window.onclick = function(event) {
+            if (event.target == modal) {
                 modal.style.display = "none";
             }
+        }
+    </script>
 
-            // Enable the Accept button when checkbox is checked
-            acceptCheckbox.onchange = function() {
-                acceptBtn.disabled = !acceptCheckbox.checked;
-            }
-
-            // Close the modal and show site content after acceptance
-            acceptBtn.onclick = function() {
-                modal.style.display = "none";
-                siteContent.style.display = "block";  // Show the site content
-            }
-
-            // Close modal if clicked outside of the modal-content
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
-        </script>
-
-    </body>
+</body>
 </html>
