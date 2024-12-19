@@ -114,6 +114,24 @@ dotlottie-player {
 
   }
 </style>
+<style>
+        .info p {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 20px auto;
+            display: block;
+            object-fit: cover;
+            border: 2px solid #4caf50;
+        }
+        .hoi{
+            w
+        }
+</style>
 
 
   <!--
@@ -185,11 +203,18 @@ dotlottie-player {
       </div>
 
       <ul class="mobile-menu-category-list">
-
-        <li class="menu-category">
+        <div>
+            <div class="container">
+            <h1>Your Profile</h1>
+            <a href="profile.html"><img id="userProfilePic" class="profile-pic" alt="Profile Picture"></a>
+                <p><strong></strong><h style="color: white;">tydkydyyd</h><span id="userName" style="font-family: courier new;"></span></p>
+               
+            </div>
+            </div>
+        </div>
           <a href="#" class="menu-title">Home</a>
-        </li>
 
+        </li>
         <li class="menu-category">
 
           <button class="accordion-menu" data-accordion-btn>
@@ -1987,6 +2012,16 @@ dotlottie-player {
       updateCartCount();
     }
   </script>
+  <script>
+    document.getElementById('userName').textContent = localStorage.getItem('userName');
+
+    const profilePic = localStorage.getItem('userProfilePic');
+    if (profilePic) {
+        document.getElementById('userProfilePic').src = profilePic;
+    } else {
+        document.getElementById('userProfilePic').alt = 'No Profile Picture Uploaded';
+    }
+</script>
 
 
 </body>
