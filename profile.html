@@ -1,102 +1,256 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile - Fusion Wears</title>
+    <title>Enhanced Cropper - Fusion Wears</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" />
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #d4fc79, #96e6a1);
-            margin: 0;
-            padding: 0;
-            height: 100vh;
+            font-family: 'Poppins', Arial, sans-serif;
+            background: linear-gradient(135deg,white, black);
+            color: #333;
             display: flex;
             justify-content: center;
             align-items: center;
+            min-height: 100vh;
+            margin: 0;
         }
+
         .container {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            background: #ffffff;
+            padding: 25px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 450px;
-            transition: transform 0.3s ease;
         }
-        .container:hover {
-            transform: translateY(-5px);
-        }
+
         h1 {
+            text-align: center;
             font-size: 24px;
-            color: #000; /* Set text color to black */
-            margin-bottom: 20px;
+            color: #e91e63;
+            margin-bottom: 25px;
+            font-weight: 600;
         }
-        .info p {
-            margin: 12px 0;
-            font-size: 16px;
-            color: #000; /* Set text color to black */
+
+        form {
+            display: flex;
+            flex-direction: column;
         }
-        .info span {
-            font-weight: bold;
-            color: #000; /* Set text color to black */
+
+        label {
+            font-size: 14px;
+            font-weight: 500;
+            margin-top: 15px;
+            color: #555;
         }
-        .profile-pic {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            margin: 20px auto;
-            display: block;
+
+        input, textarea {
+            margin-top: 8px;
+            padding: 12px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .file-input-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .file-input-container img {
+            width: 70px;
+            height: 70px;
+            border-radius: 8px;
             object-fit: cover;
-            border: 3px solid #4caf50;
-            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: none;
         }
-        .profile-pic:hover {
-            transform: scale(1.05);
-        }
-        a {
-            text-decoration: none;
-            color:black;
+
+        button {
+            margin-top: 20px;
+            padding: 12px;
             font-size: 16px;
             font-weight: bold;
-            margin-top: 20px;
-            display: inline-block;
-            
+            background: #e91e63;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
         }
-        a:hover {
-            color: red;
-         /* Add a slight slide effect on hover */
+
+        button:hover {
+            background: #d81b60;
+        }
+
+        #cropModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        #cropModal .modal-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+            width: 90%;
+            max-width: 500px;
+            overflow: hidden;
+        }
+
+        #cropModal img {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 8px;
+        }
+
+        #cropModal .actions {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        #cropModal button {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        #cropModal button#cropButton {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+        }
+
+        #cropModal button#cancelCrop {
+            background-color: #f44336;
+            color: white;
+            border: none;
+        }
+
+        #cropModal button:hover {
+            transform: translateY(-2px);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Your Profile</h1>
-        <img id="userProfilePic" class="profile-pic" 
-     src="https://t4.ftcdn.net/jpg/02/17/88/73/360_F_217887350_mDfLv2ootQNeffWXT57VQr8OX7IvZKvB.jpg" 
-     alt="User Profile Picture">
+        <h1>Welcome to Fusion Wears</h1>
+        <form id="userForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
-        <div class="info">
-            <p><strong>Name:</strong> <span id="userName"></span></p>
-            <p><strong>Phone Number:</strong> <span id="userNumber"></span></p>
-            <p><strong>Address:</strong> <span id="userAddress"></span></p>
-        </div>
-        <a href="login.html">Edit Your Profile</a><br>
-        <a href="allorders.html">All Orders</a>
+            <label for="number">Phone Number:</label>
+            <input type="tel" id="number" name="number" pattern="[0-9]{10}" placeholder="Enter your 10-digit number" required>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="4" placeholder="Enter your address" required></textarea>
+
+            <label for="profilePic">Upload Profile Picture:</label>
+            <div class="file-input-container">
+                <input type="file" id="profilePic" name="profilePic" accept="image/*">
+                <img id="previewImage" alt="Profile Preview">
+            </div>
+
+            <button type="submit">Update Profile</button>
+        </form>
     </div>
 
-    <script>
-        document.getElementById('userName').textContent = localStorage.getItem('userName');
-        document.getElementById('userNumber').textContent = localStorage.getItem('userNumber');
-        document.getElementById('userAddress').textContent = localStorage.getItem('userAddress');
+    <!-- Crop Modal -->
+    <div id="cropModal">
+        <div class="modal-content">
+            <img id="cropImage" alt="Crop Image">
+            <div class="actions">
+                <button id="cropButton">Crop</button>
+                <button id="cancelCrop">Cancel</button>
+            </div>
+        </div>
+    </div>
 
-        const profilePic = localStorage.getItem('userProfilePic');
-        if (profilePic) {
-            document.getElementById('userProfilePic').src = profilePic;
-        } else {
-            document.getElementById('userProfilePic').alt = 'No Profile Picture Uploaded';
-        }
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+    <script>
+        const profilePicInput = document.getElementById('profilePic');
+        const cropModal = document.getElementById('cropModal');
+        const cropImage = document.getElementById('cropImage');
+        const previewImage = document.getElementById('previewImage');
+        const cropButton = document.getElementById('cropButton');
+        const cancelCrop = document.getElementById('cancelCrop');
+
+        let cropper;
+
+        profilePicInput.addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    cropImage.src = event.target.result;
+                    cropModal.style.display = 'flex';
+
+                    if (cropper) cropper.destroy();
+                    cropper = new Cropper(cropImage, {
+                        aspectRatio: 1,
+                        viewMode: 1,
+                    });
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        cropButton.addEventListener('click', function () {
+            const canvas = cropper.getCroppedCanvas();
+            const croppedImage = canvas.toDataURL();
+            previewImage.src = croppedImage;
+            previewImage.style.display = 'block';
+            cropModal.style.display = 'none';
+        });
+
+        cancelCrop.addEventListener('click', function () {
+            cropModal.style.display = 'none';
+        });
+
+        document.getElementById('userForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const number = document.getElementById('number').value;
+            const address = document.getElementById('address').value;
+
+            localStorage.setItem('userName', name);
+            localStorage.setItem('userNumber', number);
+            localStorage.setItem('userAddress', address);
+            localStorage.setItem('userProfilePic', previewImage.src);
+
+            alert("Profile updated successfully!");
+            window.location.href = 'miindex.html';
+        });
     </script>
 </body>
 </html>
