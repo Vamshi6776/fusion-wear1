@@ -70,24 +70,72 @@
     </div>
 
     <script>
-        const orderDetails = JSON.parse(localStorage.getItem('orderDetails'));
+        function updateOrderSummary() {
+            const orderDetails = JSON.parse(localStorage.getItem('orderDetails'));
+            const orderSummaryElement = document.getElementById('order-summary');
+            orderSummaryElement.innerHTML = ''; // Clear previous content
 
-        if (orderDetails) {
-            document.getElementById('order-summary').innerHTML = `
-                <h2>Order Summary</h2>
-                <p><strong>Name:</strong> ${orderDetails.name}</p>
-                <p><strong>Phone:</strong> ${orderDetails.number}</p>
-                <p><strong>Email:</strong> ${orderDetails.email}</p>
-                <p><strong>Address:</strong> ${orderDetails.address}</p>
-                <h3>Items Ordered:</h3>
-                <ul>
-                    ${orderDetails.cart.map(item => `<li><strong>${item.name}</strong> - ₹${item.price}</li>`).join('')}
-                </ul>
-                <p><strong>Payment ID:</strong> ${orderDetails.paymentId}</p>
-            `;
-        } else {
-            document.getElementById('order-summary').innerHTML = '<p>Order details not found.</p>';
+            if (orderDetails && Array.isArray(orderDetails.cart)) {
+                // Save order to the all orders list
+                saveOrderToAllOrders(orderDetails);
+
+                orderSummaryElement.innerHTML = `
+                    <h2>Order Summary</h2>
+                    <p><strong>Name:</strong> ${orderDetails.name || 'N/A'}</p>
+                    <p><strong>Phone:</strong> ${orderDetails.number || 'N/A'}</p>
+                    <p><strong>Email:</strong> ${orderDetails.email || 'N/A'}</p>
+                    <p><strong>Address:</strong> ${orderDetails.address || 'N/A'}</p>
+                    <h3>Items Ordered:</h3>
+                    <ul>
+                        ${orderDetails.cart.map(item => `
+                            <li><strong>${item.name || 'Unnamed Item'}</strong> - ₹${Intl.NumberFormat('en-IN').format(item.price || 0)}</li>
+                        `).join('')}
+                    </ul>
+                    <p><strong>Payment ID:</strong> ${orderDetails.paymentId || 'N/A'}</p>
+                `;
+            } else {
+                orderSummaryElement.innerHTML = '<p>Order details not found. Please place an order to view the summary.</p>';
+            }
         }
+
+        function saveOrderToAllOrders(order) {
+            const allOrders = JSON.parse(localStorage.getItem('allOrders')) || [];
+            allOrders.push(order);
+            localStorage.setItem('allOrders', JSON.stringify(allOrders));
+        }
+
+        // Call updateOrderSummary to display the data
+        updateOrderSummary();
     </script>
+    <div class="button-container">
+        <a href="allorders.html" class="single-line-button">Go to All Orders</a>
+    </div>
+    
+    <style>
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+    
+        .single-line-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+    
+        .single-line-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    
 </body>
 </html>
