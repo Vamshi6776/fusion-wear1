@@ -1,477 +1,276 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>fusion wear black clover</title>
-
-  <!--
-    - favicon
-  -->
-  <link rel="IMG-20240813-WA0015.jpg" href=" type="image/x-icon">
-
-  <!--
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./assets/css/style-prefix.css">
-
-  <!--
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
-</head>
-
-<body>
-  <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyBOq9EBZSMBuSRgrhfEiJJcdbQwgcxRiPQ",
-      authDomain: "fusion-wear-b7cdc.firebaseapp.com",
-      projectId: "fusion-wear-b7cdc",
-      storageBucket: "fusion-wear-b7cdc.appspot.com",
-      messagingSenderId: "156239565655",
-      appId: "1:156239565655:web:a7b97d349ec6503ad2a412",
-      measurementId: "G-RBR3YVCCXR"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-  </script>
-
-<div class="overlay" data-overlay></div>
-
-<!--
-  - MODAL
--->
-<div class="modal" data-modal>
-
-  <div class="modal-close-overlay" data-modal-overlay></div>
-
-  <div class="modal-content">
-
-    <button class="modal-close-btn" data-modal-close>
-      <ion-icon name="close-outline"></ion-icon>
-    </button>
-
-    <div class="newsletter-img">
-      <img src="C:\Users\vamsh\Downloads\jijijijijijij.jpg" alt="subscribe newsletter" width="400" height="400">
-    </div>
-
-    <div class="newsletter">
-
-      <form action="#">
-
-        <div class="newsletter-header">
-
-          <h3 class="newsletter-title" style="font-family: Impact;font-size: 250%;">avail your offer by 3 get 2 free</h3>
-          <style>
-            /* Button Styling */
-            #sendCodeButton {
-                padding: 12px 24px;
-                font-size: 16px;
-                font-weight: bold;
-                color:#fdf7e7;
-                background-color: #25D366;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: background-color 0.3s;
-            }
-    
-            #sendCodeButton:hover {
-                background-color: #1EBE58;
-            }
-    
-            /* Message Styling */
-            #message {
-                margin-top: 20px;
-                font-size: 16px;
-                color: red;
-                font-weight: bold;
-            }
-        </style>
-        <button id="sendCodeButton" onclick="sendRandomCode()">Click here for code</button>
-        <div id="message"></div>
-    
-        <script>
-            // Check if the offer has already been claimed
-            document.addEventListener("DOMContentLoaded", function() {
-                if (localStorage.getItem("offerClaimed") === "true") {
-                    showClaimedMessage();
-                }
-            });
-    
-            function sendRandomCode() {
-                // Check if the offer has already been claimed
-                if (localStorage.getItem("offerClaimed") === "true") {
-                    showClaimedMessage();
-                    return;
-                }
-    
-                // Generate the random code and send it to WhatsApp
-                const code = generateRandomCode(8); // Generate an 8-character code
-                const phoneNumber = '9014798713'; // Replace with your WhatsApp number
-                const message = `Your code is: ${code}`;
-                const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-                window.open(whatsappURL, '_blank');
-    
-                // Set offer as claimed in localStorage and display message
-                localStorage.setItem("offerClaimed", "true");
-                showClaimedMessage();
-            }
-    
-            function generateRandomCode(length) {
-                const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-                let result = '';
-                for (let i = 0; i < length; i++) {
-                    result += characters.charAt(Math.floor(Math.random() * characters.length));
-                }
-                return result;
-            }
-    
-            function showClaimedMessage() {
-               document.getElementById("sendCodeButton").style.display = "none";
-               document.getElementById("message").innerText = "You have already claimed this offer we will be here with new coupons code soon.";
-            }
-        </script>
-      </form>
-
-    </div> 
-  </div>
-  </div>
-
-
-<div class="notification-toast" data-toast>
-
-  <div class="toast-banner">
-    <img src="https://img.freepik.com/free-vector/vector-sale-banner-design-template_1017-12083.jpg" alt="Rose Gold Earrings" width="80" height="70">
-  </div>
-
-  <div class="toast-detail">
-
-    <p class="toast-message">
-      
-    </p>
-
-    <p class="toast-title">
-      Bill up to ₹1500 to receive 50% off on your next purchase of any product worth ₹1500 ! Shop now and save big on your future purchase!"
-    </p>
-
-    <p class="toast-meta">
-      <time datetime="PT2M">2 Minutes</time> ago
-    </p> 
-
-  </div> 
-
-</div>
-</div>
-</body>
-
-  <div class="mobile-bottom-navigation">
-
-   
-    <a href="cart.html"><button class="action-btn">
-      <ion-icon name="bag-handle-outline"></ion-icon>
-      <span class="count" id="cart-count">0</span>
-    </button></a>
-
-       <a href="miindex.html"> <button class="action-btn">
-      <ion-icon name="home-outline"></ion-icon>
-    </button></a>
-<a href="order-summary.html"<button class="action-btn">
-      <ion-icon name="heart-outline"></ion-icon>
-
-      <span class="count">0</span>
-    </button></a>
-
-
-    <a href="C:\Users\vamsh\Downloads\fwnewwork\fusion-wear1-master\assets\catagoley.html"><button class="action-btn" data-mobile-menu-open-btn>
-      <ion-icon name="grid-outline"></ion-icon>
-    </button></a>
-
-  </div>
-
-  <nav class="mobile-navigation-menu  has-scrollbar" data-mobile-menu>
-
-    </div>
-    
-
-    </div>
-
-  </nav>
-
-</header>
-
-  <!--
-    - MAIN
-  -->
-
-  <main>
-              </div>
-
-            </div>
-
-          </div>
-         
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T-shirts</title>
-    <style>
-        .mySlides {display:none;}
-        </style>
+    <title>Product Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color:whitesmoke;
         }
-        .product {
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
             padding: 20px;
-            background-color: #fff;
+        }
+
+        .product {
+            background-color:white;
+            border: 1px solid #ddd;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            max-width: 300px;
-            margin: 20px;
-            display: inline-block;
-            vertical-align: top;
-        }
-        .product h1 {
-            margin-top: 0;
-        }
-        .add-to-cart-btn,
-        .go-to-cart-btn {
-            display: inline-block;
-            padding: 10px 15px;
-            font-size: 16px;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
+            padding: 15px;
             text-align: center;
-            transition: background-color 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
-        .add-to-cart-btn {
+
+        .product img {
+            width: 200px;
+            height: 200px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: transform 0.2s ease;
+        }
+
+        .product img:hover {
+            transform: scale(1.05);
+        }
+
+        .product h1 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .product p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .product button {
             background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
         }
-        .add-to-cart-btn:hover {
+
+        .product button:hover {
             background-color: #0056b3;
         }
-        .go-to-cart-btn {
-            background-color: #28a745;
-            margin-top: 20px;
-            text-align: center;
-            display: block;
-        }
-        .go-to-cart-btn:hover {
-            background-color: #218838;
-        }
-    </style>
-</head>
-<body>
-  
-   <div class="product">
-        <img src="https://th.bing.com/th?id=OPAC.r4KgI%2byRoaodhQ474C474&w=220&h=220&c=17&o=5&dpr=1.3&pid=21.1" width="200px" height="200">
-        <h1>Noworries Laptop Skin Stickers For All Laptops Motivational Quote Laptop Skin</h1>
-        <p>Price: ₹299.00 + delivery chargers</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Noworries Laptop Skin Stickers For All Laptops Motivational Quote Laptop Skin', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="https://th.bing.com/th?id=OPAC.45Wghk7z7iW79A474C474&w=592&h=550&o=5&dpr=1.3&pid=21.1" width="200px" height="200">
-        <h1>Graphyworld-Full Body Anime Laptop Skin Decal Sticker Scratch & Bubble Free For Laptops D14 Vinyl Laptop Decal 15.6 Inch Laptops</h1>
-        <p>Price: ₹299.00 + delivery chargers</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Graphyworld-Full Body Anime Laptop Skin Decal Sticker Scratch & Bubble Free For Laptops D14 Vinyl Laptop Decal 15.6 Inch Laptops', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="https://th.bing.com/th?id=OPAC.xyoGUAlBlnc8%2bw474C474&w=592&h=550&o=5&dpr=1.3&pid=21.1" width="200px" height="200">
-        <h1>Namo Arts Laptop Skins 14 Inch Stickers For All Laptop - Notebook E=Mc Square</h1></h1>
-        <p>Price: ₹249.00 + delivery chargers </p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: '', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="https://th.bing.com/th?id=OPAC.yTftg0o8ZXVDTg474C474&w=592&h=550&o=5&dpr=1.3&pid=21.1" width="200px" height="200">
-        <h1>Avengers Laptop Skins For 15.6</h1>
-        <p>Price: ₹299.00 + delivery chargers</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Avengers Laptop Skins For 15.6', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="https://th.bing.com/th?id=OPAC.6bINxboP1BYhKw474C474&w=592&h=550&o=5&dpr=1.3&pid=21.1" width="200px" height="200">
-        <h1>Noworries Motivational Laptop Skin For 14Inch And 15.6Inch Laptops Customizable Laptop Stickers For All Laptops - No-Residue & Bubble-Free Laptop Sti</h1>
-        <p>Price: ₹349.00 + delivery chargers</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Noworries Motivational Laptop Skin For 14Inch And 15.6Inch Laptops Customizable Laptop Stickers For All Laptops - No-Residue & Bubble-Free Laptop Sti', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="https://th.bing.com/th?id=OPAC.DQuqJdfXOeTv2Q474C474&w=592&h=550&o=5&dpr=1.3&pid=21.1" width="200px" height="200">
-        <h1>Noworries Laptop Skin Customizable Laptop Sticker, Dustproof & Scratch - Proof/Motivational Quote Laptop Skin (15.6Inch : 10.50X14.50Inch, Quote-1)</h1>
-        <p>Price: ₹349.00 + delivery chargers</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Noworries Laptop Skin Customizable Laptop Sticker, Dustproof & Scratch - Proof/Motivational Quote Laptop Skin (15.6Inch : 10.50X14.50Inch', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQjuhyP7OixomwLRTrD8pEQrdEEHsqVq6Muk0QcAHpQEvtvpBo0ZXgkU6KpwVpAjmjT2kpB1BhjUN5uGaqdPlEba1UR0mIpRQqyu5pfxgu8tN7WhWU0b5_y&usqp=CAE" width="200px" height="200">
-        <h1>Artifly jujutsu kaisen anime Laptop Skin Sticker For Laptop Size Upto 15.6 inch vinyl Laptop Decal 15.6</h1>
-        <p>Price: ₹230.00 + delivery chargers</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Artifly jujutsu kaisen anime Laptop Skin Sticker For Laptop Size Upto 15.6 inch vinyl Laptop Decal 15.6', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRFjeRY_KEZqyltrTyLgO0kOTOMm6ClZZiJ5PsZaMN6CnZzo584-NqLJ_wjYRVpmbfB8SIrA21ymR4h_Vr_e3E0rSk_1aMPXBSKZBSkcbAU&usqp=CAE" width="200px" height="200">
-        <h1>Replix Itachi 5 Anime Vinyl Laptop Skin with Free Sticker Compatible for All Laptops Vinyl Laptop Decal 15.6</h1>
-        <p>Price: ₹299.00 + delivery chargers</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Replix Itachi 5 Anime Vinyl Laptop Skin with Free Sticker Compatible for All Laptops Vinyl Laptop Decal 15.6', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTsYvY4vjTMMN840EduCdranm-yd-Rvfs9hZtfM-5GrwbskgUSTOMQ6MjTKHkLoz4tsQpCrr96p33fw6-L_5BHcm-24Twxyg3njjOBhjHdV0CmhGdHSvbH-&usqp=CAE" width="200px" height="200">
-        <h1>Shadow of Itachi The Eternal Mangekyou Anime Laptop Skin</h1>
-        <p>Price: ₹449.00 + delivery chargers</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Shadow of Itachi The Eternal Mangekyou Anime Laptop Skin', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRu1_rsff3frbbGbz2QLpl35YMWjhjOKNR0yjmM7M3Vm1w8llzNaZYNXHuDpfe6s_tI0xF4maepVbBd3uRFxyZkgYWeUIWyJUsYs5TE6x0&usqp=CAE" width="200px" height="200">
-        <h1>Replix White Akatsuki Anime Vinyl Laptop Skin with Free Sticker Compatible for All Laptops Vinyl Laptop Decal 15.6</h1>
-        <p>Price: ₹249.00 + delivery chargers</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Replix White Akatsuki Anime Vinyl Laptop Skin with Free Sticker Compatible for All Laptops Vinyl Laptop Decal 15.6', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQqwg0kgl5-soYi-5eBmCcaFIuouAnkgGuzornTGbsL_QlzD3CyPAxTEtcIjlE6KLNWdF57wAxt46lcuG-37zERsWBGdWAPQknINPSF6bY&usqp=CAE" width="200px" height="200">
-        <h1>Replix Manga Anime Vinyl Laptop Skin with Free Sticker Compatible for All Laptops Vinyl Laptop Decal 15.6</h1>
-        <p>Price: ₹249.00 + delivery chargers</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Replix Manga Anime Vinyl Laptop Skin with Free Sticker Compatible for All Laptops Vinyl Laptop Decal 15.6', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRAzkbO3Z7z-dGa60_YFMZXR7qf8539phqb1uQUtMqDH6kfjCNsHwXJx9ZIIb_SRGCIl0U3AImhMzfX1YIj9NMmoNa_zifPYA1H55n9NTaN&usqp=CAE" width="200px" height="200">
-        <h1> Full Body Laptop Skin Upto 15.6 inches - Anime Demon Slayer Kimetsu No Yaiba Self</h1>
-        <p>Price: ₹399.00 + delivery chargers</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: ' Full Body Laptop Skin Upto 15.6 inches - Anime Demon Slayer Kimetsu No Yaiba Self', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRGXefypoChKQ_kFxO534f5v74poqR7jFTMFTHorK3wxJG3FeCH284XFAwOhtkqCFLpMhnwr00teOnOe-6rL5CaiHqxoLCIXUb7lGVp531N&usqp=CAE" width="200px" height="200">
-        <h1>Full Body Laptop Skin Upto 15.6 inches - Anime Nezuko Kamado Demon Slayer </h1>
-        <p>Price: ₹349.00 + delivery chargers</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Full Body Laptop Skin Upto 15.6 inches - Anime Nezuko Kamado Demon Slayer ', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRorrKCD307-uH1vwYwRBf750pI4zHw063w6oaA3Q6oEPwJw0WJcuQq8t2eBjRf61IQpuyikaa7KOn7E1AEiUwIV44TlyNACA8Eoakbf9bBDxUsk4jAJs1T&usqp=CAE" width="200px" height="200">
-        <h1>laptop skin - anime ninja</h1>
-        <p>Price: ₹399.00 + delivery chargers</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'laptop skin - anime ninja', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQFngP4tVGUoW9v0eohK9rmg93EvZazUxWDTX3k7hjsYv-t63D-PYaxkO5xgKr99xnIg-Dtv7fmGqnq8_GYGC5PZ5E3Hx9oyxG6uKe1A2U&usqp=CAE" width="200px" height="200">
-        <h1>Replix One Piece Anime Vinyl Laptop Skin with Free Sticker Compatible for All Laptops Vinyl Laptop Decal 15.6</h1>
-        <p>Price: ₹249.00 + delivery chargers</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Replix One Piece Anime Vinyl Laptop Skin with Free Sticker Compatible for All Laptops Vinyl Laptop Decal 15.6', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSgOBbTRo7inz8q3GwHdT6-7NzHL66b4Sd1ZtzXbIeH-rnWVr_yXHZi610-NFhqkrk117hU1743KGsX669FlfRsAR0vbhxOqSABsGwVFJ3SqoCFtiXUVytntg&usqp=CAE" width="200px" height="200">
-        <h1>Saitama x Genos – Laptop Skin (Anime)</h1>
-        <p>Price: ₹249.00 + delivery chargers</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Saitama x Genos – Laptop Skin (Anime)', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRg2H4xVpBJJVLOTG9mZWYFh7lWeGQE0juPNjp-k50tJmTv1TvLBpL4FfRX464oasrsofZp0Rf42jjxj1VNhMwVvGMaHH4W8ysfyRV6i9jNzCyYXwC7jq5eGQ&usqp=CAE" width="200px" height="200">
-        <h1>Zoro and Luffy One Piece – Anime Laptop Skin</h1>
-        <p>Price: ₹249.00 + delivery chargers</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Zoro and Luffy One Piece – Anime Laptop Skin', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="https://www.fomostore.in/cdn/shop/products/Brothers-Innovation-Laptop-Skins-Anime-All_Sharingan_Naruto-Image-1.jpg?v=1701767526&width=2048" width="200px" height="200">
-        <h1>All Sharingan Naruto Anime Laptop Skin</h1>
-        <p>Price: ₹449.00 + delivery chargers</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'All Sharingan Naruto Anime Laptop Skin', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="https://ih1.redbubble.net/image.1545946002.3975/pd,x500,macbook_air_13-pad,750x1000,f8f8f8.jpg" width="200px" height="200">
-        <h1>levi full body laptop skin</h1>
-        <p>Price: ₹449.00 + delivery chargers</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: '', price:349})">Add to Cart</button>
-    </div>
-  <div class="product">
-        <img src="https://m.media-amazon.com/images/I/61b4Z88XeUL._AC_UF1000,1000_QL80_.jpg" width="200px" height="200">
-        <h1>Finearts Full Body Laptop Skin Upto 15.6 inch Sticker Compatible for Dell/HP/Lenovo/Acer/Sony All Laptop Size Upto 14 to 15.6 Inch - Anime One Piece Roronoa Zoro Manga</h1>
-        <p>Price: ₹249.00 + delivery chargers</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Finearts Full Body Laptop Skin Upto 15.6 inch Sticker Compatible for Dell/HP/Lenovo/Acer/Sony All Laptop Size Upto 14 to 15.6 Inch - Anime One Piece Roronoa Zoro Manga', price:349})">Add to Cart</button>
-    </div>
-  
-    <style>
-        .pagination-container {
-            text-align: center; /* Center-aligns the content inside the container */
-            margin: 20px 0; /* Adjust margin as needed */
-        }
-        .pagination {
-            font-size: 24px; /* Adjust size as needed */
-            text-decoration: none;
-            color: #000; /* Adjust color as needed */
-            margin: 0 10px; /* Space between the arrows */
-        }
-        .pagination:hover {
-            color: #007bff; /* Change color on hover if desired */
-        }
-    </style>
-</head>
-<body>
-   
-    <a href="cart.html" class="go-to-cart-btn">Go to Cart</a>
 
+        .go-to-cart-btn {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        /* Preview Modal Styling */
+        .preview-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .preview-modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .preview-modal .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+    </style>
+</head>
+<div class="container">
+  <!-- Cart Button -->
+  <a href="cart.html" class="go-to-cart-btn">
+      Go to Cart <span id="cart-count">(0)</span>
+  </a>
+<body>
+  <div class="product">
+    <img src="https://th.bing.com/th?id=OPAC.r4KgI%2byRoaodhQ474C474&w=220&h=220&c=17&o=5&dpr=1.3&pid=21.1" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Noworries Laptop Skin Stickers For All Laptops Motivational Quote Laptop Skin</h1>
+    <p>Price: ₹299.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Noworries Laptop Skin Stickers For All Laptops Motivational Quote Laptop Skin', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://th.bing.com/th?id=OPAC.45Wghk7z7iW79A474C474&w=592&h=550&o=5&dpr=1.3&pid=21.1" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Graphyworld-Full Body Anime Laptop Skin Decal Sticker Scratch & Bubble Free For Laptops D14 Vinyl Laptop Decal 15.6 Inch Laptops</h1>
+    <p>Price: ₹299.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Graphyworld-Full Body Anime Laptop Skin Decal Sticker Scratch & Bubble Free For Laptops D14 Vinyl Laptop Decal 15.6 Inch Laptops', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://th.bing.com/th?id=OPAC.xyoGUAlBlnc8%2bw474C474&w=592&h=550&o=5&dpr=1.3&pid=21.1" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Namo Arts Laptop Skins 14 Inch Stickers For All Laptop - Notebook E=Mc Square</h1></h1>
+    <p>Price: ₹249.00 + delivery chargers </p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: '', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://th.bing.com/th?id=OPAC.yTftg0o8ZXVDTg474C474&w=592&h=550&o=5&dpr=1.3&pid=21.1" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Avengers Laptop Skins For 15.6</h1>
+    <p>Price: ₹299.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Avengers Laptop Skins For 15.6', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://th.bing.com/th?id=OPAC.6bINxboP1BYhKw474C474&w=592&h=550&o=5&dpr=1.3&pid=21.1" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Noworries Motivational Laptop Skin For 14Inch And 15.6Inch Laptops Customizable Laptop Stickers For All Laptops - No-Residue & Bubble-Free Laptop Sti</h1>
+    <p>Price: ₹349.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Noworries Motivational Laptop Skin For 14Inch And 15.6Inch Laptops Customizable Laptop Stickers For All Laptops - No-Residue & Bubble-Free Laptop Sti', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://th.bing.com/th?id=OPAC.DQuqJdfXOeTv2Q474C474&w=592&h=550&o=5&dpr=1.3&pid=21.1" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Noworries Laptop Skin Customizable Laptop Sticker, Dustproof & Scratch - Proof/Motivational Quote Laptop Skin (15.6Inch : 10.50X14.50Inch, Quote-1)</h1>
+    <p>Price: ₹349.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Noworries Laptop Skin Customizable Laptop Sticker, Dustproof & Scratch - Proof/Motivational Quote Laptop Skin (15.6Inch : 10.50X14.50Inch', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQjuhyP7OixomwLRTrD8pEQrdEEHsqVq6Muk0QcAHpQEvtvpBo0ZXgkU6KpwVpAjmjT2kpB1BhjUN5uGaqdPlEba1UR0mIpRQqyu5pfxgu8tN7WhWU0b5_y&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Artifly jujutsu kaisen anime Laptop Skin Sticker For Laptop Size Upto 15.6 inch vinyl Laptop Decal 15.6</h1>
+    <p>Price: ₹230.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Artifly jujutsu kaisen anime Laptop Skin Sticker For Laptop Size Upto 15.6 inch vinyl Laptop Decal 15.6', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRFjeRY_KEZqyltrTyLgO0kOTOMm6ClZZiJ5PsZaMN6CnZzo584-NqLJ_wjYRVpmbfB8SIrA21ymR4h_Vr_e3E0rSk_1aMPXBSKZBSkcbAU&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Replix Itachi 5 Anime Vinyl Laptop Skin with Free Sticker Compatible for All Laptops Vinyl Laptop Decal 15.6</h1>
+    <p>Price: ₹299.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Replix Itachi 5 Anime Vinyl Laptop Skin with Free Sticker Compatible for All Laptops Vinyl Laptop Decal 15.6', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTsYvY4vjTMMN840EduCdranm-yd-Rvfs9hZtfM-5GrwbskgUSTOMQ6MjTKHkLoz4tsQpCrr96p33fw6-L_5BHcm-24Twxyg3njjOBhjHdV0CmhGdHSvbH-&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Shadow of Itachi The Eternal Mangekyou Anime Laptop Skin</h1>
+    <p>Price: ₹449.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Shadow of Itachi The Eternal Mangekyou Anime Laptop Skin', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRu1_rsff3frbbGbz2QLpl35YMWjhjOKNR0yjmM7M3Vm1w8llzNaZYNXHuDpfe6s_tI0xF4maepVbBd3uRFxyZkgYWeUIWyJUsYs5TE6x0&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Replix White Akatsuki Anime Vinyl Laptop Skin with Free Sticker Compatible for All Laptops Vinyl Laptop Decal 15.6</h1>
+    <p>Price: ₹249.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Replix White Akatsuki Anime Vinyl Laptop Skin with Free Sticker Compatible for All Laptops Vinyl Laptop Decal 15.6', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQqwg0kgl5-soYi-5eBmCcaFIuouAnkgGuzornTGbsL_QlzD3CyPAxTEtcIjlE6KLNWdF57wAxt46lcuG-37zERsWBGdWAPQknINPSF6bY&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Replix Manga Anime Vinyl Laptop Skin with Free Sticker Compatible for All Laptops Vinyl Laptop Decal 15.6</h1>
+    <p>Price: ₹249.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Replix Manga Anime Vinyl Laptop Skin with Free Sticker Compatible for All Laptops Vinyl Laptop Decal 15.6', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRAzkbO3Z7z-dGa60_YFMZXR7qf8539phqb1uQUtMqDH6kfjCNsHwXJx9ZIIb_SRGCIl0U3AImhMzfX1YIj9NMmoNa_zifPYA1H55n9NTaN&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1> Full Body Laptop Skin Upto 15.6 inches - Anime Demon Slayer Kimetsu No Yaiba Self</h1>
+    <p>Price: ₹399.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: ' Full Body Laptop Skin Upto 15.6 inches - Anime Demon Slayer Kimetsu No Yaiba Self', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRGXefypoChKQ_kFxO534f5v74poqR7jFTMFTHorK3wxJG3FeCH284XFAwOhtkqCFLpMhnwr00teOnOe-6rL5CaiHqxoLCIXUb7lGVp531N&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Full Body Laptop Skin Upto 15.6 inches - Anime Nezuko Kamado Demon Slayer </h1>
+    <p>Price: ₹349.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Full Body Laptop Skin Upto 15.6 inches - Anime Nezuko Kamado Demon Slayer ', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRorrKCD307-uH1vwYwRBf750pI4zHw063w6oaA3Q6oEPwJw0WJcuQq8t2eBjRf61IQpuyikaa7KOn7E1AEiUwIV44TlyNACA8Eoakbf9bBDxUsk4jAJs1T&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>laptop skin - anime ninja</h1>
+    <p>Price: ₹399.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'laptop skin - anime ninja', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQFngP4tVGUoW9v0eohK9rmg93EvZazUxWDTX3k7hjsYv-t63D-PYaxkO5xgKr99xnIg-Dtv7fmGqnq8_GYGC5PZ5E3Hx9oyxG6uKe1A2U&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Replix One Piece Anime Vinyl Laptop Skin with Free Sticker Compatible for All Laptops Vinyl Laptop Decal 15.6</h1>
+    <p>Price: ₹249.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Replix One Piece Anime Vinyl Laptop Skin with Free Sticker Compatible for All Laptops Vinyl Laptop Decal 15.6', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSgOBbTRo7inz8q3GwHdT6-7NzHL66b4Sd1ZtzXbIeH-rnWVr_yXHZi610-NFhqkrk117hU1743KGsX669FlfRsAR0vbhxOqSABsGwVFJ3SqoCFtiXUVytntg&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Saitama x Genos – Laptop Skin (Anime)</h1>
+    <p>Price: ₹249.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Saitama x Genos – Laptop Skin (Anime)', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRg2H4xVpBJJVLOTG9mZWYFh7lWeGQE0juPNjp-k50tJmTv1TvLBpL4FfRX464oasrsofZp0Rf42jjxj1VNhMwVvGMaHH4W8ysfyRV6i9jNzCyYXwC7jq5eGQ&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Zoro and Luffy One Piece – Anime Laptop Skin</h1>
+    <p>Price: ₹249.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Zoro and Luffy One Piece – Anime Laptop Skin', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://www.fomostore.in/cdn/shop/products/Brothers-Innovation-Laptop-Skins-Anime-All_Sharingan_Naruto-Image-1.jpg?v=1701767526&width=2048" width="200px" height="200" onclick="previewImage(this)">
+    <h1>All Sharingan Naruto Anime Laptop Skin</h1>
+    <p>Price: ₹449.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'All Sharingan Naruto Anime Laptop Skin', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://ih1.redbubble.net/image.1545946002.3975/pd,x500,macbook_air_13-pad,750x1000,f8f8f8.jpg" width="200px" height="200" onclick="previewImage(this)">
+    <h1>levi full body laptop skin</h1>
+    <p>Price: ₹449.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: '', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://m.media-amazon.com/images/I/61b4Z88XeUL._AC_UF1000,1000_QL80_.jpg" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Finearts Full Body Laptop Skin Upto 15.6 inch Sticker Compatible for Dell/HP/Lenovo/Acer/Sony All Laptop Size Upto 14 to 15.6 Inch - Anime One Piece Roronoa Zoro Manga</h1>
+    <p>Price: ₹249.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Finearts Full Body Laptop Skin Upto 15.6 inch Sticker Compatible for Dell/HP/Lenovo/Acer/Sony All Laptop Size Upto 14 to 15.6 Inch - Anime One Piece Roronoa Zoro Manga', price:349})">Add to Cart</button>
+</div>
+      <div class="preview-modal" id="previewModal">
+        <button class="close-btn" onclick="closePreview()">×</button>
+        <img id="previewImage" src="" alt="Preview">
+        
+    </div>
     <script>
+        // Function to update cart count
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            document.getElementById('cart-count').textContent = `(${cart.length})`;
+        }
+
+        // Function to add an item to the cart
         function addToCart(item) {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             cart.push(item);
             localStorage.setItem('cart', JSON.stringify(cart));
             alert(item.name + ' added to cart!');
+            updateCartCount(); // Update the cart count after adding the item
         }
+
+        // Image preview
+        function previewImage(imageElement) {
+            const modal = document.getElementById('previewModal');
+            const previewImg = document.getElementById('previewImage');
+            previewImg.src = imageElement.src;
+            modal.style.display = 'flex'; // Show the modal
+        }
+
+        // Close preview
+        function closePreview() {
+            const modal = document.getElementById('previewModal');
+            modal.style.display = 'none'; // Hide the modal
+        }
+
+        // Update cart count on page load
+        window.onload = function () {
+            updateCartCount();
+        };
     </script>
 </body>
-
-
-  <!--
-    - custom js link
-  -->
-  <script src="./assets/js/script.js"></script>
-
-  <!--
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script> 
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <script>
-    // Function to update cart count
-    function updateCartCount() {
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      document.getElementById('cart-count').textContent = cart.length;
-    }
-
-    // Function to add item to the cart
-    function addToCart(item) {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart.push(item);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      alert(item.name + ' added to cart!');
-      updateCartCount(); // Call function to update cart count after adding item
-    }
-
-    // On page load, update the cart count from the existing cart
-    window.onload = function () {
-      updateCartCount();
-    }
-  </script>
-
-</body>
-
 </html>
