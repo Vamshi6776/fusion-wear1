@@ -1,1012 +1,612 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>fusion wear black clover</title>
-
-  <!--
-    - favicon
-  -->
-  <link rel="IMG-20240813-WA0015.jpg" href=" type="image/x-icon">
-
-  <!--
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./assets/css/style-prefix.css">
-
-  <!--
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
-</head>
-
-<body>
-  <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyBOq9EBZSMBuSRgrhfEiJJcdbQwgcxRiPQ",
-      authDomain: "fusion-wear-b7cdc.firebaseapp.com",
-      projectId: "fusion-wear-b7cdc",
-      storageBucket: "fusion-wear-b7cdc.appspot.com",
-      messagingSenderId: "156239565655",
-      appId: "1:156239565655:web:a7b97d349ec6503ad2a412",
-      measurementId: "G-RBR3YVCCXR"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-  </script>
-  
- 
-  <div class="overlay" data-overlay></div>
-
-  <!--
-    - MODAL
-  -->
-  <div class="modal" data-modal>
-
-    <div class="modal-close-overlay" data-modal-overlay></div>
-
-    <div class="modal-content">
-
-      <button class="modal-close-btn" data-modal-close>
-        <ion-icon name="close-outline"></ion-icon>
-      </button>
-
-      <div class="newsletter-img">
-        <img src="C:\Users\vamsh\Downloads\jijijijijijij.jpg" alt="subscribe newsletter" width="400" height="400">
-      </div>
-
-      <div class="newsletter">
-
-        <form action="#">
-
-          <div class="newsletter-header">
-
-            <h3 class="newsletter-title" style="font-family: Impact;font-size: 250%;">avail your offer by 3 get 2 free</h3>
-            <style>
-              /* Button Styling */
-              #sendCodeButton {
-                  padding: 12px 24px;
-                  font-size: 16px;
-                  font-weight: bold;
-                  color:#fdf7e7;
-                  background-color: #25D366;
-                  border: none;
-                  border-radius: 5px;
-                  cursor: pointer;
-                  transition: background-color 0.3s;
-              }
-      
-              #sendCodeButton:hover {
-                  background-color: #1EBE58;
-              }
-      
-              /* Message Styling */
-              #message {
-                  margin-top: 20px;
-                  font-size: 16px;
-                  color: red;
-                  font-weight: bold;
-              }
-          </style>
-          <button id="sendCodeButton" onclick="sendRandomCode()">Click here for code</button>
-          <div id="message"></div>
-      
-          <script>
-              // Check if the offer has already been claimed
-              document.addEventListener("DOMContentLoaded", function() {
-                  if (localStorage.getItem("offerClaimed") === "true") {
-                      showClaimedMessage();
-                  }
-              });
-      
-              function sendRandomCode() {
-                  // Check if the offer has already been claimed
-                  if (localStorage.getItem("offerClaimed") === "true") {
-                      showClaimedMessage();
-                      return;
-                  }
-      
-                  // Generate the random code and send it to WhatsApp
-                  const code = generateRandomCode(8); // Generate an 8-character code
-                  const phoneNumber = '9014798713'; // Replace with your WhatsApp number
-                  const message = `Your code is: ${code}`;
-                  const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-                  window.open(whatsappURL, '_blank');
-      
-                  // Set offer as claimed in localStorage and display message
-                  localStorage.setItem("offerClaimed", "true");
-                  showClaimedMessage();
-              }
-      
-              function generateRandomCode(length) {
-                  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-                  let result = '';
-                  for (let i = 0; i < length; i++) {
-                      result += characters.charAt(Math.floor(Math.random() * characters.length));
-                  }
-                  return result;
-              }
-      
-              function showClaimedMessage() {
-                 document.getElementById("sendCodeButton").style.display = "none";
-                 document.getElementById("message").innerText = "You have already claimed this offer we will be here with new coupons code soon.";
-              }
-          </script>
-        </form>
-
-      </div> 
-    </div>
-    </div>
-  
-
-  <div class="notification-toast" data-toast>
-
-    <div class="toast-banner">
-      <img src="https://img.freepik.com/free-vector/vector-sale-banner-design-template_1017-12083.jpg" alt="Rose Gold Earrings" width="80" height="70">
-    </div>
-
-    <div class="toast-detail">
-
-      <p class="toast-message">
-        
-      </p>
-
-      <p class="toast-title">
-        Bill up to ₹1500 to receive 50% off on your next purchase of any product worth ₹1500 ! Shop now and save big on your future purchase!"
-      </p>
-
-      <p class="toast-meta">
-        <time datetime="PT2M">2 Minutes</time> ago
-      </p> 
-
-    </div> 
-
-  </div>
-</div>
-</body>
-
-    <div class="mobile-bottom-navigation">
-
-     
-      <a href="cart.html"><button class="action-btn">
-        <ion-icon name="bag-handle-outline"></ion-icon>
-        <span class="count" id="cart-count">0</span>
-      </button></a>
-
-      <a href="miindex.html><button class="action-btn">
-        <ion-icon name="home-outline"></ion-icon>
-      </button></a>
-
-    <a href="order-summary.html"<button class="action-btn">
-      <ion-icon name="heart-outline"></ion-icon>
-
-      <span class="count">0</span>
-    </button></a>
-
-
-      <a href="C:\Users\vamsh\Downloads\fwnewwork\fusion-wear1-master\assets\catagoley.html"><button class="action-btn" data-mobile-menu-open-btn>
-        <ion-icon name="grid-outline"></ion-icon>
-      </button></a>
-
-    </div>
-
-    <nav class="mobile-navigation-menu  has-scrollbar" data-mobile-menu>
-
-      </div>
-      
-
-      </div>
-
-    </nav>
-
-  </header>
-
-
-    <div class="mobile-bottom-navigation">
-
-     
-      <a href="cart.html"><button class="action-btn">
-        <ion-icon name="bag-handle-outline"></ion-icon>
-        <span class="count" id="cart-count">0</span>
-      </button></a>
-
-        <a href="miindex.html"> <button class="action-btn">
-      <ion-icon name="home-outline"></ion-icon>
-    </button></a>
-      
-      <button class="action-btn">
-        <ion-icon name="heart-outline"></ion-icon>
-
-        <span class="count">0</span>
-      </button>
-
-      <a href="C:\Users\vamsh\Downloads\fwnewwork\fusion-wear1-master\assets\catagoley.html"><button class="action-btn" data-mobile-menu-open-btn>
-        <ion-icon name="grid-outline"></ion-icon>
-      </button></a>
-
-    </div>
-
-    <nav class="mobile-navigation-menu  has-scrollbar" data-mobile-menu>
-
-      </div>
-      
-
-      </div>
-
-    </nav>
-
-  </header>
-  
-    <div class="mobile-bottom-navigation">
-
-    
-      <a href="cart.html"><button class="action-btn">
-        <ion-icon name="bag-handle-outline"></ion-icon>
-        <span class="count" id="cart-count">0</span>
-      </button></a>
-
-      <button class="action-btn">
-        <ion-icon name="home-outline"></ion-icon>
-      </button>
-
-      <button class="action-btn">
-        <ion-icon name="heart-outline"></ion-icon>
-
-        <span class="count">0</span>
-      </button>
-
-      <a href="C:\Users\vamsh\Downloads\fwnewwork\fusion-wear1-master\assets\catagoley.html"><button class="action-btn" data-mobile-menu-open-btn>
-        <ion-icon name="grid-outline"></ion-icon>
-      </button></a>
-
-    </div>
-
-    <nav class="mobile-navigation-menu  has-scrollbar" data-mobile-menu>
-
-      <div class="menu-top">
-        <h2 class="menu-title">Menu</h2>
-
-        <button class="menu-close-btn" data-mobile-menu-close-btn>
-          <ion-icon name="close-outline"></ion-icon>
-        </button>
-      </div>
-
-      <ul class="mobile-menu-category-list">
-
-        <li class="menu-category">
-          <a href="#" class="menu-title">Home</a>
-        </li>
-
-        <li class="menu-category">
-
-          <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Men's</p>
-
-            <div>
-              <ion-icon name="add-outline" class="add-icon"></ion-icon>
-              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
-            </div>
-          </button>
-
-          <ul class="submenu-category-list" data-accordion>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">Hoddies</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="t shirts (1).html" class="submenu-title">T-shirts</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">customise</a>
-            </li>
-          </ul>
-
-        </li>
-
-        <li class="menu-category">
-
-          <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Women's</p>
-
-            <div>
-              <ion-icon name="add-outline" class="add-icon"></ion-icon>
-              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
-            </div>
-          </button>
-
-          <ul class="submenu-category-list" data-accordion>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">Hoddies</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="t shirts (1).html" class="submenu-title">T-shirt</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">customise</a>
-            </li>
-          </ul>
-
-        </li>
-
-        <li class="menu-category">
-
-          <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Mugs</p>
-
-            <div>
-              <ion-icon name="add-outline" class="add-icon"></ion-icon>
-              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
-            </div>
-          </button>
-
-          <ul class="submenu-category-list" data-accordion>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">printed-mugs</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">customise</a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="menu-category">
-
-          <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Skins</p>
-
-            <div>
-              <ion-icon name="add-outline" class="add-icon"></ion-icon>
-              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
-            </div>
-          </button>
-
-          <ul class="submenu-category-list" data-accordion>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">laptop skins</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title">mouse skins</a>
-            </li>
-          </ul>
-        </li>
-        <li class="menu-category">
-          <a href="#" class="menu-title">Hot Offers</a>
-        </li>
-
-      </ul>
-
-      <div class="menu-bottom">
-
-        <ul class="menu-category-list">
-          <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-          <div class="elfsight-app-c8ee0bbd-3062-4bfe-b218-61d9ca8ad719" data-elfsight-app-lazy></div>
-                  <div class="header-alert-news">          
-        </ul>
-
-      </div>
-
-    </nav>
-
-  </header>
-
-
-
-
-
-  <!--
-    - MAIN
-  -->
-
-  <main>
-              </div>
-
-            </div>
-
-          </div>
-         
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T-shirts</title>
-    <style>
-        .mySlides {display:none;}
-        </style>
+    <title>Product Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color:whitesmoke;
         }
-        .product {
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
             padding: 20px;
-            background-color: #fff;
+        }
+
+        .product {
+            background-color:white;
+            border: 1px solid #ddd;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            max-width: 300px;
-            margin: 20px;
-            display: inline-block;
-            vertical-align: top;
-        }
-        .product h1 {
-            margin-top: 0;
-        }
-        .add-to-cart-btn,
-        .go-to-cart-btn {
-            display: inline-block;
-            padding: 10px 15px;
-            font-size: 16px;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
+            padding: 15px;
             text-align: center;
-            transition: background-color 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
-        .add-to-cart-btn {
+
+        .product img {
+            width: 200px;
+            height: 200px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: transform 0.2s ease;
+        }
+
+        .product img:hover {
+            transform: scale(1.05);
+        }
+
+        .product h1 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .product p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .product button {
             background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
         }
-        .add-to-cart-btn:hover {
+
+        .product button:hover {
             background-color: #0056b3;
         }
+
         .go-to-cart-btn {
+            display: inline-block;
+            text-decoration: none;
             background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
             margin-top: 20px;
-            text-align: center;
-            display: block;
         }
-        .go-to-cart-btn:hover {
-            background-color: #218838;
+
+        /* Preview Modal Styling */
+        .preview-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
         }
-        .P{
-          size-adjust: 100%;
+
+        .preview-modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .preview-modal .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
         }
     </style>
 </head>
+<div class="container">
+  <!-- Cart Button -->
+  <a href="cart.html" class="go-to-cart-btn">
+      Go to Cart <span id="cart-count">(0)</span>
+  </a>
 <body>
-  <H1 align="center">anime collection</H1>
-      
-      <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-      <lottie-player 
-          src="https://lottie.host/3beb0bf7-a44f-49a9-ae9f-61fcafd76eb0/FOwZelMeit.json" 
-          background="transparent"
-          speed="1" 
-          style="width: 300px; height: 300px" 
-          loop 
-          autoplay 
-          direction="1" 
-          mode="normal">
-      </lottie-player>
-      <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRf0GDqBsFEX6fC_knxtNVG_c-XxGIPj-AUg&s" width="200px" height="200">
-        <h1>Naruto pain t shirts for men half sleeves round</h1>
-        <p>Price: ₹299.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Naruto itachi uchiha t shirts for men half sleeves round', price:299})">Add to Cart</button>
+  <div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRf0GDqBsFEX6fC_knxtNVG_c-XxGIPj-AUg&s" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Naruto pain t shirts for men half sleeves round</h1>
+    <p>Price: ₹299.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Naruto itachi uchiha t shirts for men half sleeves round', price:299})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvKEBgl1617n69lG-iW_WyZZLGcd7azf4fKNBqySX0vkIr_zfoO7_3USv_&s=10" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Naruto Anime Printed Oversized Fit T-Shirt</h1>
+    <p>Price: ₹349.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Naruto Anime Printed Oversized Fit T-Shirt', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmXAkWrFWXgJSe4HoGkQXJa_-2GCsBf5HUktXyiyRXUafm0R2StnT37rQ&s=10" width="200px" height="200" onclick="previewImage(this)">
+    <h1> Anime t Shirt for Men Oversized fit Naruto </h1>
+    <p>Price: ₹249.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: ' Anime t Shirt for Men Oversized fit Naruto', price:249})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRSceuWO28A_bi8QSe5V6-ADnpN5NiKSthslc2WkUklfbaqKMqyTKGUmL-&s=10" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Free Authority Printed, Typography Black T-Shirt </h1>
+    <p>Price: ₹249.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Free Authority Printed, Typography Men Round Neck Black T-Shirt ...', price:249})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTardYJR6U52TQlbiRCrpwkzGzU41VGvhrZ47QMSS8mcqEMQDkeAPU73sKr&s=10" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Naruto Animal Oversized black T-Shirt for Men S</h1>
+    <p>Price: ₹349.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Naruto Animal Oversized T-Shirt for Men ', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdG_6JuIGrEbp6YsZnb9s1ABE_XXu5stvy5Zu001-jgJPhF2UHoIV41mXy&s=10" width="200px" height="200" onclick="previewImage(this)">
+    <h1> Women Naruto Printed purple color T-shirt Online  </h1>
+    <p>Price: ₹249.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Buy Women Naruto Printed Cotton T-shirt Online at ', price:249})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaKDtjS1Zyf55_nw1cyHF98OjZr18T5L0G_Q&usqp=CAU" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Obito Uchiha | Naruto Unisex Oversized black T-Shirt </h1>
+    <p>Price: ₹349.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Obito Uchiha | Naruto Unisex Oversized T-Shirt S', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhBm-MhaHYiDxCRtwQshOprjJeK-c_9Azn4lVheuDeNHhIjPDGW9cQgeNd&s=10" width="200px" height="200" onclick="previewImage(this)">
+    <h1>uzumaki Naruto anime -Oversized black  T shirt anime </h1>
+    <p>Price: ₹199.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Naruto - Oversized T shirt', price:199})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS28X6rgTG7wlKctBOJELlb9ZvgcrCNpGSEYg&usqp=CAU" width="200px" height="200" onclick="previewImage(this)">
+    <h1> Naruto Kurama White Hoodie Trendy Stylish Unisex</h1>
+    <p>Price: ₹249.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Buy Koverify Naruto Kurama White Hoodie Trendy Stylish Unisex', price:249})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThTnRtH61R2CZgPnO7ZOTcfdBkKtkXUNW3jw&usqp=CAU" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Men's Anime : Naruto Oversized Hoodie </h1>
+    <p>Price: ₹649.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Mens Anime : Naruto Oversized Hoodie', price:649})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs3iw3DQFlj6TlhMy4MV_DWM5jSSsC2g8soQ&s" width="200px" height="200" onclick="previewImage(this)">
+    <h1>fusion wear Naruto Ninetails Anime white Hoodie</h1>
+    <p>Price: ₹799.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'CRAZYMONK Naruto Ninetails Anime Hoodie', price:799})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://assets.ajio.com/medias/sys_master/root/20240313/6E0Q/65f1bcc405ac7d77bbb0cc79/-473Wx593H-443027676-beige-MODEL3.jpg" width="200px" height="200" onclick="previewImage(this)">
+    <h1>ALTHEORY Naruto Back Print T-Shirt For Men (Beige)</h1>
+    <p>Price: ₹449.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'ALTHEORY Naruto Back Print T-Shirt For Men (Beige, ', price:449})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://m.media-amazon.com/images/I/610wN-j-fBL._SY741_.jpg" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Round Neck half sleeve Shippuden ANIME printed Tshirt </h1>
+    <p>Price: ₹199.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Round Neck half sleeve Shippuden ANIME Character printed Tshirt for Boys and Girls', price:199})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCqVUHp-UJtpetdC_jck49T8q0IFBt2HKw48smMS427vbCXYbnnENNz5MF&s=10" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Naruto uzumaki Printed T-Shirt For Unisex white color black print</h1>
+    <p>Price: ₹249.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Naruto Printed T-Shirt For Unisex - ', price:249})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfblGg5X_BA7m1yV8reJt2xEduAQs9wyr-slszAFxTXGh3Q3A2Z8doMf_S&s=10" width="200px" height="200" onclick="previewImage(this)">
+    <h1>YOURTURN NARUTO CREW RELAXED BACK PRINT UNISEX - Sweatshirt ...</h1>
+    <p>Price: ₹569.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'YOURTURN NARUTO CREW RELAXED BACK PRINT UNISEX - Sweatshir', price:569})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1Q9QrqY2xxz_PlicdmXhZiR0V428atlJmGMO2fjgoA2yEcVyAG_3pU49y&s=10" width="200px" height="200"onclick="previewImage(this)">
+    <h1>Naruto Shippuden Kakashi Hatake Graphic Men's Black T-shirt</h1>
+    <p>Price: ₹349.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Naruto Shippuden Kakashi Hatake Graphic Men's Black T-shirt : Target', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSBpcsG9REopBbDoX1ULF8VE9thic-1Zx3zw&s" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Gara Of The Sand Oversize T-shirt naruto anime</h1>
+    <p>Price: ₹299.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Gara Of The Sand Oversize T-Shirt', price:299})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://m.media-amazon.com/images/I/71fRwt0j6XL._SX679_.jpg" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Anime Printed Naruto Sasuke Oversized T-Shirt</h1>
+    <p>Price: ₹349.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Fans Army Mens Anime Printed Naruto Sasuke Chidori Oversized T-Shirt', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://m.media-amazon.com/images/I/61mMAlM13pL._SX679_.jpg" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Fusion wear Men's Anime Printed Itachi Uchiha T-Shirt </h1>
+    <p>Price: ₹299.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Fans Army Mens Anime Printed Itachi Uchiha T-Shirt', price:299})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTlT_XHHQKqf1cBIpt2IHBxEI0gbw8WtQQzVBu1VA6YY61ulMm2IoyqD7XTbotkBao8XUfuvQKCC_FmlX5__cJ8K641BT1IxniY6j4bjpzuWuSJNdGJFYR-&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Printed Black T-Shirt black clover</h1>
+    <p>Price: ₹349.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Printed Black T-Shirt black clover', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR0lgvowOB7M06KQHBu0-9VLecaZSPNUNbaUr2c_XTiOoJjP06_glnzzao0F1f5ffBByrbQlCeU9XSbZZpyt8--0obKja7YqLQR27Gs6yos&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Black Clover Oversized T-Shirt</h1>
+    <p>Price: ₹399.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Asta Black Clover Anime Oversized T-Shirt', price:399})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://images.bewakoof.com/original/mad-over-print-men-s-black-anime-black-clover-graphic-printed-oversized-t-shirt-573588-1674550973-1.jpg" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Five leaf clover black t shirt Oversized</h1>
+    <p>Price: ₹299.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Five leaf clover black t shirt', price:299})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://m.media-amazon.com/images/I/61u-rdzPXCL._AC_UY1100_.jpg" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Black Clover Black Bull Asta Cotton Printed</h1>
+    <p>Price: ₹249.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Anime Black Clover Black Bull Asta Cotton Blend Printed Half Sleeve Round', price:249})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuqc4HA9xXuxGtrme2RbCD6A0rQ-TCAEWZpg&s" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Black clover Yami Sukehiro T-shirt </h1>
+    <p>Price: ₹299.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Black clover Yami Sukehiro T-shirt Anime Manga Unisex T-Shirt ALL SIZES S to 5XL', price:299})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQePB_OzyCyStL0HXSF4Z2PrTPQe5qIY16-DAqWT3oI8_MYD6qs3ll9m8A4igfsrrZAFih_lSTQQj-oUhwCkaDt8kD9hGlAeLpgtHVVQwKOJMryG1h7JeZq&usqp=CAY" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Asta Black Clover T-Shirt dark frindship</h1>
+    <p>Price: ₹249.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Asta Black Clover T-Shirt', price:249})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQ-1SW_2uEGjWtVVvfZQ062Um33y1iT7txXe0x_ZR32aPsZNRwRq0Z7YGXr1FxcMF3OMYsxo0EvuMlOuvJLi5A386JGF-0yr4193BXJ8u8&usqp=CAY" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Asta Clover Blood - Black Clover white</h1>
+    <p>Price: ₹199.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Asta Clover Blood - Black Clover white', price:199})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT31UI1aJxZaSKyconIV4bNv9UuTJzH-uVgZ3U3FkHxpsMx8hIb_olG2F3BpNTR1O3SURoFHEg8rrY8GWifGBVde4goAvpqkQiCVFfelGjH0T1vcdAyTvQB&usqp=CAY" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Asta Clover Blood - Black Clover Black</h1>
+    <p>Price: ₹219.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Asta Clover Blood - Black Clover Black', price:219})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTnANPJaexZXGql4GmQeO82WRFCdO6KogE0ZJ0ppbbJ1GGIq_90Ej_6v5R_owQ2NeJiEn6KJWpL4iDkYB9kyaO-ELHhS8YMfpb_44TC3vs&usqp=CAY" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Black Clover : Asta Oversized T-Shirt</h1>
+    <p>Price: ₹299.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Black Clover : Asta Oversized T-Shirt ', price:299})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT5ZwLiEqC7NpbCKQ2OLQfaSoAQonhXQGO-yxSNm-stOpg1EyFb44v17vpGzfFUdxe4Td1jyEyaIYeU0dqNj_eZ5nNnRrd3LyNQWt3C3bivAWQalu6-MbIyKFE&usqp=CAY" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Black Clover Yami Tee / Oversized</h1>
+    <p>Price: ₹199.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Black Clover Yami Tee XXL / Oversized', price:199})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTyqYtnrwKEXT9x9YkXgCR6V-CNBU5hPCFy2lQI8n6bXzVtvRAS9Lzw-y8CmsCMn3njjaRM5VJSCHtgA31djy9Xq69xgTrCyK5b-wZTuhIMaQRyqulyqe05Zw&usqp=CAY" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Black Clover Gold Tshirt Drop Shoulder </h1>
+    <p>Price: ₹349.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Black Clover Gold Tshirt Drop Shoulder 240 GSM Extra large', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://www.swagshirts99.com/wp-content/uploads/2020/08/t15-8.jpg" width="200px" height="200">
+    <h1>asta transfomation T-shirt</h1>
+    <p>Price: ₹249.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Black Clover T-Shirt', price:249})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://harsido.com/cdn/shop/products/b_d5594a5e-c746-4d5d-9fce-9f64c26da7f5_960x.jpg?v=1629795887" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Demon Asta - Black Clover t- shirt</h1>
+    <p>Price: ₹249.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Demon Asta - Black Clover', price:249})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRh0bREaoIcJaITku3N58aY9wCAuPW4jI5Mf5SF2K2X2BKSr8jy1J6PoBMssDVulAbNEdYa1QDVG39CnPS5xtYlCoRG5vn_5iEwDGWuai25lrIMItHXSwoU&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Asta and Yuno - Black Clover Black</h1>
+    <p>Price: ₹249.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Asta and Yuno - Black Clover Black / S', price:249})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQ_rYO7lvmjaDlHQXfHvynFUwojwcjJyciZPtrLljqmi1VuvmpgPNkt-0TnFItML2xJUY5MncyY5bx85nHxNvjfj3ehlwWaDKcfY8d9OlCc_OCB01O1P12a&usqp=CAY" width="200px" height="200" onclick="previewImage(this)">
+    <h1>ASTA-BLACK CLOVER Maroon /</h1>
+    <p>Price: ₹1499.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'ASTA-BLACK CLOVER Maroon / XL', price:149})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTntKIKk3yjtP16pVATj_HutBExCaffLodGJxrEQEbT4bRGmydKawJHdY-M3LH_4B8ss-O5n-yt-rWMArCksOT6p3Lh5vIQ6Zpcds0deHnf8WI7tfu4BFgbFQ&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Demon Asta - Black Clover t- shirt white</h1>
+    <p>Price: ₹199.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Demon Asta - Black Clover White / XL', price:199})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQrOXuDhgK2pEcm4zAmCdiS8qDwGNrex2hmBdMUQLvWT93GRShCAKjCI7yjIBd_xuMTRMmV-SprPefDgsJyJWLWI8jWVOKGb7BokKc9l5U&usqp=CAY" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Black Clover - Asta Cotton T-Shirt TS110</h1>
+    <p>Price: ₹299.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Black Clover - Asta Cotton T-Shirt TS110', price:299})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ21--3TmJivEZTU-DOXCfvKayfMSn1uXAP5xaVNAXARemhqPIrcWNaGoJXXDEmuM51qttBwXfFaZuTNgDvUm6FIegzzSP3xOk6EYcc6AK9lsA9zDiI2CLCPLU&usqp=CAY" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Black Bulls Tshirt | Yami Sukehiro</h1>
+    <p>Price: ₹249.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Black Bulls Tshirt | Yami Sukehiro | The Unrealm Unisex / Navy Blue / M', price:249})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://www.emp-online.ch/dw/image/v2/BBQV_PRD/on/demandware.static/-/Sites-master-emp/default/dwba28e932/images/5/5/4/3/554321.jpg?sw=350&sh=400&sm=fit&sfrm=png" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Black Bulls best tro Printed t shirt</h1>
+    <p>Price: ₹299.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Black Bulls best tro', price:299})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRdrxpimLNI5_WgqUfKx1P6Jc1xVa3hDyCscWvpNY5afZsQC4FBceV6FhIz3xRG7m39wWBki9IjirZPLSKGnDTf54LzLT1fd2jFz3xUFjrV&usqp=CAY" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Ichigo Kurosaki - bleach bankai embroidery Hoddie</h1>
+    <p>Price: ₹999.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Ichigo Kurosaki -embroidery bleach', price:999})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQqPTfcigVmH6vImuCWwoPLZ_7ZNwyjKkVh27tKWjJJlA3zRotZS_cA-CtyCTd80AvNwUvzspbsBgCpalK97Z6x4_QlLuDupXvvmRo5fnf2tdnT03an_svoVg&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Bleach Toshiro Dragon Pullover Hoodie</h1>
+    <p>Price: ₹749.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach Toshiro Dragon Pullover Hoodie', price:749})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQtp_ykg5myGZJEa1MqsL2ySer-XPMzlMNIZ_9W_w_3UZHR_KtENIZaIBwuvtyO8WNkVF3nCzy0rf-qzOu_GHYa9b_pcxW5RQceagRqsF5AgRoafsvskpfc&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1> Ulquiorra  Oversized Hoodie </h1>
+    <p>Price: ₹829.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: ' Ulquiorra Cifer Oversized Hoodie ', price:829})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTA6ShSneszUpYJ6CVTntkY3ILVHagrnKc0CLP4QqqBJAFAz5dn4VHRWju7nRNnHECaoLCh6USmKP5osg19SNHwVh5vp2BcIED7eZ0g6mBcAunYUYZpmwbg&usqp=CAc" width="200px" height="200" onclick="previewImage(this)">
+    <h1>  Bleach KENPACHI  Black  Hoodie</h1>
+    <p>Price: ₹699.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach Ulquiorra Cifer Oversized Hoodie M', price:699})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTYXJWOpUBW_BMnaQ2G0kl5F7SYkjFliAGJCz9YCTpwad4CG1NGP5Pir_bOXw3OLhW3rucXrGMW0cXkHfVUPWvsWqD0DO-_Zs00mAOOtum9&usqp=CAY" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Bleach Hoodie - Ichigo Kurosaki  The Unrealm  </h1>
+    <p>Price: ₹699.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach Hoodie - Ichigo Kurosaki | The Unrealm White ', price:699})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRxHYTwVo7rBS5ciI6Ib0MB4s3kR_WBQkdDRNOwHvxjZ4zpqvWdGuyKX1H3sJ-9Z8qt8Z_AbCKkV6vvUOixnt5tGnILC3PQdwEF8VNJRRpq1pf1l8s13U_BVA&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Bleach hallow brothers black Hoddie  </h1>
+    <p>Price: ₹699.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach Merch Medium', price:699})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcR265botg8UNHyx5w49nCwN4M6mE_fCQIiVqGXpNmovlHdZj8luZ8ZT4KxR9eoUmTkr_FnFqAawXyFOqh3nrDYMQtKs_O9p11h_Gb6QLbzY&usqp=CAY" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Bleach Ichigo Hollow Oversized Tshirt</h1>
+    <p>Price: ₹449.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach Ichigo Hollow Oversized Tshirt White', price:449})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRjfBUfbCkeCeMnVB-0BcHXvx7m_JK_ge36PDadZYNIr3yGddpPebtfewiwXqfVZ44urfvNuxLLlz9LkY6LAAqLxhWm3ZT-gWRVEGBtdiM&usqp=CAY" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Bleach Bankai Embroidered T-Shirt Lavender</h1>
+    <p>Price: ₹649.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach Bankai Embroidered T-Shirt Lavender', price:₹649})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQmoF-CJjFv7wV8ILgkyAihu5C-nBxIq4mLwFQrUBPf1i_hDGSAZZghLIwIBDvM2P40ae-lGDLBmUNIRrnVma8U-uGJu8UtaeLq4u0gFD0gGxq_q4y0qgqq&usqp=CAY" width="200px" height="200" onclick="previewImage(this)">
+    <h1> Ichigo Kurosaki Bleach Oversized  Half Sleeves </h1>
+    <p>Price: ₹449.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Ichigo Kurosaki Bleach Oversized T-Shirt: Premium Cotton, Unisex, Half Sleeves for Men and Women', price:449})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTFM-PWRRaASJ2HnyNgpWxUV5QIQCesDqTD4A4GXXmtmAm9CPlbDcKDLnd_7I1d-3WUrfSvx6cWVwZDCf_E1hXB8A4GZiJuWSUcCp0_1iIcsghyFtJOY5nG&usqp=CAY" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Bleach T-shirt - Shop Ichigo Bleach T shirt Online </h1>
+    <p>Price: ₹349.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach T-shirt - Shop Ichigo Bleach T shirt Online ', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSr7iC7GUPTd6g-axYDGdsVRQlK-js0mz7j3P-IK1PdNTwJbM_L2rT9_dKA-4Q5N23dPShPZU2FiFCchA0RXlQUfQstq4UFSxMYHpbF_k7oGsuHGVIVBVf4&usqp=CAY" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Bleach - Oversized T-Shirt White  Oversized</h1>
+    <p>Price: ₹349.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach - Oversized T-Shirt White / M / Oversized', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSOZGzv043G9e6K_Dn6vvpGDLg0nxUXXyXeAwrGLNthFHslMilBedt80GTkJ2Hz4xr0IGgBm9HtIN2Y--DkDowDO27reejrBv7yvgewYVg&usqp=CAY" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Bleach  Byakuya Kuchiki With Broken Sword Printed Tshirt</h1>
+    <p>Price: ₹349.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach Anime Byakuya Kuchiki With Broken Sword Printed Tshirt For Men', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSecny2Jl2zxACz85yaxKSRBcKj0BxUbhlDzp9bx_hiGGBk51nQ_Nro0fQttAkhbh1tQQFqY2480hSz3Z0Xf8-9yASOoiPFYmfTin03KYIr&usqp=CAY" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Bleach-Ichigo hallow Oversized T-Shirt</h1>
+    <p>Price: ₹249.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach-Ichigo-tybw-horn-hollow - Oversized T-Shirt', price:249})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTGWCfY0Gu11hLeYcGZdrX5Z-YTrIj6qxHTRsTHjdKzPV_UDBOCeE54tg--EJZxFMONYkFvQuByyAtUXhmSkS4vOyzD-E3YA9yjJYfVHcV0wdIHv0gw6JhkKw&usqp=CAY" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Bleach: Shinji Hirako (Oversized T-Shirt)</h1>
+    <p>Price: ₹399.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach: Shinji Hirako (Oversized T-Shirt)', price:399})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQd4fDoOvUr9srAIxjffktlfdCmR8_THPoJOtQOo60h0hZnxOeNmU1DP-woe8plJ-df9pCR6ps-EClApnUPzAsltLjIxZaDyk3YwlDe6XWmiWyhJiYvtareNg&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Bleach Ichigo Hood Sweatshirt | Ubuy</h1>
+    <p>Price: ₹549.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach Ichigo Hood Sweatshirt | Ubuy', price:549})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTZFJdFHjCXVTDbf0yGnwbZVuX8XoeAU8irYGI1wQ_SgGcEhUge2eDR9WW30xilV6WfH9nYjNdUsCtXYQym7DjHYrwJggJeq9uWfJSZKpWUzbSqZRZzfkFa&usqp=CAY" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Bleach Ichigo Kurosaki Oversized T-Shirt</h1>
+    <p>Price: ₹299.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach Ichigo Kurosaki Oversized T-Shirt', price:299})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQqLtF5IfioJQz6S30fWtFs1U9nqb-Skdezxbhn2eq33LT0IjkGA8XnaBPYVWkRuvZtk4sC9XrluPE-Q22_pevIIjE7WAlkgOnFAPFfMSD9&usqp=CAY" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Bleach Hollow T-shirt - Masacio White </h1>
+    <p>Price: ₹149.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach Hollow T-shirt - Masacio White ', price:149})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT_KDjYwitZmVj5bA3YxH5fN4GUPqtYUgIajlJ8T0Czb9mbRn-i08mie7_i7hAjqVCTTvo9oRBUGeujl_INNAJwmsFYBdwNWJ7e3zp4JwpTNYbrNpWCpu2T&usqp=CAY" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Bleach black Ichigo Mask T-Shirt </h1>
+    <p>Price: ₹249.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach Ichigo Mask T-Shirt', price:249})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRzYh08UtLmPo9mRXdyOoV5xwTrmJqHfqlVqUpo3AzHB_-Geu9uIGI4AYAfhvUoIJcWhCPeV2Ppz1UugAFuH4Fba2UA8SZfeJz6a5FgBHziCBET8OLoooIWZA&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1> Bleach Hollow Mask Ichigo  Hoodie</h1>
+    <p>Price: ₹549.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'crazymonk Bleach Hollow Mask Ichigo Kurosaki  Hoodie', price:549})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRM_NiwR4K4ZL5WN2VDshyBwlHTCvCQKPPouqx7EXNW4p2KAcdTcAllo0WBaUdsOqWJ0sr6VxvS6MCYa0ufmexs-oKuuT-1ONEYfKwFIpLz7tRmVa2eMtnN&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>one piece Hoodies for Luffy Gear 5 </h1>
+    <p>Price: ₹699.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Darkbuck Anime Oversized Hoodies for Men & Women Luffy Gear 5 dropshoulder Unisex Hoodie', price:699})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRhbvG5DOqXBr_eEl3pThn9YVoIJbWBH4eOyXGc1HRktJZIPSyyGRAaWSZ6W8_WGnI4wMtiS3Xrn1n3FKaY93J8GlznJfJqqH8mWoL-2K8RCBlZLkJVDg8e&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Luffy The Pirate - One Piece Hoodie</h1>
+    <p>Price: ₹499.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Luffy The Pirate - One Piece Hoodie', price:499})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT99fGh_uV6TTD0RmpkqZ4FLgAujwrTfkmi4wRKQPng4pVZqlA00DcA8rA25nm3WrUpGUHfgZIB-JjYqTchXelPxUHX0NlV3S1ltOYJ5z5uq23F9JnjmDzQeQ&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1> One Piece Luffy: Pirate King Hoodie </h1>
+    <p>Price: ₹349.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'One Piece Luffy: Pirate King Hoodie ', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ57QSpeZpzVTX8wEj3OYddJXBfKn86OroDcx14d2kgvIhzDXNT7yfE9x0juMJik8eAmkft2Uw-Z-GpB67NyUl0nmUo8yKb7tFxAM19CnM3b7vUq-dwXXXbfg&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Luffy Gear 5 / One Piece Hoodie</h1>
+    <p>Price: ₹499.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Luffy Gear 5 / One Piece Hoodie', price:499})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSuODNNakLizGfVIBNYOyvDiOqwZ6-rghq-cWdHfjSm7Nei_jpeKzrFzAIvG2NDNn-PbveZVY2xfK8YrOhSBPyTfr_inHwLEX63MJoPrPwaGPWUHT7SmeugAg&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>one piece Straw Hat Luffy black Hoodie </h1>
+    <p>Price: ₹649.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Straw Hat Luffy Hoodie ', price:649})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRP-hk-gxQ_k_vDzybKne4Ds2CAjAe3_uCsSkHIJIAGR2I3T-uq60PL1bjk49-KHPlgIxW8zXBwCe_DcG9hANRaNxxupiFbqjLwkr2EViZZGV0LKyJHefSkFQ&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1> Roronoa Zoro king of hell- One Piece white Hoodie</h1>
+    <p>Price: ₹899.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Roronoa Zoro - One Piece Hoodie', price:899})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQyO0KXHGoAvlUdoElFzwB1WxwObOERvDvuaoC8TqtxC0QbzmVyVeSoNYluCyMQ5QXMLsHXkSvlxv9s6vKWnvaLhCrdIHGwAcO7taZV6R6QbrJ3jJ5sUHZuOw&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>fifth gear Luffy Gear 5 Anime Hoodie | Anime Hoodies</h1>
+    <p>Price: ₹999.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'CRAZYMONK Luffy Gear 5 Anime Hoodie | Anime Hoodies', price:999})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSuFkN2fp7vujkSulspbZGP5Sa1t94OiQZA2ZDrXsHaKVkp47-ARU76VZt_n2xq0Hvf6Je0QK9e2ve4zAXbyxHvfR1dv-dhg9TKnyFyAYYyIIewy49YHQyCgQ&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>One Piece zoro king of hell  for Men black Hoddie</h1>
+    <p>Price: ₹749.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Tenebrose One Piece Anime Hoodie for Men', price:749})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRwxIGUjBm504ZMbfZrOsRrB3BXxN4cz6hBdTXfh-y8QzYfx7yilxpxk8wCK4auEwSGcC1H_-y14ystSsBYVLF-4tA7GmXSMWypyWH0Pmg2DJ_ixYrS4UmTMw&usqp=CAY" width="200px" height="200" onclick="previewImage(this)">
+    <h1> One Piece Anime black luffy Wanted poster </h1>
+    <p>Price: ₹649.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Buy One Piece Anime Hoodie', price:649})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRQbJVW5pTSJVs0JRVZmjH0AU7exzhFxl2Cn6nbM9eOMHAYHfomhUp_3SiIKhC70R9yWWuBhaUMViixXAVO-4o0-HpHS-OtYMIFTSrORBbgxDU94BMD1VNPpeI&usqp=CAY" width="200px" height="200" onclick="previewImage(this)">
+    <h1>fire fire fruite gold .D Ace Hoodie-One Piece  </h1>
+    <p>Price: ₹799.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Ace Hoodie-One Piece', price:799})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSYzR31WYlu-PdRGpGkfvyUdPyojgtT0uwmd8EXAaf1F8nrz53ZR2-C2Jj6txLZqFenBPO6nP74U2wsjBboKG0ymZGiilcWbl4ntH6BHbOcugrE6GedRQLzvg&usqp=CAY" width="200px" height="200" onclick="previewImage(this)">
+    <h1>One Piece Luffy Wanted Poster Anime Printing T-Shirts</h1>
+    <p>Price: ₹349.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Drizzle CLICKS One Piece Luffy Wanted Poster Anime Printing T-Shirts for Men Collections', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTdrKQRMfmGsp-4L4D5MjYXUvjK3XsNJeagS59yfwog5dxCZ5Ensz6aQqEufH2p-hOzcVzZu-IBE-8Q1r8VHlrHAkma_mBTrTrQa9LtWQ-Hsduo9moTrzfZNA&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>WANTED- RORONOA ZORO - Cotton T-Shirt</h1>
+    <p>Price: ₹349.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'WANTED- RORONOA ZORO - Cotton T-Shirt', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQkyfZXQKIM2t_KD-j93Z6xd71CQboo326oIQ7ry37Y7bCubcUUr-3AgI7y1CwZSVbtlwtRBJnPyngAxqMrk-6Ak_xDw9HvPprlVnCf7cg&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>One Piece Sanji Full Wanted Poster Short-sleeve T-shirt</h1>
+    <p>Price: ₹349.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Ripple Junction One Piece Sanji Full Wanted Poster Anime Adult Short-sleeve Graphic T-shirt', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRtKJXZtUxJ22YjgrNnLLhUahwNZSZzUcLivNxkRwKcvFH-yKLkQ5C1e3X_vmjQS6k-ze0oUNZicl5OvYTqUB92HZ0uhvJXktdy3Z-0xva8v_Gk-hktWtJRlQ&usqp=CAY" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Men's Black War Is Over Shanks Printed T-shirt L / Black</h1>
+    <p>Price: ₹349.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Mens Black War Is Over Shanks Printed T-shi', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQSPO3__ne6JIBiNk2RTI1I1OTwresbOfWVfKQaN8rHNDwQhlklfn7-8YYiAyHB85s1xgmH6ldj95y_PLPzEFz4z6nchXT04zbDG-R2gl0&usqp=CAY" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Sasticopy Graphic Print Men Crew Neck Black T-shirt</h1>
+    <p>Price: ₹299.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Sasticopy Graphic Print Men Crew Neck Black T-shirt', price:299})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSpYhDzYO0aWcz5CDyWWyi9N3Irp6I67lr5dajg5l1RlJHxJTDsDluVEKQuO7mQ1iYEr_4_S9H8EiZqkf9rJIdrjqszW1yhg7x8LDpLLfA&usqp=CAY" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Heart Pirates(Law - One Piece) - Hoodie</h1>
+    <p>Price: ₹549.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Heart Pirates(Law - One Piece) - Hoodie', price:549})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRov302sdX_n43dybZ_Qg8dAIwU30rnRrn1gA4wo2SSgKo9Ei6TODP_df5g1gUcOFDpaXKwyLOk64-mxJpXHErQkROHfG6uQ3FQckEAEsW6AENKw40L5Ajn4g&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>One Piece Anime Hoodies Luffy Zoro Kid Law Sweatshirts </h1>
+    <p>Price: ₹749.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Diommell One Piece Anime Hoodies Luffy Zoro Kid Law Sweatshirts Anime Gift | Ubuy ', price:749})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQlur1ueb883njWkaYUDWoiRBXLHsC3Pzr_goEmTqoQMvS5IGKhTO4vtQlJ2ebrUzC2AtH-uSO7aHiTYzwLsT3K0M4V-uYatbUPmKNwWthE0FEfc-5S_29muw&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>monkey .D Luffy One Piece Men Oversized Printed T-Shirt</h1>
+    <p>Price: ₹349.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Luffy One Piece Men Oversized Printed T-Shirtt', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSDsHRxam9-Ff1sm286LunTnbEJZLj7Q00qWmT2ZDOB42cRAa9LaQ2ngYujp5yPFE1Nk0Tdit1tsBp7IxcF20tpow6JYbOflIUcu0p7q_3HO3KGMZeh97iSTA&usqp=CAc" width="200px" height="200" onclick="previewImage(this)">
+    <h1> Jump Cuts Mens Printed Hooded Neck Fullsleeve </h1>
+    <p>Price: ₹549.00</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Jump Cuts Mens Printed Hooded Neck Fullsleeve Black and Yellow Cottonblend Slim Fit T-Shirt', price:549})">Add to Cart</button>
+</div>
+      <div class="preview-modal" id="previewModal">
+        <button class="close-btn" onclick="closePreview()">×</button>
+        <img id="previewImage" src="" alt="Preview">
+        
     </div>
-    <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvKEBgl1617n69lG-iW_WyZZLGcd7azf4fKNBqySX0vkIr_zfoO7_3USv_&s=10" width="200px" height="200">
-        <h1>Naruto Anime Printed Oversized Fit T-Shirt</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Naruto Anime Printed Oversized Fit T-Shirt', price:349})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmXAkWrFWXgJSe4HoGkQXJa_-2GCsBf5HUktXyiyRXUafm0R2StnT37rQ&s=10" width="200px" height="200">
-        <h1> Anime t Shirt for Men Oversized fit Naruto </h1>
-        <p>Price: ₹249.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: ' Anime t Shirt for Men Oversized fit Naruto', price:249})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRSceuWO28A_bi8QSe5V6-ADnpN5NiKSthslc2WkUklfbaqKMqyTKGUmL-&s=10" width="200px" height="200">
-        <h1>Free Authority Printed, Typography Black T-Shirt </h1>
-        <p>Price: ₹249.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Free Authority Printed, Typography Men Round Neck Black T-Shirt ...', price:249})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTardYJR6U52TQlbiRCrpwkzGzU41VGvhrZ47QMSS8mcqEMQDkeAPU73sKr&s=10" width="200px" height="200">
-        <h1>Naruto Animal Oversized black T-Shirt for Men S</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Naruto Animal Oversized T-Shirt for Men ', price:349})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdG_6JuIGrEbp6YsZnb9s1ABE_XXu5stvy5Zu001-jgJPhF2UHoIV41mXy&s=10" width="200px" height="200">
-        <h1> Women Naruto Printed purple color T-shirt Online  </h1>
-        <p>Price: ₹249.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Buy Women Naruto Printed Cotton T-shirt Online at ', price:249})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaKDtjS1Zyf55_nw1cyHF98OjZr18T5L0G_Q&usqp=CAU" width="200px" height="200">
-        <h1>Obito Uchiha | Naruto Unisex Oversized black T-Shirt </h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Obito Uchiha | Naruto Unisex Oversized T-Shirt S', price:349})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhBm-MhaHYiDxCRtwQshOprjJeK-c_9Azn4lVheuDeNHhIjPDGW9cQgeNd&s=10" width="200px" height="200">
-        <h1>uzumaki Naruto anime -Oversized black  T shirt anime </h1>
-        <p>Price: ₹199.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Naruto - Oversized T shirt', price:199})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS28X6rgTG7wlKctBOJELlb9ZvgcrCNpGSEYg&usqp=CAU" width="200px" height="200">
-        <h1> Naruto Kurama White Hoodie Trendy Stylish Unisex</h1>
-        <p>Price: ₹249.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Buy Koverify Naruto Kurama White Hoodie Trendy Stylish Unisex', price:249})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThTnRtH61R2CZgPnO7ZOTcfdBkKtkXUNW3jw&usqp=CAU" width="200px" height="200">
-        <h1>Men's Anime : Naruto Oversized Hoodie </h1>
-        <p>Price: ₹649.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Mens Anime : Naruto Oversized Hoodie', price:649})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs3iw3DQFlj6TlhMy4MV_DWM5jSSsC2g8soQ&s" width="200px" height="200">
-        <h1>fusion wear Naruto Ninetails Anime white Hoodie</h1>
-        <p>Price: ₹799.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'CRAZYMONK Naruto Ninetails Anime Hoodie', price:799})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://assets.ajio.com/medias/sys_master/root/20240313/6E0Q/65f1bcc405ac7d77bbb0cc79/-473Wx593H-443027676-beige-MODEL3.jpg" width="200px" height="200">
-        <h1>ALTHEORY Naruto Back Print T-Shirt For Men (Beige)</h1>
-        <p>Price: ₹449.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'ALTHEORY Naruto Back Print T-Shirt For Men (Beige, ', price:449})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://m.media-amazon.com/images/I/610wN-j-fBL._SY741_.jpg" width="200px" height="200">
-        <h1>Round Neck half sleeve Shippuden ANIME printed Tshirt </h1>
-        <p>Price: ₹199.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Round Neck half sleeve Shippuden ANIME Character printed Tshirt for Boys and Girls', price:199})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCqVUHp-UJtpetdC_jck49T8q0IFBt2HKw48smMS427vbCXYbnnENNz5MF&s=10" width="200px" height="200">
-        <h1>Naruto uzumaki Printed T-Shirt For Unisex white color black print</h1>
-        <p>Price: ₹249.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Naruto Printed T-Shirt For Unisex - ', price:249})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfblGg5X_BA7m1yV8reJt2xEduAQs9wyr-slszAFxTXGh3Q3A2Z8doMf_S&s=10" width="200px" height="200">
-        <h1>YOURTURN NARUTO CREW RELAXED BACK PRINT UNISEX - Sweatshirt ...</h1>
-        <p>Price: ₹569.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'YOURTURN NARUTO CREW RELAXED BACK PRINT UNISEX - Sweatshir', price:569})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1Q9QrqY2xxz_PlicdmXhZiR0V428atlJmGMO2fjgoA2yEcVyAG_3pU49y&s=10" width="200px" height="200">
-        <h1>Naruto Shippuden Kakashi Hatake Graphic Men's Black T-shirt</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Naruto Shippuden Kakashi Hatake Graphic Men's Black T-shirt : Target', price:349})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSBpcsG9REopBbDoX1ULF8VE9thic-1Zx3zw&s" width="200px" height="200">
-        <h1>Gara Of The Sand Oversize T-shirt naruto anime</h1>
-        <p>Price: ₹299.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Gara Of The Sand Oversize T-Shirt', price:299})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://m.media-amazon.com/images/I/71fRwt0j6XL._SX679_.jpg" width="200px" height="200">
-        <h1>Anime Printed Naruto Sasuke Oversized T-Shirt</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Fans Army Mens Anime Printed Naruto Sasuke Chidori Oversized T-Shirt', price:349})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://m.media-amazon.com/images/I/61mMAlM13pL._SX679_.jpg" width="200px" height="200">
-        <h1>Fusion wear Men's Anime Printed Itachi Uchiha T-Shirt </h1>
-        <p>Price: ₹299.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Fans Army Mens Anime Printed Itachi Uchiha T-Shirt', price:299})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTlT_XHHQKqf1cBIpt2IHBxEI0gbw8WtQQzVBu1VA6YY61ulMm2IoyqD7XTbotkBao8XUfuvQKCC_FmlX5__cJ8K641BT1IxniY6j4bjpzuWuSJNdGJFYR-&usqp=CAE" width="200px" height="200">
-        <h1>Printed Black T-Shirt black clover</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Printed Black T-Shirt black clover', price:349})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR0lgvowOB7M06KQHBu0-9VLecaZSPNUNbaUr2c_XTiOoJjP06_glnzzao0F1f5ffBByrbQlCeU9XSbZZpyt8--0obKja7YqLQR27Gs6yos&usqp=CAE" width="200px" height="200">
-        <h1>Black Clover Oversized T-Shirt</h1>
-        <p>Price: ₹399.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Asta Black Clover Anime Oversized T-Shirt', price:399})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://images.bewakoof.com/original/mad-over-print-men-s-black-anime-black-clover-graphic-printed-oversized-t-shirt-573588-1674550973-1.jpg" width="200px" height="200">
-        <h1>Five leaf clover black t shirt Oversized</h1>
-        <p>Price: ₹299.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Five leaf clover black t shirt', price:299})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://m.media-amazon.com/images/I/61u-rdzPXCL._AC_UY1100_.jpg" width="200px" height="200">
-        <h1>Black Clover Black Bull Asta Cotton Printed</h1>
-        <p>Price: ₹249.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Anime Black Clover Black Bull Asta Cotton Blend Printed Half Sleeve Round', price:249})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuqc4HA9xXuxGtrme2RbCD6A0rQ-TCAEWZpg&s" width="200px" height="200">
-        <h1>Black clover Yami Sukehiro T-shirt </h1>
-        <p>Price: ₹299.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Black clover Yami Sukehiro T-shirt Anime Manga Unisex T-Shirt ALL SIZES S to 5XL', price:299})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQePB_OzyCyStL0HXSF4Z2PrTPQe5qIY16-DAqWT3oI8_MYD6qs3ll9m8A4igfsrrZAFih_lSTQQj-oUhwCkaDt8kD9hGlAeLpgtHVVQwKOJMryG1h7JeZq&usqp=CAY" width="200px" height="200">
-        <h1>Asta Black Clover T-Shirt dark frindship</h1>
-        <p>Price: ₹249.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Asta Black Clover T-Shirt', price:249})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQ-1SW_2uEGjWtVVvfZQ062Um33y1iT7txXe0x_ZR32aPsZNRwRq0Z7YGXr1FxcMF3OMYsxo0EvuMlOuvJLi5A386JGF-0yr4193BXJ8u8&usqp=CAY" width="200px" height="200">
-        <h1>Asta Clover Blood - Black Clover white</h1>
-        <p>Price: ₹199.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Asta Clover Blood - Black Clover white', price:199})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT31UI1aJxZaSKyconIV4bNv9UuTJzH-uVgZ3U3FkHxpsMx8hIb_olG2F3BpNTR1O3SURoFHEg8rrY8GWifGBVde4goAvpqkQiCVFfelGjH0T1vcdAyTvQB&usqp=CAY" width="200px" height="200">
-        <h1>Asta Clover Blood - Black Clover Black</h1>
-        <p>Price: ₹219.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Asta Clover Blood - Black Clover Black', price:219})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTnANPJaexZXGql4GmQeO82WRFCdO6KogE0ZJ0ppbbJ1GGIq_90Ej_6v5R_owQ2NeJiEn6KJWpL4iDkYB9kyaO-ELHhS8YMfpb_44TC3vs&usqp=CAY" width="200px" height="200">
-        <h1>Black Clover : Asta Oversized T-Shirt</h1>
-        <p>Price: ₹299.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Black Clover : Asta Oversized T-Shirt ', price:299})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT5ZwLiEqC7NpbCKQ2OLQfaSoAQonhXQGO-yxSNm-stOpg1EyFb44v17vpGzfFUdxe4Td1jyEyaIYeU0dqNj_eZ5nNnRrd3LyNQWt3C3bivAWQalu6-MbIyKFE&usqp=CAY" width="200px" height="200">
-        <h1>Black Clover Yami Tee / Oversized</h1>
-        <p>Price: ₹199.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Black Clover Yami Tee XXL / Oversized', price:199})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTyqYtnrwKEXT9x9YkXgCR6V-CNBU5hPCFy2lQI8n6bXzVtvRAS9Lzw-y8CmsCMn3njjaRM5VJSCHtgA31djy9Xq69xgTrCyK5b-wZTuhIMaQRyqulyqe05Zw&usqp=CAY" width="200px" height="200">
-        <h1>Black Clover Gold Tshirt Drop Shoulder </h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Black Clover Gold Tshirt Drop Shoulder 240 GSM Extra large', price:349})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://www.swagshirts99.com/wp-content/uploads/2020/08/t15-8.jpg" width="200px" height="200">
-        <h1>asta transfomation T-shirt</h1>
-        <p>Price: ₹249.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Black Clover T-Shirt', price:249})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://harsido.com/cdn/shop/products/b_d5594a5e-c746-4d5d-9fce-9f64c26da7f5_960x.jpg?v=1629795887" width="200px" height="200">
-        <h1>Demon Asta - Black Clover t- shirt</h1>
-        <p>Price: ₹249.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Demon Asta - Black Clover', price:249})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRh0bREaoIcJaITku3N58aY9wCAuPW4jI5Mf5SF2K2X2BKSr8jy1J6PoBMssDVulAbNEdYa1QDVG39CnPS5xtYlCoRG5vn_5iEwDGWuai25lrIMItHXSwoU&usqp=CAE" width="200px" height="200">
-        <h1>Asta and Yuno - Black Clover Black</h1>
-        <p>Price: ₹249.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Asta and Yuno - Black Clover Black / S', price:249})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQ_rYO7lvmjaDlHQXfHvynFUwojwcjJyciZPtrLljqmi1VuvmpgPNkt-0TnFItML2xJUY5MncyY5bx85nHxNvjfj3ehlwWaDKcfY8d9OlCc_OCB01O1P12a&usqp=CAY" width="200px" height="200">
-        <h1>ASTA-BLACK CLOVER Maroon /</h1>
-        <p>Price: ₹1499.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'ASTA-BLACK CLOVER Maroon / XL', price:149})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTntKIKk3yjtP16pVATj_HutBExCaffLodGJxrEQEbT4bRGmydKawJHdY-M3LH_4B8ss-O5n-yt-rWMArCksOT6p3Lh5vIQ6Zpcds0deHnf8WI7tfu4BFgbFQ&usqp=CAE" width="200px" height="200">
-        <h1>Demon Asta - Black Clover t- shirt white</h1>
-        <p>Price: ₹199.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Demon Asta - Black Clover White / XL', price:199})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQrOXuDhgK2pEcm4zAmCdiS8qDwGNrex2hmBdMUQLvWT93GRShCAKjCI7yjIBd_xuMTRMmV-SprPefDgsJyJWLWI8jWVOKGb7BokKc9l5U&usqp=CAY" width="200px" height="200">
-        <h1>Black Clover - Asta Cotton T-Shirt TS110</h1>
-        <p>Price: ₹299.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Black Clover - Asta Cotton T-Shirt TS110', price:299})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ21--3TmJivEZTU-DOXCfvKayfMSn1uXAP5xaVNAXARemhqPIrcWNaGoJXXDEmuM51qttBwXfFaZuTNgDvUm6FIegzzSP3xOk6EYcc6AK9lsA9zDiI2CLCPLU&usqp=CAY" width="200px" height="200">
-        <h1>Black Bulls Tshirt | Yami Sukehiro</h1>
-        <p>Price: ₹249.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Black Bulls Tshirt | Yami Sukehiro | The Unrealm Unisex / Navy Blue / M', price:249})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://www.emp-online.ch/dw/image/v2/BBQV_PRD/on/demandware.static/-/Sites-master-emp/default/dwba28e932/images/5/5/4/3/554321.jpg?sw=350&sh=400&sm=fit&sfrm=png" width="200px" height="200">
-        <h1>Black Bulls best tro Printed t shirt</h1>
-        <p>Price: ₹299.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Black Bulls best tro', price:299})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRdrxpimLNI5_WgqUfKx1P6Jc1xVa3hDyCscWvpNY5afZsQC4FBceV6FhIz3xRG7m39wWBki9IjirZPLSKGnDTf54LzLT1fd2jFz3xUFjrV&usqp=CAY" width="200px" height="200">
-        <h1>Ichigo Kurosaki - bleach bankai embroidery Hoddie</h1>
-        <p>Price: ₹999.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Ichigo Kurosaki -embroidery bleach', price:999})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQqPTfcigVmH6vImuCWwoPLZ_7ZNwyjKkVh27tKWjJJlA3zRotZS_cA-CtyCTd80AvNwUvzspbsBgCpalK97Z6x4_QlLuDupXvvmRo5fnf2tdnT03an_svoVg&usqp=CAE" width="200px" height="200">
-        <h1>Bleach Toshiro Dragon Pullover Hoodie</h1>
-        <p>Price: ₹749.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach Toshiro Dragon Pullover Hoodie', price:749})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQtp_ykg5myGZJEa1MqsL2ySer-XPMzlMNIZ_9W_w_3UZHR_KtENIZaIBwuvtyO8WNkVF3nCzy0rf-qzOu_GHYa9b_pcxW5RQceagRqsF5AgRoafsvskpfc&usqp=CAE" width="200px" height="200">
-        <h1> Ulquiorra  Oversized Hoodie </h1>
-        <p>Price: ₹829.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: ' Ulquiorra Cifer Oversized Hoodie ', price:829})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTA6ShSneszUpYJ6CVTntkY3ILVHagrnKc0CLP4QqqBJAFAz5dn4VHRWju7nRNnHECaoLCh6USmKP5osg19SNHwVh5vp2BcIED7eZ0g6mBcAunYUYZpmwbg&usqp=CAc" width="200px" height="200">
-        <h1>  Bleach KENPACHI  Black  Hoodie</h1>
-        <p>Price: ₹699.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach Ulquiorra Cifer Oversized Hoodie M', price:699})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTYXJWOpUBW_BMnaQ2G0kl5F7SYkjFliAGJCz9YCTpwad4CG1NGP5Pir_bOXw3OLhW3rucXrGMW0cXkHfVUPWvsWqD0DO-_Zs00mAOOtum9&usqp=CAY" width="200px" height="200">
-        <h1>Bleach Hoodie - Ichigo Kurosaki  The Unrealm  </h1>
-        <p>Price: ₹699.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach Hoodie - Ichigo Kurosaki | The Unrealm White ', price:699})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRxHYTwVo7rBS5ciI6Ib0MB4s3kR_WBQkdDRNOwHvxjZ4zpqvWdGuyKX1H3sJ-9Z8qt8Z_AbCKkV6vvUOixnt5tGnILC3PQdwEF8VNJRRpq1pf1l8s13U_BVA&usqp=CAE" width="200px" height="200">
-        <h1>Bleach hallow brothers black Hoddie  </h1>
-        <p>Price: ₹699.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach Merch Medium', price:699})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcR265botg8UNHyx5w49nCwN4M6mE_fCQIiVqGXpNmovlHdZj8luZ8ZT4KxR9eoUmTkr_FnFqAawXyFOqh3nrDYMQtKs_O9p11h_Gb6QLbzY&usqp=CAY" width="200px" height="200">
-        <h1>Bleach Ichigo Hollow Oversized Tshirt</h1>
-        <p>Price: ₹449.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach Ichigo Hollow Oversized Tshirt White', price:449})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRjfBUfbCkeCeMnVB-0BcHXvx7m_JK_ge36PDadZYNIr3yGddpPebtfewiwXqfVZ44urfvNuxLLlz9LkY6LAAqLxhWm3ZT-gWRVEGBtdiM&usqp=CAY" width="200px" height="200">
-        <h1>Bleach Bankai Embroidered T-Shirt Lavender</h1>
-        <p>Price: ₹649.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach Bankai Embroidered T-Shirt Lavender', price:₹649})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQmoF-CJjFv7wV8ILgkyAihu5C-nBxIq4mLwFQrUBPf1i_hDGSAZZghLIwIBDvM2P40ae-lGDLBmUNIRrnVma8U-uGJu8UtaeLq4u0gFD0gGxq_q4y0qgqq&usqp=CAY" width="200px" height="200">
-        <h1> Ichigo Kurosaki Bleach Oversized  Half Sleeves </h1>
-        <p>Price: ₹449.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Ichigo Kurosaki Bleach Oversized T-Shirt: Premium Cotton, Unisex, Half Sleeves for Men and Women', price:449})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTFM-PWRRaASJ2HnyNgpWxUV5QIQCesDqTD4A4GXXmtmAm9CPlbDcKDLnd_7I1d-3WUrfSvx6cWVwZDCf_E1hXB8A4GZiJuWSUcCp0_1iIcsghyFtJOY5nG&usqp=CAY" width="200px" height="200">
-        <h1>Bleach T-shirt - Shop Ichigo Bleach T shirt Online </h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach T-shirt - Shop Ichigo Bleach T shirt Online ', price:349})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSr7iC7GUPTd6g-axYDGdsVRQlK-js0mz7j3P-IK1PdNTwJbM_L2rT9_dKA-4Q5N23dPShPZU2FiFCchA0RXlQUfQstq4UFSxMYHpbF_k7oGsuHGVIVBVf4&usqp=CAY" width="200px" height="200">
-        <h1>Bleach - Oversized T-Shirt White  Oversized</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach - Oversized T-Shirt White / M / Oversized', price:349})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSOZGzv043G9e6K_Dn6vvpGDLg0nxUXXyXeAwrGLNthFHslMilBedt80GTkJ2Hz4xr0IGgBm9HtIN2Y--DkDowDO27reejrBv7yvgewYVg&usqp=CAY" width="200px" height="200">
-        <h1>Bleach  Byakuya Kuchiki With Broken Sword Printed Tshirt</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach Anime Byakuya Kuchiki With Broken Sword Printed Tshirt For Men', price:349})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSecny2Jl2zxACz85yaxKSRBcKj0BxUbhlDzp9bx_hiGGBk51nQ_Nro0fQttAkhbh1tQQFqY2480hSz3Z0Xf8-9yASOoiPFYmfTin03KYIr&usqp=CAY" width="200px" height="200">
-        <h1>Bleach-Ichigo hallow Oversized T-Shirt</h1>
-        <p>Price: ₹249.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach-Ichigo-tybw-horn-hollow - Oversized T-Shirt', price:249})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTGWCfY0Gu11hLeYcGZdrX5Z-YTrIj6qxHTRsTHjdKzPV_UDBOCeE54tg--EJZxFMONYkFvQuByyAtUXhmSkS4vOyzD-E3YA9yjJYfVHcV0wdIHv0gw6JhkKw&usqp=CAY" width="200px" height="200">
-        <h1>Bleach: Shinji Hirako (Oversized T-Shirt)</h1>
-        <p>Price: ₹399.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach: Shinji Hirako (Oversized T-Shirt)', price:399})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQd4fDoOvUr9srAIxjffktlfdCmR8_THPoJOtQOo60h0hZnxOeNmU1DP-woe8plJ-df9pCR6ps-EClApnUPzAsltLjIxZaDyk3YwlDe6XWmiWyhJiYvtareNg&usqp=CAE" width="200px" height="200">
-        <h1>Bleach Ichigo Hood Sweatshirt | Ubuy</h1>
-        <p>Price: ₹549.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach Ichigo Hood Sweatshirt | Ubuy', price:549})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTZFJdFHjCXVTDbf0yGnwbZVuX8XoeAU8irYGI1wQ_SgGcEhUge2eDR9WW30xilV6WfH9nYjNdUsCtXYQym7DjHYrwJggJeq9uWfJSZKpWUzbSqZRZzfkFa&usqp=CAY" width="200px" height="200">
-        <h1>Bleach Ichigo Kurosaki Oversized T-Shirt</h1>
-        <p>Price: ₹299.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach Ichigo Kurosaki Oversized T-Shirt', price:299})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQqLtF5IfioJQz6S30fWtFs1U9nqb-Skdezxbhn2eq33LT0IjkGA8XnaBPYVWkRuvZtk4sC9XrluPE-Q22_pevIIjE7WAlkgOnFAPFfMSD9&usqp=CAY" width="200px" height="200">
-        <h1>Bleach Hollow T-shirt - Masacio White </h1>
-        <p>Price: ₹149.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach Hollow T-shirt - Masacio White ', price:149})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT_KDjYwitZmVj5bA3YxH5fN4GUPqtYUgIajlJ8T0Czb9mbRn-i08mie7_i7hAjqVCTTvo9oRBUGeujl_INNAJwmsFYBdwNWJ7e3zp4JwpTNYbrNpWCpu2T&usqp=CAY" width="200px" height="200">
-        <h1>Bleach black Ichigo Mask T-Shirt </h1>
-        <p>Price: ₹249.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Bleach Ichigo Mask T-Shirt', price:249})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRzYh08UtLmPo9mRXdyOoV5xwTrmJqHfqlVqUpo3AzHB_-Geu9uIGI4AYAfhvUoIJcWhCPeV2Ppz1UugAFuH4Fba2UA8SZfeJz6a5FgBHziCBET8OLoooIWZA&usqp=CAE" width="200px" height="200">
-        <h1> Bleach Hollow Mask Ichigo  Hoodie</h1>
-        <p>Price: ₹549.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'crazymonk Bleach Hollow Mask Ichigo Kurosaki  Hoodie', price:549})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRM_NiwR4K4ZL5WN2VDshyBwlHTCvCQKPPouqx7EXNW4p2KAcdTcAllo0WBaUdsOqWJ0sr6VxvS6MCYa0ufmexs-oKuuT-1ONEYfKwFIpLz7tRmVa2eMtnN&usqp=CAE" width="200px" height="200">
-        <h1>one piece Hoodies for Luffy Gear 5 </h1>
-        <p>Price: ₹699.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Darkbuck Anime Oversized Hoodies for Men & Women Luffy Gear 5 dropshoulder Unisex Hoodie', price:699})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRhbvG5DOqXBr_eEl3pThn9YVoIJbWBH4eOyXGc1HRktJZIPSyyGRAaWSZ6W8_WGnI4wMtiS3Xrn1n3FKaY93J8GlznJfJqqH8mWoL-2K8RCBlZLkJVDg8e&usqp=CAE" width="200px" height="200">
-        <h1>Luffy The Pirate - One Piece Hoodie</h1>
-        <p>Price: ₹499.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Luffy The Pirate - One Piece Hoodie', price:499})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT99fGh_uV6TTD0RmpkqZ4FLgAujwrTfkmi4wRKQPng4pVZqlA00DcA8rA25nm3WrUpGUHfgZIB-JjYqTchXelPxUHX0NlV3S1ltOYJ5z5uq23F9JnjmDzQeQ&usqp=CAE" width="200px" height="200">
-        <h1> One Piece Luffy: Pirate King Hoodie </h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'One Piece Luffy: Pirate King Hoodie ', price:349})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ57QSpeZpzVTX8wEj3OYddJXBfKn86OroDcx14d2kgvIhzDXNT7yfE9x0juMJik8eAmkft2Uw-Z-GpB67NyUl0nmUo8yKb7tFxAM19CnM3b7vUq-dwXXXbfg&usqp=CAE" width="200px" height="200">
-        <h1>Luffy Gear 5 / One Piece Hoodie</h1>
-        <p>Price: ₹499.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Luffy Gear 5 / One Piece Hoodie', price:499})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSuODNNakLizGfVIBNYOyvDiOqwZ6-rghq-cWdHfjSm7Nei_jpeKzrFzAIvG2NDNn-PbveZVY2xfK8YrOhSBPyTfr_inHwLEX63MJoPrPwaGPWUHT7SmeugAg&usqp=CAE" width="200px" height="200">
-        <h1>one piece Straw Hat Luffy black Hoodie </h1>
-        <p>Price: ₹649.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Straw Hat Luffy Hoodie ', price:649})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRP-hk-gxQ_k_vDzybKne4Ds2CAjAe3_uCsSkHIJIAGR2I3T-uq60PL1bjk49-KHPlgIxW8zXBwCe_DcG9hANRaNxxupiFbqjLwkr2EViZZGV0LKyJHefSkFQ&usqp=CAE" width="200px" height="200">
-        <h1> Roronoa Zoro king of hell- One Piece white Hoodie</h1>
-        <p>Price: ₹899.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Roronoa Zoro - One Piece Hoodie', price:899})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQyO0KXHGoAvlUdoElFzwB1WxwObOERvDvuaoC8TqtxC0QbzmVyVeSoNYluCyMQ5QXMLsHXkSvlxv9s6vKWnvaLhCrdIHGwAcO7taZV6R6QbrJ3jJ5sUHZuOw&usqp=CAE" width="200px" height="200">
-        <h1>fifth gear Luffy Gear 5 Anime Hoodie | Anime Hoodies</h1>
-        <p>Price: ₹999.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'CRAZYMONK Luffy Gear 5 Anime Hoodie | Anime Hoodies', price:999})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSuFkN2fp7vujkSulspbZGP5Sa1t94OiQZA2ZDrXsHaKVkp47-ARU76VZt_n2xq0Hvf6Je0QK9e2ve4zAXbyxHvfR1dv-dhg9TKnyFyAYYyIIewy49YHQyCgQ&usqp=CAE" width="200px" height="200">
-        <h1>One Piece zoro king of hell  for Men black Hoddie</h1>
-        <p>Price: ₹749.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Tenebrose One Piece Anime Hoodie for Men', price:749})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRwxIGUjBm504ZMbfZrOsRrB3BXxN4cz6hBdTXfh-y8QzYfx7yilxpxk8wCK4auEwSGcC1H_-y14ystSsBYVLF-4tA7GmXSMWypyWH0Pmg2DJ_ixYrS4UmTMw&usqp=CAY" width="200px" height="200">
-        <h1> One Piece Anime black luffy Wanted poster </h1>
-        <p>Price: ₹649.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Buy One Piece Anime Hoodie', price:649})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRQbJVW5pTSJVs0JRVZmjH0AU7exzhFxl2Cn6nbM9eOMHAYHfomhUp_3SiIKhC70R9yWWuBhaUMViixXAVO-4o0-HpHS-OtYMIFTSrORBbgxDU94BMD1VNPpeI&usqp=CAY" width="200px" height="200">
-        <h1>fire fire fruite gold .D Ace Hoodie-One Piece  </h1>
-        <p>Price: ₹799.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Ace Hoodie-One Piece', price:799})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSYzR31WYlu-PdRGpGkfvyUdPyojgtT0uwmd8EXAaf1F8nrz53ZR2-C2Jj6txLZqFenBPO6nP74U2wsjBboKG0ymZGiilcWbl4ntH6BHbOcugrE6GedRQLzvg&usqp=CAY" width="200px" height="200">
-        <h1>One Piece Luffy Wanted Poster Anime Printing T-Shirts</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Drizzle CLICKS One Piece Luffy Wanted Poster Anime Printing T-Shirts for Men Collections', price:349})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTdrKQRMfmGsp-4L4D5MjYXUvjK3XsNJeagS59yfwog5dxCZ5Ensz6aQqEufH2p-hOzcVzZu-IBE-8Q1r8VHlrHAkma_mBTrTrQa9LtWQ-Hsduo9moTrzfZNA&usqp=CAE" width="200px" height="200">
-        <h1>WANTED- RORONOA ZORO - Cotton T-Shirt</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'WANTED- RORONOA ZORO - Cotton T-Shirt', price:349})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQkyfZXQKIM2t_KD-j93Z6xd71CQboo326oIQ7ry37Y7bCubcUUr-3AgI7y1CwZSVbtlwtRBJnPyngAxqMrk-6Ak_xDw9HvPprlVnCf7cg&usqp=CAE" width="200px" height="200">
-        <h1>One Piece Sanji Full Wanted Poster Short-sleeve T-shirt</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Ripple Junction One Piece Sanji Full Wanted Poster Anime Adult Short-sleeve Graphic T-shirt', price:349})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRtKJXZtUxJ22YjgrNnLLhUahwNZSZzUcLivNxkRwKcvFH-yKLkQ5C1e3X_vmjQS6k-ze0oUNZicl5OvYTqUB92HZ0uhvJXktdy3Z-0xva8v_Gk-hktWtJRlQ&usqp=CAY" width="200px" height="200">
-        <h1>Men's Black War Is Over Shanks Printed T-shirt L / Black</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Mens Black War Is Over Shanks Printed T-shi', price:349})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQSPO3__ne6JIBiNk2RTI1I1OTwresbOfWVfKQaN8rHNDwQhlklfn7-8YYiAyHB85s1xgmH6ldj95y_PLPzEFz4z6nchXT04zbDG-R2gl0&usqp=CAY" width="200px" height="200">
-        <h1>Sasticopy Graphic Print Men Crew Neck Black T-shirt</h1>
-        <p>Price: ₹299.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Sasticopy Graphic Print Men Crew Neck Black T-shirt', price:299})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSpYhDzYO0aWcz5CDyWWyi9N3Irp6I67lr5dajg5l1RlJHxJTDsDluVEKQuO7mQ1iYEr_4_S9H8EiZqkf9rJIdrjqszW1yhg7x8LDpLLfA&usqp=CAY" width="200px" height="200">
-        <h1>Heart Pirates(Law - One Piece) - Hoodie</h1>
-        <p>Price: ₹549.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Heart Pirates(Law - One Piece) - Hoodie', price:549})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRov302sdX_n43dybZ_Qg8dAIwU30rnRrn1gA4wo2SSgKo9Ei6TODP_df5g1gUcOFDpaXKwyLOk64-mxJpXHErQkROHfG6uQ3FQckEAEsW6AENKw40L5Ajn4g&usqp=CAE" width="200px" height="200">
-        <h1>One Piece Anime Hoodies Luffy Zoro Kid Law Sweatshirts </h1>
-        <p>Price: ₹749.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Diommell One Piece Anime Hoodies Luffy Zoro Kid Law Sweatshirts Anime Gift | Ubuy ', price:749})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQlur1ueb883njWkaYUDWoiRBXLHsC3Pzr_goEmTqoQMvS5IGKhTO4vtQlJ2ebrUzC2AtH-uSO7aHiTYzwLsT3K0M4V-uYatbUPmKNwWthE0FEfc-5S_29muw&usqp=CAE" width="200px" height="200">
-        <h1>monkey .D Luffy One Piece Men Oversized Printed T-Shirt</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Luffy One Piece Men Oversized Printed T-Shirtt', price:349})">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSDsHRxam9-Ff1sm286LunTnbEJZLj7Q00qWmT2ZDOB42cRAa9LaQ2ngYujp5yPFE1Nk0Tdit1tsBp7IxcF20tpow6JYbOflIUcu0p7q_3HO3KGMZeh97iSTA&usqp=CAc" width="200px" height="200">
-        <h1> Jump Cuts Mens Printed Hooded Neck Fullsleeve </h1>
-        <p>Price: ₹549.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Jump Cuts Mens Printed Hooded Neck Fullsleeve Black and Yellow Cottonblend Slim Fit T-Shirt', price:549})">Add to Cart</button>
-    </div>
-
-    <a href="cart.html" class="go-to-cart-btn">Go to Cart</a>
-
     <script>
+        // Function to update cart count
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            document.getElementById('cart-count').textContent = `(${cart.length})`;
+        }
+
+        // Function to add an item to the cart
         function addToCart(item) {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             cart.push(item);
             localStorage.setItem('cart', JSON.stringify(cart));
             alert(item.name + ' added to cart!');
+            updateCartCount(); // Update the cart count after adding the item
         }
+
+        // Image preview
+        function previewImage(imageElement) {
+            const modal = document.getElementById('previewModal');
+            const previewImg = document.getElementById('previewImage');
+            previewImg.src = imageElement.src;
+            modal.style.display = 'flex'; // Show the modal
+        }
+
+        // Close preview
+        function closePreview() {
+            const modal = document.getElementById('previewModal');
+            modal.style.display = 'none'; // Hide the modal
+        }
+
+        // Update cart count on page load
+        window.onload = function () {
+            updateCartCount();
+        };
     </script>
 </body>
-
-
-  <!--
-    - custom js link
-  -->
-  <script src="./assets/js/script.js"></script>
-
-  <!--
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script> 
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <script>
-    // Function to update cart count
-    function updateCartCount() {
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      document.getElementById('cart-count').textContent = cart.length;
-    }
-
-    // Function to add item to the cart
-    function addToCart(item) {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart.push(item);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      alert(item.name + ' added to cart!');
-      updateCartCount(); // Call function to update cart count after adding item
-    }
-
-    // On page load, update the cart count from the existing cart
-    window.onload = function () {
-      updateCartCount();
-    }
-  </script> 
-
-</body>
-
 </html>
