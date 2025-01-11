@@ -1,581 +1,380 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>fusion wear black clover</title>
-
-  <!--
-    - favicon
-  -->
-  <link rel="IMG-20240813-WA0015.jpg" href=" type="image/x-icon">
-
-  <!--
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./assets/css/style-prefix.css">
-
-  <!--
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
-</head>
-
-<body>
-  <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyBOq9EBZSMBuSRgrhfEiJJcdbQwgcxRiPQ",
-      authDomain: "fusion-wear-b7cdc.firebaseapp.com",
-      projectId: "fusion-wear-b7cdc",
-      storageBucket: "fusion-wear-b7cdc.appspot.com",
-      messagingSenderId: "156239565655",
-      appId: "1:156239565655:web:a7b97d349ec6503ad2a412",
-      measurementId: "G-RBR3YVCCXR"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-  </script>
-
-
-<div class="overlay" data-overlay></div>
-
-<!--
-  - MODAL
--->
-<div class="modal" data-modal>
-
-  <div class="modal-close-overlay" data-modal-overlay></div>
-
-  <div class="modal-content">
-
-    <button class="modal-close-btn" data-modal-close>
-      <ion-icon name="close-outline"></ion-icon>
-    </button>
-
-    <div class="newsletter-img">
-      <img src="C:\Users\vamsh\Downloads\jijijijijijij.jpg" alt="subscribe newsletter" width="400" height="400">
-    </div>
-
-    <div class="newsletter">
-
-      <form action="#">
-
-        <div class="newsletter-header">
-
-          <h3 class="newsletter-title" style="font-family: Impact;font-size: 250%;">avail your offer by 3 get 2 free</h3>
-          <style>
-            /* Button Styling */
-            #sendCodeButton {
-                padding: 12px 24px;
-                font-size: 16px;
-                font-weight: bold;
-                color:#fdf7e7;
-                background-color: #25D366;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: background-color 0.3s;
-            }
-    
-            #sendCodeButton:hover {
-                background-color: #1EBE58;
-            }
-    
-            /* Message Styling */
-            #message {
-                margin-top: 20px;
-                font-size: 16px;
-                color: red;
-                font-weight: bold;
-            }
-        </style>
-        <button id="sendCodeButton" onclick="sendRandomCode()">Click here for code</button>
-        <div id="message"></div>
-    
-        <script>
-            // Check if the offer has already been claimed
-            document.addEventListener("DOMContentLoaded", function() {
-                if (localStorage.getItem("offerClaimed") === "true") {
-                    showClaimedMessage();
-                }
-            });
-    
-            function sendRandomCode() {
-                // Check if the offer has already been claimed
-                if (localStorage.getItem("offerClaimed") === "true") {
-                    showClaimedMessage();
-                    return;
-                }
-    
-                // Generate the random code and send it to WhatsApp
-                const code = generateRandomCode(8); // Generate an 8-character code
-                const phoneNumber = '9014798713'; // Replace with your WhatsApp number
-                const message = `Your code is: ${code}`;
-                const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-                window.open(whatsappURL, '_blank');
-    
-                // Set offer as claimed in localStorage and display message
-                localStorage.setItem("offerClaimed", "true");
-                showClaimedMessage();
-            }
-    
-            function generateRandomCode(length) {
-                const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-                let result = '';
-                for (let i = 0; i < length; i++) {
-                    result += characters.charAt(Math.floor(Math.random() * characters.length));
-                }
-                return result;
-            }
-    
-            function showClaimedMessage() {
-               document.getElementById("sendCodeButton").style.display = "none";
-               document.getElementById("message").innerText = "You have already claimed this offer we will be here with new coupons code soon.";
-            }
-        </script>
-      </form>
-
-    </div> 
-  </div>
-  </div>
-
-
-<div class="notification-toast" data-toast>
-
-  <div class="toast-banner">
-    <img src="https://img.freepik.com/free-vector/vector-sale-banner-design-template_1017-12083.jpg" alt="Rose Gold Earrings" width="80" height="70">
-  </div>
-
-  <div class="toast-detail">
-
-    <p class="toast-message">
-      
-    </p>
-
-    <p class="toast-title">
-      Bill up to ₹1500 to receive 50% off on your next purchase of any product worth ₹1500 ! Shop now and save big on your future purchase!"
-    </p>
-
-    <p class="toast-meta">
-      <time datetime="PT2M">2 Minutes</time> ago
-    </p> 
-
-  </div> 
-
-</div>
-</div>
-</body>
-
-  <div class="mobile-bottom-navigation">
-
-   
-    <a href="cart.html"><button class="action-btn">
-      <ion-icon name="bag-handle-outline"></ion-icon>
-      <span class="count" id="cart-count">0</span>
-    </button></a>
-
-      <a href="miindex.html"> <button class="action-btn">
-      <ion-icon name="home-outline"></ion-icon>
-    </button></a>
-    
-   <a href="order-summary.html"<button class="action-btn">
-      <ion-icon name="heart-outline"></ion-icon>
-
-      <span class="count">0</span>
-    </button></a>
-
-
-    <a href="C:\Users\vamsh\Downloads\fwnewwork\fusion-wear1-master\assets\catagoley.html"><button class="action-btn" data-mobile-menu-open-btn>
-      <ion-icon name="grid-outline"></ion-icon>
-    </button></a>
-
-  </div>
-
-  <nav class="mobile-navigation-menu  has-scrollbar" data-mobile-menu>
-
-    </div>
-    
-
-    </div>
-
-  </nav>
-
-</header>
-  <!--
-    - MAIN
-  -->
-
-  <main>
-              </div>
-
-            </div>
-
-          </div>
-         
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T-shirts</title>
-    <style>
-        .mySlides {display:none;}
-        </style>
+    <title>Product Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color:whitesmoke;
         }
-        .product {
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
             padding: 20px;
-            background-color: #fff;
+        }
+
+        .product {
+            background-color:white;
+            border: 1px solid #ddd;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            max-width: 300px;
-            margin: 20px;
-            display: inline-block;
-            vertical-align: top;
-        }
-        .product h1 {
-            margin-top: 0;
-        }
-        .add-to-cart-btn,
-        .go-to-cart-btn {
-            display: inline-block;
-            padding: 10px 15px;
-            font-size: 16px;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
+            padding: 15px;
             text-align: center;
-            transition: background-color 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
-        .add-to-cart-btn {
+
+        .product img {
+            width: 200px;
+            height: 200px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: transform 0.2s ease;
+        }
+
+        .product img:hover {
+            transform: scale(1.05);
+        }
+
+        .product h1 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .product p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .product button {
             background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
         }
-        .add-to-cart-btn:hover {
+
+        .product button:hover {
             background-color: #0056b3;
         }
-        .go-to-cart-btn {
-            background-color: #28a745;
-            margin-top: 20px;
-            text-align: center;
-            display: block;
-        }
-        .go-to-cart-btn:hover {
-            background-color: #218838;
-        }
-    </style>
-</head>
-<body>
-  
-      
-    <div class="product">
-        <img src="H1 (1) (10).jpg" width="200px" height="200">
-        <h1>unisex Funny Cat Printed Hoodie</h1>
-        <p>Price: ₹549.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Funny Cat Print Hoodie', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (100).jpg" width="200px" height="200">
-     <h1>Innovating Women Hoodies</h1>
-        <p>Price: ₹799.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Innovating Women’s Hoodies', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (101).jpg" width="200px" height="200">
-        <h1>Cartoon Dinosaur Print Sweatshirt</h1>
-        <p>Price: ₹499.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'SHEIN EZwear Cartoon Dinosaur Print Thermal Lined Sweatshirt', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (102).jpg" width="200px" height="200">
-        <h1>Men's Fleece Lined Pigeon Print Hoodie</h1>
-        <p>Price: ₹549.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Men's Fleece Lined Pigeon Letter Print Hoodie With Drawstring', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (103).jpg" width="200px" height="200">
-        <h1> Cartoon And Korean Drawstring Hoodie</h1>
-        <p>Price: ₹499.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'SHEIN EZwear Cartoon And Korean Letter Graphic Drawstring Thermal Lined Hoodie', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (104).jpg" width="200px" height="200">
-        <h1>a perfect cartoon pink printed hoodie for women</h1>
-        <p>Price: ₹549.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'cartoon hoodies for women', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (105).jpg" width="200px" height="200">
-        <h1>Slogan Graphic Drawstring Butterflies hoddie </h1>
-        <p>Price: ₹799.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'SHEIN EZwear Butterfly & Slogan Graphic Drawstring Thermal Lined Hoodie Butterflies And Flowers', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (106).jpg" width="200px" height="200">
-        <h1>a comfort Manfinity Sporsity black men Hoddies </h1>
-        <p>Price: ₹649.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Manfinity Sporsity Men 1pc Letter Graphic Round Neck Sweatshirt', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (107).jpg" width="200px" height="200">
-        <h1>Pikachu coffie pink hoodie for women</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'What a nice day to have a coffee! Pikachu pink hoodie', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (108).jpg" width="200px" height="200">
-        <h1>adorable pink owl printed hoodie for girls</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'adorable pink owl printed hoodie for girls', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (109).jpg" width="200px" height="200">
-        <h1>Heavy printed Arizona hoodie for men</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Heavy printed Arizona hoodie for men', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (11).jpg" width="200px" height="200">
-        <h1>Floral & Butterfly Print  Hoodie</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'SHEIN EZwear Floral & Butterfly Print Drawstring Thermal Lined Hoodie', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (110).jpg" width="200px" height="200">
-        <h1>Ghost Print Thermal Lined Sweatshirt</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'EZwear Slogan & Ghost Print Thermal Lined Sweatshirt', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (12).jpg" width="200px" height="200">
-        <h1>rengoku kyojuro printed hoodie</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'rengoku kyojuro printed hoodie', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (13).jpg" width="200px" height="200">
-        <h1>cute astronaut on the mind black hoodie</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'cute astronaut on the mind black hoodie', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (14).jpg" width="200px" height="200">
-        <h1>"No Money, Full of Love" Men's Hoodie**</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'No Money, Full of Love Mens Hoodie', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (15).jpg" width="200px" height="200">
-        <h1>Oops! I'm the Bear Printed Men's Hoodie</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Oops! Im the Bear You Think Printed Mens Hoodie', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (16).jpg" width="200px" height="200">
-        <h1>Multicolor Bear Printed black Hoodie</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Multicolor Bear Printed Hoodie', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (17).jpg" width="200px" height="200">
-        <h1>*Yummy Bubble Strawberry Milk Printed Hoodie*</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: '*Yummy Bubble Strawberry Milk Printed Hoodie*', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (18).jpg" width="200px" height="200">
-        <h1>*"3 Idiots - It's Us" Printed Blue Hoodie*</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: '3 Idiots - Its Us Printed Blue Hoodie', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (19).jpg" width="200px" height="200">
-        <h1>Stay Right There" Mew Women's Hoodie</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Stay Right There Mew Womens Hoodie', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (2).jpg" width="200px" height="200">
-        <h1>Lily Cute Panda Women's Hoodie</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Lily of the Valley Cute Panda Womens Hoodie', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (20).jpg" width="200px" height="200">
-        <h1>What the Hack? Sorry" Red Hoodie</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'What the Hack? Sorry Red Hoodie', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (21).jpg" width="200px" height="200">
-        <h1>Life Full of Coffee & Cats" Green Hoodie</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Life Full of Coffee & Cats Green Hoodie', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (22).jpg" width="200px" height="200">
-        <h1>My Love with the Foot of Mew" Black Hoodie</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'My Love with the Foot of Mew Black Hoodie with Heat Print', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (23).jpg" width="200px" height="200">
-        <h1>Hey, How Are You?" Stitch Printed Black Hoodie</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Hey, How Are You? Stitch Printed Black Hoodie', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (24).jpg" width="200px" height="200">
-        <h1>I Hate the Morning" Lazy Cats printed Hoodie</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'I Hate the Morning Lazy Cats Hoodie', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (25).jpg" width="200px" height="200">
-        <h1>The Pain in Guts' Eyes" Berserk Anime Printed Hoodie</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'The Pain in Guts Eyes Berserk Anime Printed Hoodie', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (26).jpg" width="200px" height="200">
-        <h1>It's Not the End Yet - I'm Not a Butterfly" Yesterday Hoodie</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Its Not the End Yet - Im Not a Butterfly Yesterday Hoodie', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (27).jpg" width="200px" height="200">
-        <h1>"It's Time We Talk Now, Don't You Think?"Bear Hoodie</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Its Time We Talk Now, Dont You Think? Lonely Bear Printed Hoodie', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (28).jpg" width="200px" height="200">
-        <h1>Japanese art of tree on a river White Printed Hoodie</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Japanese Culture Art Printed Hoodie', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (29).jpg" width="200px" height="200">
-        <h1>Buster Zombie Bear" Brown Hoodie for a Crazy Character</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Buster Zombie Bear Brown Hoodie for a Crazy Character', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (3).jpg" width="200px" height="200">
-        <h1>Hunter x Hunter Characters Printed White Hoodie</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Hunter x Hunter Long Sleeve Characters Printed White Hoodie', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (30).jpg" width="200px" height="200">
-        <h1>A for the King Who Can Rock the Table" Black Hoodie</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'A for the King Who Can Rock the Table Black Hoodie', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (31).jpg" width="200px" height="200">
-        <h1>Your Favorite Sensei Here - Gojo" White Hoodie</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Your Favorite Sensei Here - Gojo Light Print on White Hoodie', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (32).jpg" width="200px" height="200">
-        <h1>Heart Pirates with Trafalgar D. Law Logo White Hoodie</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'Heart Pirates with Trafalgar D. Law Logo Heavy Print White Hoodie', price:349})">Add to Cart</button>
-    </div>
-   <div class="product">
-        <img src="H1 (1) (33).jpg" width="200px" height="200">
-        <h1>It's Not the Cat Who's Angry Here, Dummy" A Perfect Hoodie for Girls</h1>
-        <p>Price: ₹349.00</p>
-        <button class="add-to-cart-btn" onclick="addToCart({name: 'It's Not the Cat Who's Angry Here, Dummy A Perfect Hoodie for Girls', price:349})">Add to Cart</button>
-    </div>
-    <style>
-        .pagination-container {
-            text-align: center; /* Center-aligns the content inside the container */
-            margin: 20px 0; /* Adjust margin as needed */
-        }
-        .pagination {
-            font-size: 24px; /* Adjust size as needed */
-            text-decoration: none;
-            color: #000; /* Adjust color as needed */
-            margin: 0 10px; /* Space between the arrows */
-        }
-        .pagination:hover {
-            color: #007bff; /* Change color on hover if desired */
-        }
-    </style>
-</head>
-<body>
-    <div class="pagination-container">
-    </div>
-    <a href="cart.html" class="go-to-cart-btn">Go to Cart</a>
 
+        .go-to-cart-btn {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        /* Preview Modal Styling */
+        .preview-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .preview-modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .preview-modal .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Cart Button -->
+        <a href="cart.html" class="go-to-cart-btn">
+            Go to Cart <span id="cart-count">(0)</span>
+        </a>
+
+        <!-- Product Section -->
+        <div class="product">
+          <img src="H1 (1) (10).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>unisex Funny Cat Printed Hoodie</h1>
+          <p>Price: ₹549.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'Funny Cat Print Hoodie', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (100).jpg" width="200px" height="200" onclick="previewImage(this)">
+       <h1>Innovating Women Hoodies</h1>
+          <p>Price: ₹799.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'Innovating Women’s Hoodies', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (101).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>Cartoon Dinosaur Print Sweatshirt</h1>
+          <p>Price: ₹499.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'SHEIN EZwear Cartoon Dinosaur Print Thermal Lined Sweatshirt', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (102).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>Men's Fleece Lined Pigeon Print Hoodie</h1>
+          <p>Price: ₹549.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'Men's Fleece Lined Pigeon Letter Print Hoodie With Drawstring', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (103).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1> Cartoon And Korean Drawstring Hoodie</h1>
+          <p>Price: ₹499.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'SHEIN EZwear Cartoon And Korean Letter Graphic Drawstring Thermal Lined Hoodie', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (104).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>a perfect cartoon pink printed hoodie for women</h1>
+          <p>Price: ₹549.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'cartoon hoodies for women', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (105).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>Slogan Graphic Drawstring Butterflies hoddie </h1>
+          <p>Price: ₹799.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'SHEIN EZwear Butterfly & Slogan Graphic Drawstring Thermal Lined Hoodie Butterflies And Flowers', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (106).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>a comfort Manfinity Sporsity black men Hoddies </h1>
+          <p>Price: ₹649.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'Manfinity Sporsity Men 1pc Letter Graphic Round Neck Sweatshirt', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (107).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>Pikachu coffie pink hoodie for women</h1>
+          <p>Price: ₹349.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'What a nice day to have a coffee! Pikachu pink hoodie', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (108).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>adorable pink owl printed hoodie for girls</h1>
+          <p>Price: ₹349.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'adorable pink owl printed hoodie for girls', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (109).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>Heavy printed Arizona hoodie for men</h1>
+          <p>Price: ₹349.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'Heavy printed Arizona hoodie for men', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (11).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>Floral & Butterfly Print  Hoodie</h1>
+          <p>Price: ₹349.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'SHEIN EZwear Floral & Butterfly Print Drawstring Thermal Lined Hoodie', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (110).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>Ghost Print Thermal Lined Sweatshirt</h1>
+          <p>Price: ₹349.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'EZwear Slogan & Ghost Print Thermal Lined Sweatshirt', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (12).jpg" width="200px" height="200"onclick="previewImage(this)">
+          <h1>rengoku kyojuro printed hoodie</h1>
+          <p>Price: ₹349.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'rengoku kyojuro printed hoodie', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (13).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>cute astronaut on the mind black hoodie</h1>
+          <p>Price: ₹349.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'cute astronaut on the mind black hoodie', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (14).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>"No Money, Full of Love" Men's Hoodie**</h1>
+          <p>Price: ₹349.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'No Money, Full of Love Mens Hoodie', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (15).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>Oops! I'm the Bear Printed Men's Hoodie</h1>
+          <p>Price: ₹349.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'Oops! Im the Bear You Think Printed Mens Hoodie', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (16).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>Multicolor Bear Printed black Hoodie</h1>
+          <p>Price: ₹349.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'Multicolor Bear Printed Hoodie', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (17).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>*Yummy Bubble Strawberry Milk Printed Hoodie*</h1>
+          <p>Price: ₹349.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: '*Yummy Bubble Strawberry Milk Printed Hoodie*', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (18).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>*"3 Idiots - It's Us" Printed Blue Hoodie*</h1>
+          <p>Price: ₹349.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: '3 Idiots - Its Us Printed Blue Hoodie', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (19).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>Stay Right There" Mew Women's Hoodie</h1>
+          <p>Price: ₹349.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'Stay Right There Mew Womens Hoodie', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (2).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>Lily Cute Panda Women's Hoodie</h1>
+          <p>Price: ₹349.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'Lily of the Valley Cute Panda Womens Hoodie', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (20).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>What the Hack? Sorry" Red Hoodie</h1>
+          <p>Price: ₹349.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'What the Hack? Sorry Red Hoodie', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (21).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>Life Full of Coffee & Cats" Green Hoodie</h1>
+          <p>Price: ₹349.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'Life Full of Coffee & Cats Green Hoodie', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (22).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>My Love with the Foot of Mew" Black Hoodie</h1>
+          <p>Price: ₹349.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'My Love with the Foot of Mew Black Hoodie with Heat Print', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (23).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>Hey, How Are You?" Stitch Printed Black Hoodie</h1>
+          <p>Price: ₹349.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'Hey, How Are You? Stitch Printed Black Hoodie', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (24).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>I Hate the Morning" Lazy Cats printed Hoodie</h1>
+          <p>Price: ₹349.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'I Hate the Morning Lazy Cats Hoodie', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (25).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>The Pain in Guts' Eyes" Berserk Anime Printed Hoodie</h1>
+          <p>Price: ₹349.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'The Pain in Guts Eyes Berserk Anime Printed Hoodie', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (26).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>It's Not the End Yet - I'm Not a Butterfly" Yesterday Hoodie</h1>
+          <p>Price: ₹349.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'Its Not the End Yet - Im Not a Butterfly Yesterday Hoodie', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (27).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>"It's Time We Talk Now, Don't You Think?"Bear Hoodie</h1>
+          <p>Price: ₹349.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'Its Time We Talk Now, Dont You Think? Lonely Bear Printed Hoodie', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (28).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>Japanese art of tree on a river White Printed Hoodie</h1>
+          <p>Price: ₹349.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'Japanese Culture Art Printed Hoodie', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (29).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>Buster Zombie Bear" Brown Hoodie for a Crazy Character</h1>
+          <p>Price: ₹349.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'Buster Zombie Bear Brown Hoodie for a Crazy Character', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (3).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>Hunter x Hunter Characters Printed White Hoodie</h1>
+          <p>Price: ₹349.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'Hunter x Hunter Long Sleeve Characters Printed White Hoodie', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (30).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>A for the King Who Can Rock the Table" Black Hoodie</h1>
+          <p>Price: ₹349.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'A for the King Who Can Rock the Table Black Hoodie', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (31).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>Your Favorite Sensei Here - Gojo" White Hoodie</h1>
+          <p>Price: ₹349.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'Your Favorite Sensei Here - Gojo Light Print on White Hoodie', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (32).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>Heart Pirates with Trafalgar D. Law Logo White Hoodie</h1>
+          <p>Price: ₹349.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'Heart Pirates with Trafalgar D. Law Logo Heavy Print White Hoodie', price:349})">Add to Cart</button>
+      </div>
+     <div class="product">
+          <img src="H1 (1) (33).jpg" width="200px" height="200" onclick="previewImage(this)">
+          <h1>It's Not the Cat Who's Angry Here, Dummy" A Perfect Hoodie for Girls</h1>
+          <p>Price: ₹349.00</p>
+          <button class="add-to-cart-btn" onclick="addToCart({name: 'It's Not the Cat Who's Angry Here, Dummy A Perfect Hoodie for Girls', price:349})">Add to Cart</button>
+      </div>
+      <div class="preview-modal" id="previewModal">
+        <button class="close-btn" onclick="closePreview()">×</button>
+        <img id="previewImage" src="" alt="Preview">
+        
+    </div>
     <script>
+        // Function to update cart count
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            document.getElementById('cart-count').textContent = `(${cart.length})`;
+        }
+
+        // Function to add an item to the cart
         function addToCart(item) {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             cart.push(item);
             localStorage.setItem('cart', JSON.stringify(cart));
             alert(item.name + ' added to cart!');
+            updateCartCount(); // Update the cart count after adding the item
         }
+
+        // Image preview
+        function previewImage(imageElement) {
+            const modal = document.getElementById('previewModal');
+            const previewImg = document.getElementById('previewImage');
+            previewImg.src = imageElement.src;
+            modal.style.display = 'flex'; // Show the modal
+        }
+
+        // Close preview
+        function closePreview() {
+            const modal = document.getElementById('previewModal');
+            modal.style.display = 'none'; // Hide the modal
+        }
+
+        // Update cart count on page load
+        window.onload = function () {
+            updateCartCount();
+        };
     </script>
 </body>
-
-
-  <!--
-    - custom js link
-  -->
-  <script src="./assets/js/script.js"></script>
-
-  <!--
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script> 
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <script>
-    // Function to update cart count
-    function updateCartCount() {
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      document.getElementById('cart-count').textContent = cart.length;
-    }
-
-    // Function to add item to the cart
-    function addToCart(item) {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      cart.push(item);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      alert(item.name + ' added to cart!');
-      updateCartCount(); // Call function to update cart count after adding item
-    }
-
-    // On page load, update the cart count from the existing cart
-    window.onload = function () {
-      updateCartCount();
-    }
-  </script>
-
-
-</body>
-
 </html>
