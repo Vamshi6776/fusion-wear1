@@ -1,4 +1,3 @@
-new code for login
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,158 +7,181 @@ new code for login
     <title>Enhanced Cropper - Fusion Wears</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" />
     <style>
-        body {
-            font-family: 'Poppins', Arial, sans-serif;
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-        }
+    body {
+        font-family: 'Poppins', Arial, sans-serif;
+        background: linear-gradient(135deg, #f0f4f8, #e0e5ef);
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        overflow: hidden;
+    }
 
-        .container {
-            background: #ffffff;
-            padding: 25px 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 450px;
-        }
+    .container {
+        background: #ffffff;
+        padding: 30px 40px;
+        border-radius: 20px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 500px;
+        transition: transform 0.3s ease;
+    }
 
-        h1 {
-            text-align: center;
-            font-size: 24px;
-            color: #e91e63;
-            margin-bottom: 25px;
-            font-weight: 600;
-        }
+    .container:hover {
+        transform: scale(1.02);
+    }
 
-        form {
-            display: flex;
-            flex-direction: column;
-        }
+    h1 {
+        text-align: center;
+        font-size: 28px;
+        color: #e91e63;
+        margin-bottom: 20px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
 
-        label {
-            font-size: 14px;
-            font-weight: 500;
-            margin-top: 15px;
-            color: #555;
-        }
+    form {
+        display: flex;
+        flex-direction: column;
+    }
 
-        input, textarea {
-            margin-top: 8px;
-            padding: 12px;
-            font-size: 14px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-        }
+    label {
+        font-size: 16px;
+        font-weight: 500;
+        margin-top: 20px;
+        color: #555;
+        text-transform: uppercase;
+    }
 
-        .file-input-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-top: 15px;
-        }
+    input, textarea {
+        margin-top: 10px;
+        padding: 14px;
+        font-size: 15px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+        transition: background-color 0.3s ease;
+    }
 
-        .file-input-container img {
-            width: 70px;
-            height: 70px;
-            border-radius: 8px;
-            object-fit: cover;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            display: none;
-        }
+    input:focus, textarea:focus {
+        background-color: #e1f5fe;
+        border-color: #81d4fa;
+        outline: none;
+    }
 
-        button {
-            margin-top: 20px;
-            padding: 12px;
-            font-size: 16px;
-            font-weight: bold;
-            background: #e91e63;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.3s ease, transform 0.2s ease;
-        }
+    .file-input-container {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-top: 20px;
+    }
 
-        button:hover {
-            background: #d81b60;
-        }
+    .file-input-container img {
+        width: 80px;
+        height: 80px;
+        border-radius: 12px;
+        object-fit: cover;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        display: none;
+    }
 
-        #cropModal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            z-index: 999;
-            animation: fadeIn 0.5s ease;
-        }
+    button {
+        margin-top: 30px;
+        padding: 14px 20px;
+        font-size: 18px;
+        font-weight: bold;
+        background: #e91e63;
+        color: white;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
+    button:hover {
+        background: #d81b60;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
 
-        #cropModal .modal-content {
-            background: #fff;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            position: relative;
-            width: 90%;
-            max-width: 500px;
-            overflow: hidden;
-        }
+    #cropModal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+        animation: fadeIn 0.5s ease;
+    }
 
-        #cropModal img {
-            max-width: 100%;
-            max-height: 300px;
-            border-radius: 8px;
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
         }
+        to {
+            opacity: 1;
+        }
+    }
 
-        #cropModal .actions {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
+    #cropModal .modal-content {
+        background: #fff;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        position: relative;
+        width: 90%;
+        max-width: 550px;
+        overflow: hidden;
+    }
 
-        #cropModal button {
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
+    #cropModal img {
+        max-width: 100%;
+        max-height: 350px;
+        border-radius: 12px;
+    }
 
-        #cropModal button#cropButton {
-            background-color: #4caf50;
-            color: white;
-            border: none;
-        }
+    #cropModal .actions {
+        margin-top: 25px;
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+    }
 
-        #cropModal button#cancelCrop {
-            background-color: #f44336;
-            color: white;
-            border: none;
-        }
+    #cropModal button {
+        padding: 12px 25px;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        letter-spacing: 1px;
+    }
 
-        #cropModal button:hover {
-            transform: translateY(-2px);
-        }
+    #cropModal button#cropButton {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+    }
+
+    #cropModal button#cancelCrop {
+        background-color: #f44336;
+        color: white;
+        border: none;
+    }
+
+    #cropModal button:hover {
+        transform: translateY(-3px);
+    }
+
     </style>
 </head>
 <body>
