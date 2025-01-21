@@ -2019,169 +2019,234 @@ dotlottie-player {
 </script>
 </body>
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-  }
-  #chat-icon {
-    position: fixed;
-    bottom: 60px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
-    z-index: 1000;
-  }
+  /* Chat container background and layout */
   #chat-container {
-    display: none;
-    position: fixed;
-    bottom: 100px;
-    right: 20px;
-    width: 300px;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 350px;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      z-index: 999;
+      display: none; /* Initially hidden */
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
   }
+
+  /* Chat header */
   #chat-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
+      background-color: #007bff;
+      color: #fff;
+      padding: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
   }
-  #chat-header h2 {
-    margin: 0;
-    font-size: 18px;
+
+  /* Chat box (message area) */
+  #chatbox {
+      display: flex;
+      flex-direction: column;
+      height: 400px;
+      padding: 10px;
+      background-color: #f9f9f9;
   }
-  #close-btn {
-    background: red;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+  /* Shared container for issues and responses */
+  #chat-content {
+      flex-grow: 1;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 10px;
+      background-color: #fafafa;
+      box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
   }
-  #messages {
-    border: 1px solid #ccc;
-    padding: 10px;
-    height: 300px;
-    overflow-y: auto;
-    margin-bottom: 10px;
-    background: #fafafa;
-    border-radius: 5px;
+
+  /* Style for the helpline logo */
+  #helpline-logo {
+      position: fixed;
+      bottom: 60px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTL3BoXOHbYA1tBSXRxOPR29QZiIELCq4iWZg&s');
+      background-size: cover;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: width 0.3s, height 0.3s, transform 0.3s ease;
   }
-  .message {
-    margin: 5px 0;
+
+  /* Shrink logo when chat is open */
+  #helpline-logo.shrunk {
+      width: 50px;
+      height: 50px;
+      transform: scale(0.8);
   }
-  .user {
-    color: blue;
+
+  /* Style for issue buttons */
+  button.issue-button {
+      display: block;
+      margin: 10px 0;
+      background-color: #e1e1e1;
+      border: none;
+      padding: 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      text-align: left;
+      width: 100%;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      font-weight: bold;
+      color: black;
   }
-  .bot {
-    color: green;
+
+  /* Hover effect */
+  button.issue-button:hover {
+      background-color: #007bff;
+      color: white;
+      transform: scale(1.05);
   }
-  #user-input {
-    width: calc(100% - 80px);
-    padding: 10px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+
+  /* Styling for responses */
+  .response {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: normal;
   }
-  #send-btn {
-    padding: 10px 20px;
-    background: blue;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+
+  /* Styling links to match chat text */
+  .response a {
+      color: #fff;
+      text-decoration: underline;
+      font-weight: bold;
   }
-  a {
-    color: blue;
-    text-decoration: none;
+
+  .response a:hover {
+      text-decoration: none;
   }
 </style>
 </head>
 <body>
-<!-- Chat Icon -->
-<img id="chat-icon" src="https://cdn.pixabay.com/photo/2016/11/30/18/14/chat-1873536_1280.png" alt="Chat Icon">
+<!-- Helpline Logo -->
+<div id="helpline-logo" onclick="toggleChat()"></div>
 
 <!-- Chat Container -->
 <div id="chat-container">
-  <div id="chat-header">
-    <h2>Chatbot</h2>
-    <button id="close-btn">&times;</button>
+  <div id="chat-header">Fusion Wear Chatbot</div>
+  <div id="chatbox">
+      <div id="chat-content"></div>
   </div>
-  <div id="messages"></div>
-  <input type="text" id="user-input" placeholder="Type your message here...">
-  <button id="send-btn">Send</button>
 </div>
 
 <script>
-  const chatIcon = document.getElementById('chat-icon');
+  const chatContent = document.getElementById('chat-content');
   const chatContainer = document.getElementById('chat-container');
-  const closeBtn = document.getElementById('close-btn');
-  const messages = document.getElementById('messages');
-  const userInput = document.getElementById('user-input');
-  const sendBtn = document.getElementById('send-btn');
+  const helplineLogo = document.getElementById('helpline-logo');
 
-  // Show chat container and add a welcome message
-  chatIcon.addEventListener('click', () => {
-    chatContainer.style.display = 'block';
-    if (!messages.innerHTML) {
-      addMessage("Hello! I'm here to help. How can I assist you today?", 'bot');
-    }
-  });
+  const issues = [
+      "Tell me about the products you sell",
+      "What are the prices of your products?",
+      "What sizes are available?",
+      "Where is your store located?",
+      "How does shipping work?",
+      "Can you help with a return or refund?",
+      "How can I contact customer support?",
+      "What is the process to place an order?",
+      "Chat with us through WHAT'S APP"
+  ];
 
-  // Hide chat container
-  closeBtn.addEventListener('click', () => {
-    chatContainer.style.display = 'none';
-  });
-
-  function addMessage(content, sender) {
-    const message = document.createElement('div');
-    message.classList.add('message');
-    message.classList.add(sender);
-    message.innerHTML = content; // Use innerHTML to allow links
-    messages.appendChild(message);
-    messages.scrollTop = messages.scrollHeight; // Auto-scroll to the latest message
+  function displayIssues() {
+      const welcomeMessage = 'Welcome to Fusion Wear! Please select an issue below to get help:';
+      displayResponse(welcomeMessage, 'bot');
+      issues.forEach(issue => {
+          const issueButton = document.createElement('button');
+          issueButton.innerText = issue;
+          issueButton.classList.add('issue-button');
+          issueButton.onclick = () => {
+              handleIssue(issue);
+          };
+          chatContent.appendChild(issueButton);
+      });
   }
 
-  function chatbotResponse(input) {
-    input = input.toLowerCase();
-
-    if (input.includes("hello") || input.includes("hi")) {
-      return "welcome to fusion wears";
-    } else if (input.includes("myorders")|| input.includes("orders")|| input.includes("myiteams")) {
-      return "you orders <a href='##' target='_blank'>your oders</a> for detailed information.";
-    } else if (input.includes("bye")) {
-      return "Goodbye! Have a great day! You can always reach us through our <a href='https://www.example.com/contact' target='_blank'>contact page</a>.";
-    } else if (input.includes("weather")) {
-      return "I'm not sure, but you can check a weather website like <a href='https://www.weather.com' target='_blank'>Weather.com</a> for the latest updates.";
-    } else {
-      return "Sorry, I didn't understand that. Could you please rephrase?";
-    }
+  function handleIssue(issue) {
+      displayResponse(issue, 'user');
+      let response = '';
+      switch (issue) {
+          case "What are the prices of your products?":
+              response = "The price of our t-shirts starts from ₹349. Mugs start from ₹199, hoodies from ₹899, and laptop skins from ₹299.";
+              break;
+          case "What sizes are available?":
+              response = "Our t-shirts come in S, M, L, and XL sizes.";
+              break;
+          case "Where is your store located?":
+              response = "We have a store in Bodupall, Hyderabad, Telangana, India.";
+              break;
+          case "How does shipping work?":
+              response = "We offer shipping within India. Delivery takes 5-7 working days.";
+              break;
+          case "Can you help with a return or refund?":
+              response = "You can return items within 14 days of delivery.";
+              break;
+          case "How can I contact customer support?":
+              response = "Phone: +91 9014798713\nEmail: fusionwearofficl@gmail.com";
+              break;
+          case "What is the process to place an order?":
+              response = "Browse our products and add them to your cart.";
+              break;
+          case "Tell me about the products you sell":
+              response = "We sell clothing, mugs, laptop skins, and more!";
+              break;
+          case "Chat with us through WHAT'S APP":
+              response = `Click <a href="https://wa.me/919014798713?text=Hello, I need help with my order." target="_blank">here</a> to chat with us on WhatsApp.`;
+              break;
+          default:
+              response = "Sorry, I didn't understand. Can you rephrase?";
+      }
+      displayResponse(response, 'bot');
   }
 
-  sendBtn.addEventListener('click', () => {
-    const userMessage = userInput.value.trim();
-    if (userMessage) {
-      addMessage(userMessage, 'user'); // Display user's message
-      const botReply = chatbotResponse(userMessage);
-      addMessage(botReply, 'bot'); // Display bot's reply
-      userInput.value = ''; // Clear input field
-    }
-  });
+  function displayResponse(message, sender) {
+      const messageDiv = document.createElement('div');
+      if (sender === 'bot') {
+          messageDiv.classList.add('response');
+          messageDiv.innerHTML = `<strong>Response:</strong> ${message}`;
+      } else {
+          messageDiv.innerHTML = `<strong>You:</strong> ${message}`;
+      }
+      chatContent.appendChild(messageDiv);
+      chatContent.scrollTop = chatContent.scrollHeight;
+  }
 
-  userInput.addEventListener('keypress', (event) => {
-    if (event.key === 'Enter') {
-      sendBtn.click();
-    }
+  function toggleChat() {
+      console.log("Chat toggle clicked!");  // Log to check if the function is called
+      if (chatContainer.style.display === 'none') {
+          chatContainer.style.display = 'block';
+          helplineLogo.classList.add('shrunk');
+          displayIssues();
+      } else {
+          chatContainer.style.display = 'none';
+          helplineLogo.classList.remove('shrunk');
+          chatContent.innerHTML = ''; // Clear all content
+      }
+  }
+
+  // Close chat when clicking outside
+  document.addEventListener('click', function (event) {
+      if (!chatContainer.contains(event.target) && event.target !== helplineLogo) {
+          chatContainer.style.display = 'none';
+          helplineLogo.classList.remove('shrunk');
+          chatContent.innerHTML = ''; // Clear chat content
+      }
   });
 </script>
 
