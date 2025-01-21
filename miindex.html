@@ -1940,7 +1940,7 @@ dotlottie-player {
                         <ul style="list-style: none; padding: 0;">
                             <li><a href="miindex.html" style="color: #fff; text-decoration: none; font-size: 14px;">Home</a></li>
                             <li><a href="about us.html" style="color: #fff; text-decoration: none; font-size: 14px;">About Us</a></li>
-                            <li><a href="https://wa.me/919014798713" style="color: #fff; text-decoration: none; font-size: 14px;">Contact Us</a></li>
+                            <li><a href="#" style="color: #fff; text-decoration: none; font-size: 14px;">Contact Us</a></li>
                         </ul>
                     </div>
                     
@@ -1948,7 +1948,7 @@ dotlottie-player {
                     <div style="flex: 1; margin-bottom: 20px;">
                         <h3 style="color: #ff6f61;">Customer Service</h3>
                         <ul style="list-style: none; padding: 0;">
-                            <li><a href="FAQs.html" style="color: #fff; text-decoration: none; font-size: 14px;">FAQs</a></li>
+                            <li><a href="term.html" style="color: #fff; text-decoration: none; font-size: 14px;">FAQs</a></li>
                             <li><a href="term.html" style="color: #fff; text-decoration: none; font-size: 14px;">Shipping Policy</a></li>
                             <li><a href="ter.html" style="color: #fff; text-decoration: none; font-size: 14px;">Return Policy</a></li>
                             <li><a href="term.html" style="color: #fff; text-decoration: none; font-size: 14px;">Privacy Policy</a></li>
@@ -2248,7 +2248,60 @@ dotlottie-player {
       }
   });
 </script>
+<div class="cart-container">
+  <a href="cart.html">
+    <button class="action-btn">
+      <ion-icon name="bag-handle-outline"></ion-icon>
+    </button>
+  </a>
+</div>
+<style>
+  /* Ensure styles only affect cart container and button */
+.cart-container .action-btn {
+  background-color: #4CAF50; /* Green background */
+  color: white; /* Text and icon color */
+  border: none; /* No border */
+  padding: 15px 30px; /* Increased padding for a bigger button */
+  border-radius: 8px; /* Rounded corners */
+  display: flex; /* Align items horizontally */
+  align-items: center; /* Center the icon */
+  justify-content: center; /* Center the icon in the button */
+  font-size: 24px; /* Larger font size for the icon */
+  cursor: pointer; /* Pointer cursor on hover */
+  position: fixed; /* Fixed position on the screen */
+  top: 20px; /* 20px from the top */
+  right: 20px; /* 20px from the right */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  z-index: 1000; /* Ensure it's on top of other elements */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
 
+/* Icon style */
+.cart-container ion-icon {
+  font-size: 24px; /* Icon size */
+}
+
+/* Hover effect for the button */
+.cart-container .action-btn:hover {
+  background-color: #45a049; /* Slightly darker green on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+}
+
+/* Media query for larger screens (PC mode) */
+@media (min-width: 1024px) {
+  .cart-container .action-btn {
+    display: block; /* Make sure the button shows on PC */
+  }
+}
+
+/* Hide the cart button on smaller screens (mobile/tablet) */
+@media (max-width: 1023px) {
+  .cart-container .action-btn {
+    display: none; /* Hide the button on mobile/tablet */
+  }
+}
+
+</style>
 
 
 </html>
