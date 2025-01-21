@@ -285,52 +285,341 @@
             updateCartCount();
         };
     </script>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color:whitesmoke;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .product {
+            background-color:white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .product img {
+            width: 200px;
+            height: 200px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: transform 0.2s ease;
+        }
+
+        .product img:hover {
+            transform: scale(1.05);
+        }
+
+        .product h1 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .product p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .product button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .product button:hover {
+            background-color: #0056b3;
+        }
+
+        .go-to-cart-btn {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        /* Preview Modal Styling */
+        .preview-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .preview-modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .preview-modal .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+    </style>
+    <style>
+        .great-vibes-regular {
+            font-family: "Great Vibes", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+    </style>
+</head>
+    <div class="great-vibes-regular">
+    <h1 class="great-vibes-regular" align="center" style="font-size: 500%;">Laptop Skin's</h1>
+    </div>
+<div class="container">
+  <!-- Cart Button -->
+  <a href="cart.html" class="go-to-cart-btn">
+      Go to Cart <span id="cart-count">(0)</span>
+  </a>
+<body>
+  <div class="product">
+    <img src="https://th.bing.com/th?id=OPAC.r4KgI%2byRoaodhQ474C474&w=220&h=220&c=17&o=5&dpr=1.3&pid=21.1" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Noworries Laptop Skin Stickers For All Laptops Motivational Quote Laptop Skin</h1>
+    <p>Price: ₹299.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Noworries Laptop Skin Stickers For All Laptops Motivational Quote Laptop Skin', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://th.bing.com/th?id=OPAC.45Wghk7z7iW79A474C474&w=592&h=550&o=5&dpr=1.3&pid=21.1" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Graphyworld-Full Body Anime Laptop Skin Decal Sticker Scratch & Bubble Free For Laptops D14 Vinyl Laptop Decal 15.6 Inch Laptops</h1>
+    <p>Price: ₹299.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Graphyworld-Full Body Anime Laptop Skin Decal Sticker Scratch & Bubble Free For Laptops D14 Vinyl Laptop Decal 15.6 Inch Laptops', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://th.bing.com/th?id=OPAC.xyoGUAlBlnc8%2bw474C474&w=592&h=550&o=5&dpr=1.3&pid=21.1" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Namo Arts Laptop Skins 14 Inch Stickers For All Laptop - Notebook E=Mc Square</h1></h1>
+    <p>Price: ₹249.00 + delivery chargers </p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: '', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://th.bing.com/th?id=OPAC.yTftg0o8ZXVDTg474C474&w=592&h=550&o=5&dpr=1.3&pid=21.1" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Avengers Laptop Skins For 15.6</h1>
+    <p>Price: ₹299.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Avengers Laptop Skins For 15.6', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://th.bing.com/th?id=OPAC.6bINxboP1BYhKw474C474&w=592&h=550&o=5&dpr=1.3&pid=21.1" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Noworries Motivational Laptop Skin For 14Inch And 15.6Inch Laptops Customizable Laptop Stickers For All Laptops - No-Residue & Bubble-Free Laptop Sti</h1>
+    <p>Price: ₹349.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Noworries Motivational Laptop Skin For 14Inch And 15.6Inch Laptops Customizable Laptop Stickers For All Laptops - No-Residue & Bubble-Free Laptop Sti', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://th.bing.com/th?id=OPAC.DQuqJdfXOeTv2Q474C474&w=592&h=550&o=5&dpr=1.3&pid=21.1" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Noworries Laptop Skin Customizable Laptop Sticker, Dustproof & Scratch - Proof/Motivational Quote Laptop Skin (15.6Inch : 10.50X14.50Inch, Quote-1)</h1>
+    <p>Price: ₹349.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Noworries Laptop Skin Customizable Laptop Sticker, Dustproof & Scratch - Proof/Motivational Quote Laptop Skin (15.6Inch : 10.50X14.50Inch', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQjuhyP7OixomwLRTrD8pEQrdEEHsqVq6Muk0QcAHpQEvtvpBo0ZXgkU6KpwVpAjmjT2kpB1BhjUN5uGaqdPlEba1UR0mIpRQqyu5pfxgu8tN7WhWU0b5_y&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Artifly jujutsu kaisen anime Laptop Skin Sticker For Laptop Size Upto 15.6 inch vinyl Laptop Decal 15.6</h1>
+    <p>Price: ₹230.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Artifly jujutsu kaisen anime Laptop Skin Sticker For Laptop Size Upto 15.6 inch vinyl Laptop Decal 15.6', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRFjeRY_KEZqyltrTyLgO0kOTOMm6ClZZiJ5PsZaMN6CnZzo584-NqLJ_wjYRVpmbfB8SIrA21ymR4h_Vr_e3E0rSk_1aMPXBSKZBSkcbAU&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Replix Itachi 5 Anime Vinyl Laptop Skin with Free Sticker Compatible for All Laptops Vinyl Laptop Decal 15.6</h1>
+    <p>Price: ₹299.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Replix Itachi 5 Anime Vinyl Laptop Skin with Free Sticker Compatible for All Laptops Vinyl Laptop Decal 15.6', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTsYvY4vjTMMN840EduCdranm-yd-Rvfs9hZtfM-5GrwbskgUSTOMQ6MjTKHkLoz4tsQpCrr96p33fw6-L_5BHcm-24Twxyg3njjOBhjHdV0CmhGdHSvbH-&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Shadow of Itachi The Eternal Mangekyou Anime Laptop Skin</h1>
+    <p>Price: ₹449.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Shadow of Itachi The Eternal Mangekyou Anime Laptop Skin', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRu1_rsff3frbbGbz2QLpl35YMWjhjOKNR0yjmM7M3Vm1w8llzNaZYNXHuDpfe6s_tI0xF4maepVbBd3uRFxyZkgYWeUIWyJUsYs5TE6x0&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Replix White Akatsuki Anime Vinyl Laptop Skin with Free Sticker Compatible for All Laptops Vinyl Laptop Decal 15.6</h1>
+    <p>Price: ₹249.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Replix White Akatsuki Anime Vinyl Laptop Skin with Free Sticker Compatible for All Laptops Vinyl Laptop Decal 15.6', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQqwg0kgl5-soYi-5eBmCcaFIuouAnkgGuzornTGbsL_QlzD3CyPAxTEtcIjlE6KLNWdF57wAxt46lcuG-37zERsWBGdWAPQknINPSF6bY&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Replix Manga Anime Vinyl Laptop Skin with Free Sticker Compatible for All Laptops Vinyl Laptop Decal 15.6</h1>
+    <p>Price: ₹249.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Replix Manga Anime Vinyl Laptop Skin with Free Sticker Compatible for All Laptops Vinyl Laptop Decal 15.6', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRAzkbO3Z7z-dGa60_YFMZXR7qf8539phqb1uQUtMqDH6kfjCNsHwXJx9ZIIb_SRGCIl0U3AImhMzfX1YIj9NMmoNa_zifPYA1H55n9NTaN&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1> Full Body Laptop Skin Upto 15.6 inches - Anime Demon Slayer Kimetsu No Yaiba Self</h1>
+    <p>Price: ₹399.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: ' Full Body Laptop Skin Upto 15.6 inches - Anime Demon Slayer Kimetsu No Yaiba Self', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRGXefypoChKQ_kFxO534f5v74poqR7jFTMFTHorK3wxJG3FeCH284XFAwOhtkqCFLpMhnwr00teOnOe-6rL5CaiHqxoLCIXUb7lGVp531N&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Full Body Laptop Skin Upto 15.6 inches - Anime Nezuko Kamado Demon Slayer </h1>
+    <p>Price: ₹349.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Full Body Laptop Skin Upto 15.6 inches - Anime Nezuko Kamado Demon Slayer ', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRorrKCD307-uH1vwYwRBf750pI4zHw063w6oaA3Q6oEPwJw0WJcuQq8t2eBjRf61IQpuyikaa7KOn7E1AEiUwIV44TlyNACA8Eoakbf9bBDxUsk4jAJs1T&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>laptop skin - anime ninja</h1>
+    <p>Price: ₹399.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'laptop skin - anime ninja', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQFngP4tVGUoW9v0eohK9rmg93EvZazUxWDTX3k7hjsYv-t63D-PYaxkO5xgKr99xnIg-Dtv7fmGqnq8_GYGC5PZ5E3Hx9oyxG6uKe1A2U&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Replix One Piece Anime Vinyl Laptop Skin with Free Sticker Compatible for All Laptops Vinyl Laptop Decal 15.6</h1>
+    <p>Price: ₹249.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Replix One Piece Anime Vinyl Laptop Skin with Free Sticker Compatible for All Laptops Vinyl Laptop Decal 15.6', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSgOBbTRo7inz8q3GwHdT6-7NzHL66b4Sd1ZtzXbIeH-rnWVr_yXHZi610-NFhqkrk117hU1743KGsX669FlfRsAR0vbhxOqSABsGwVFJ3SqoCFtiXUVytntg&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Saitama x Genos – Laptop Skin (Anime)</h1>
+    <p>Price: ₹249.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Saitama x Genos – Laptop Skin (Anime)', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRg2H4xVpBJJVLOTG9mZWYFh7lWeGQE0juPNjp-k50tJmTv1TvLBpL4FfRX464oasrsofZp0Rf42jjxj1VNhMwVvGMaHH4W8ysfyRV6i9jNzCyYXwC7jq5eGQ&usqp=CAE" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Zoro and Luffy One Piece – Anime Laptop Skin</h1>
+    <p>Price: ₹249.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Zoro and Luffy One Piece – Anime Laptop Skin', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://www.fomostore.in/cdn/shop/products/Brothers-Innovation-Laptop-Skins-Anime-All_Sharingan_Naruto-Image-1.jpg?v=1701767526&width=2048" width="200px" height="200" onclick="previewImage(this)">
+    <h1>All Sharingan Naruto Anime Laptop Skin</h1>
+    <p>Price: ₹449.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'All Sharingan Naruto Anime Laptop Skin', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://ih1.redbubble.net/image.1545946002.3975/pd,x500,macbook_air_13-pad,750x1000,f8f8f8.jpg" width="200px" height="200" onclick="previewImage(this)">
+    <h1>levi full body laptop skin</h1>
+    <p>Price: ₹449.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: '', price:349})">Add to Cart</button>
+</div>
+<div class="product">
+    <img src="https://m.media-amazon.com/images/I/61b4Z88XeUL._AC_UF1000,1000_QL80_.jpg" width="200px" height="200" onclick="previewImage(this)">
+    <h1>Finearts Full Body Laptop Skin Upto 15.6 inch Sticker Compatible for Dell/HP/Lenovo/Acer/Sony All Laptop Size Upto 14 to 15.6 Inch - Anime One Piece Roronoa Zoro Manga</h1>
+    <p>Price: ₹249.00 + delivery chargers</p>
+    <button class="add-to-cart-btn" onclick="addToCart({name: 'Finearts Full Body Laptop Skin Upto 15.6 inch Sticker Compatible for Dell/HP/Lenovo/Acer/Sony All Laptop Size Upto 14 to 15.6 Inch - Anime One Piece Roronoa Zoro Manga', price:349})">Add to Cart</button>
+</div>
+      <div class="preview-modal" id="previewModal">
+        <button class="close-btn" onclick="closePreview()">×</button>
+        <img id="previewImage" src="" alt="Preview">
+        
+    </div>
+    <script>
+        // Function to update cart count
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            document.getElementById('cart-count').textContent = `(${cart.length})`;
+        }
+
+        // Function to add an item to the cart
+        function addToCart(item) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push(item);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(item.name + ' added to cart!');
+            updateCartCount(); // Update the cart count after adding the item
+        }
+
+        // Image preview
+        function previewImage(imageElement) {
+            const modal = document.getElementById('previewModal');
+            const previewImg = document.getElementById('previewImage');
+            previewImg.src = imageElement.src;
+            modal.style.display = 'flex'; // Show the modal
+        }
+
+        // Close preview
+        function closePreview() {
+            const modal = document.getElementById('previewModal');
+            modal.style.display = 'none'; // Hide the modal
+        }
+
+        // Update cart count on page load
+        window.onload = function () {
+            updateCartCount();
+        };
+    </script>
      <footer style="background-color: #333; color: #fff; padding: 40px 0;">
-                <div style="max-width: 12000px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap;">
-                    <!-- Logo and Description -->
-                    <div style="flex: 1; margin-bottom: 20px;">
-                        <h2 style="color: #ff6f61;">Fusion Wear</h2>
-                        <p style="font-size: 14px; color: #ddd;">Your one-stop shop for the latest in fusion fashion, blending traditional and modern styles.</p>
-                    </div>
-                    
-                    <!-- Quick Links -->
-                    <div style="flex: 1; margin-bottom: 20px;">
-                        <h3 style="color: #ff6f61;">Quick Links</h3>
-                        <ul style="list-style: none; padding: 0;">
-                            <li><a href="#" style="color: #fff; text-decoration: none; font-size: 14px;">Home</a></li>
-                            <li><a href="#" style="color: #fff; text-decoration: none; font-size: 14px;">Shop</a></li>
-                            <li><a href="#" style="color: #fff; text-decoration: none; font-size: 14px;">About Us</a></li>
-                            <li><a href="#" style="color: #fff; text-decoration: none; font-size: 14px;">Contact Us</a></li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Customer Service -->
-                    <div style="flex: 1; margin-bottom: 20px;">
-                        <h3 style="color: #ff6f61;">Customer Service</h3>
-                        <ul style="list-style: none; padding: 0;">
-                            <li><a href="term.html" style="color: #fff; text-decoration: none; font-size: 14px;">FAQs</a></li>
-                            <li><a href="term.html" style="color: #fff; text-decoration: none; font-size: 14px;">Shipping Policy</a></li>
-                            <li><a href="ter.html" style="color: #fff; text-decoration: none; font-size: 14px;">Return Policy</a></li>
-                            <li><a href="term.html" style="color: #fff; text-decoration: none; font-size: 14px;">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Newsletter Subscription -->
-                    <div style="flex: 1; margin-bottom: 20px;">
-                        <h1>your feed back</h1>
-                        <form action="mailto:fusionwearoffical@gamil.com" method="post" enctype="text/plain">
-                            <input type="text" name="feedback" placeholder="Enter your feedback" 
-                                   style="padding: 10px; width: 80%; border: none; border-radius: 4px; margin-bottom: 10px;" />
-                                   <button type="submit" 
-                                    style="padding: 10px 20px; background-color: #ff6f61; border: none; color: #fff; border-radius: 4px; cursor: pointer;">mail us</button></a>
-                        </form>
-                    </div>
-                </div>
-                
-                <!-- Footer Bottom -->
-                <div style="text-align: center; padding-top: 20px; border-top: 1px solid #444;">
-                    <p style="color: #aaa; font-size: 12px;">&copy; 2024 Fusion Wear. All rights reserved.</p>
-                </div>
-              </footer>
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap;">
+        <!-- Logo and Description -->
+        <div style="flex: 1; margin-bottom: 20px;">
+            <h2 style="color: #ff6f61;">Fusion Wear</h2>
+            <p style="font-size: 14px; color: #ddd;">Your one-stop shop for the latest in fusion fashion, blending traditional and modern styles.</p>
+        </div>
+        
+        <!-- Quick Links -->
+        <div style="flex: 1; margin-bottom: 20px;">
+            <h3 style="color: #ff6f61;">Quick Links</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li><a href="miindex.html" style="color: #fff; text-decoration: none; font-size: 14px;">Home</a></li>
+                <li><a href="about us.html" style="color: #fff; text-decoration: none; font-size: 14px;">About Us</a></li>
+                <li><a href="#" style="color: #fff; text-decoration: none; font-size: 14px;">Contact Us</a></li>
+            </ul>
+        </div>
+        
+        <!-- Customer Service -->
+        <div style="flex: 1; margin-bottom: 20px;">
+            <h3 style="color: #ff6f61;">Customer Service</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li><a href="FAQs.html" style="color: #fff; text-decoration: none; font-size: 14px;">FAQs</a></li>
+                <li><a href="shipping policy.html" style="color: #fff; text-decoration: none; font-size: 14px;">Shipping Policy</a></li>
+                <li><a href="return policy.html" style="color: #fff; text-decoration: none; font-size: 14px;">Return Policy</a></li>
+                <li><a href="terms and condtions.html" style="color: #fff; text-decoration: none; font-size: 14px;">Terms and Conditions </a></li>
+            </ul>
+        </div>
+        
+        <!-- Newsletter Subscription -->
+        <div style="flex: 1; margin-bottom: 20px;">
+            <h1>your feed back</h1>
+            <form action="mailto:fusionwearoffical@gamil.com" method="post" enctype="text/plain">
+                <input type="text" name="feedback" placeholder="Enter your feedback" 
+                       style="padding: 10px; width: 80%; border: none; border-radius: 4px; margin-bottom: 10px;" />
+                       <button type="submit" 
+                        style="padding: 10px 20px; background-color: #ff6f61; border: none; color: #fff; border-radius: 4px; cursor: pointer;">mail us</button></a>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Footer Bottom -->
+    <div style="text-align: center; padding-top: 20px; border-top: 1px solid #444;">
+        <p style="color: #aaa; font-size: 12px;">&copy; 2024 Fusion Wear. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
+
 </body>
 </html>
